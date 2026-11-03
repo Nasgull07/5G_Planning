@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ex="http://earth.google.com/kml/ext">
+<Document id="document">
+	<ex:extension>base64;CooBCoEBCn8KAggBEnkKdwokCiAKAwjQDxoHCNLtZRD_ASEAAAAAAADwPykAAAAAAAAAABgAEg8KCAitgO8HEP8BEKAfGAAaGgoHCP___wcQQBIICK2A7wcQ_wEYoB8gACgAIgkIARIFCP___wcqFwgBEggI____BxD_ARkAAAAAAADwPyAAEgQIARAA</ex:extension>
+	<name>Proyecto de mapa sin título</name>
+	<gx:CascadingStyle kml:id="__managed_style_0FE776AAC942D672A063_highlight">
+		<ex:extension>base64;Eq4BGAEiqQEKpgEKT2h0dHBzOi8vZWFydGguZ29vZ2xlLmNvbS9iYWxsb29uX2NvbXBvbmVudHMvYmFzZS8xLjEuMC4wL25vbmVfdGVtcGxhdGUua21sI21haW4SUwpPaHR0cHM6Ly9lYXJ0aC5nb29nbGUuY29tL2JhbGxvb25fY29tcG9uZW50cy9iYXNlL2N1cnJlbnQvbm9uZV90ZW1wbGF0ZS5rbWwjbWFpbhgA</ex:extension>
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/none_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0FE776AAC942D672A063">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_0FE776AAC942D672A063_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0FE776AAC942D672A063_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_0FE776AAC942D672A063_normal">
+		<ex:extension>base64;Eq4BGAEiqQEKpgEKT2h0dHBzOi8vZWFydGguZ29vZ2xlLmNvbS9iYWxsb29uX2NvbXBvbmVudHMvYmFzZS8xLjEuMC4wL25vbmVfdGVtcGxhdGUua21sI21haW4SUwpPaHR0cHM6Ly9lYXJ0aC5nb29nbGUuY29tL2JhbGxvb25fY29tcG9uZW50cy9iYXNlL2N1cnJlbnQvbm9uZV90ZW1wbGF0ZS5rbWwjbWFpbhgA</ex:extension>
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/none_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_02C1EFCD3B42D3383243_highlight">
+		<ex:extension>base64;EgIYAQ</ex:extension>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_02C1EFCD3B42D3383243_normal">
+		<ex:extension>base64;EgIYAQ</ex:extension>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_02C1EFCD3B42D3383243">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_02C1EFCD3B42D3383243_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_02C1EFCD3B42D3383243_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="0F69A3300642D3383211">
+		<name>Marcador sin título</name>
+		<visibility>0</visibility>
+		<LookAt>
+			<longitude>2.71724166860678</longitude>
+			<latitude>42.26235835205672</latitude>
+			<altitude>167.2923945862549</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1823246.081846058</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_02C1EFCD3B42D3383243</styleUrl>
+		<Point>
+			<coordinates>2.366487511173283,42.06059490646905,1063.165044487903</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F0B4D26E242D6724547">
+		<name>Medición sin título</name>
+		<styleUrl>#__managed_style_0FE776AAC942D672A063</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						1.996756136698141,41.21699776076942,0 2.274685009063022,41.38786772998119,0 2.041642386297617,41.59369052471173,0 1.758875754316551,41.42787593118153,0 1.996756136698141,41.21699776076942,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>
