@@ -1,5 +1,6 @@
 import argparse
 import csv
+import json
 import os
 import time
 import urllib.parse
@@ -22,17 +23,78 @@ OUTPUT_COLUMNS = [
     "Gis_ID",
     "Gis_Codigo",
     "direccion",
-    "tipo_registro",
     "operador",
-    "referencia",
-    "banda_asignada_MHz",
-    "distancia_m",
-    "acimut_grados",
-    "valor_medido_uW_cm2",
+    "bandas_MHz",
+    "numero_banda",
+    "bandas",
+    "tecnologia",
+    "clasificacion_asumida",
     "estado",
     "error",
 ]
 SUCCESS_STATUSES = {"OK", "SIN_DATOS"}
+BAND_FREQUENCY_RANGES = {
+    "LTE": {
+        "B1": ((1920, 1980), (2110, 2170)),
+        "B3": ((1710, 1785), (1805, 1880)),
+        "B4": ((1710, 1755), (2110, 2155)),
+        "B7": ((2500, 2570), (2620, 2690)),
+        "B8": ((880, 915), (925, 960)),
+        "B20": ((791, 821), (832, 862)),
+        "B28": ((703, 748), (758, 803)),
+        "B38": ((2570, 2620),),
+        "B40": ((2300, 2400),),
+        "B41": ((2496, 2690),),
+        "B42": ((3400, 3600),),
+        "B43": ((3600, 3800),),
+    },
+    "NR": {
+        "n1": ((1920, 1980), (2110, 2170)),
+        "n3": ((1710, 1785), (1805, 1880)),
+        "n7": ((2500, 2570), (2620, 2690)),
+        "n8": ((880, 915), (925, 960)),
+        "n20": ((791, 821), (832, 862)),
+        "n28": ((703, 748), (758, 803)),
+        "n38": ((2570, 2620),),
+        "n77": ((3300, 4200),),
+        "n78": ((3300, 3800),),
+    },
+}
+
+
+def band_metadata(bands):
+    numbers = []
+    technologies = set()
+    band_numbers = set()
+    for band in bands:
+        matched_bands = {"frecuencia_MHz": band, "LTE": [], "NR": []}
+        for segment in band.split(";"):
+            lower, upper = (
+                float(value.strip())
+                for value in segment.split("-", maxsplit=1)
+            )
+            for technology, frequency_bands in BAND_FREQUENCY_RANGES.items():
+                for number, ranges in frequency_bands.items():
+                    if any(start <= lower and upper <= end for start, end in ranges):
+                        if number not in matched_bands[technology]:
+                            matched_bands[technology].append(number)
+                        band_numbers.add(int(number.lstrip("Bn")))
+                        technologies.add(technology)
+        numbers.append(matched_bands)
+    return (
+        json.dumps(numbers, ensure_ascii=False),
+        json.dumps(sorted(band_numbers), ensure_ascii=False),
+        json.dumps(sorted(technologies), ensure_ascii=False),
+    )
+
+
+def classify_bands(band_numbers):
+    if any("n78" in item["NR"] for item in band_numbers):
+        return "5G"
+    lte_4g_bands = {"B4", "B7", "B20", "B28", "B38", "B40", "B41"}
+    if any(lte_4g_bands.intersection(item["LTE"]) for item in band_numbers):
+        return "4G"
+    return "2G/3G"
 
 
 class StationTablesParser(HTMLParser):
@@ -86,7 +148,6 @@ def identify_tables(html):
     parser.feed(html)
     location = []
     technical = []
-    measurements = []
 
     for rows in parser.tables:
         if not rows:
@@ -94,47 +155,49 @@ def identify_tables(html):
         headings = [value.casefold() for value in rows[0]]
         if "operador" in headings and "referencia" in headings and any("banda asignada" in value for value in headings):
             technical = rows[1:]
-        elif any("distancia" in value for value in headings) and any("acimut" in value for value in headings) and any("valor medido" in value for value in headings):
-            measurements = rows[1:]
         elif any("codigo" in value or "código" in value for value in headings) and any("direccion" in value or "dirección" in value for value in headings):
             location = rows[1:]
 
     address = location[0][1] if location and len(location[0]) > 1 else ""
-    return address, technical, measurements
+    return address, technical
 
 
-def make_records(station, address, technical, measurements):
+def make_records(station, address, technical):
     base = {
         "Gis_ID": station["Gis_ID"],
         "Gis_Codigo": station.get("Gis_Codigo", ""),
         "direccion": address,
-        "estado": "OK",
+        "operador": "",
+        "bandas_MHz": "[]",
+        "numero_banda": "[]",
+        "bandas": "[]",
+        "tecnologia": "[]",
+        "clasificacion_asumida": "EXCLUIR",
+        "estado": "SIN_DATOS",
         "error": "",
     }
-    records = []
+    operators = []
+    bands = []
     for row in technical:
         values = (row + [""] * 3)[:3]
         if any(values):
-            records.append({
-                **base,
-                "tipo_registro": "caracteristica_tecnica",
-                "operador": values[0],
-                "referencia": values[1],
-                "banda_asignada_MHz": values[2],
-            })
-    for row in measurements:
-        values = (row + [""] * 3)[:3]
-        if any(values):
-            records.append({
-                **base,
-                "tipo_registro": "nivel_medido",
-                "distancia_m": values[0],
-                "acimut_grados": values[1],
-                "valor_medido_uW_cm2": values[2],
-            })
-    if not records:
-        return [{**base, "tipo_registro": "sin_datos", "estado": "SIN_DATOS"}]
-    return records
+            if values[0] and values[0] not in operators:
+                operators.append(values[0])
+            if values[2] and values[2] not in bands:
+                bands.append(values[2])
+    base["operador"] = "; ".join(operators)
+    base["bandas_MHz"] = json.dumps(bands, ensure_ascii=False)
+    (
+        base["numero_banda"],
+        base["bandas"],
+        base["tecnologia"],
+    ) = band_metadata(bands)
+    base["clasificacion_asumida"] = classify_bands(
+        json.loads(base["numero_banda"])
+    )
+    if bands:
+        base["estado"] = "OK"
+    return [base]
 
 
 def fetch_station(station):
@@ -163,8 +226,8 @@ def fetch_station(station):
             with urllib.request.urlopen(request, timeout=45) as response:
                 charset = response.headers.get_content_charset() or "utf-8"
                 html = response.read().decode(charset)
-            address, technical, measurements = identify_tables(html)
-            return make_records(station, address, technical, measurements)
+            address, technical = identify_tables(html)
+            return make_records(station, address, technical)
         except (OSError, UnicodeError) as error:
             last_error = error
             if attempt + 1 < MAX_ATTEMPTS:
@@ -183,8 +246,62 @@ def read_successful_rows(path):
     if not path.exists():
         return [], set()
     with path.open("r", newline="", encoding="utf-8-sig") as source:
-        rows = list(csv.DictReader(source))
-    successful = [row for row in rows if row.get("estado") in SUCCESS_STATUSES]
+        reader = csv.DictReader(source)
+        fieldnames = reader.fieldnames or []
+        rows = list(reader)
+    if "bandas_MHz" in fieldnames:
+        successful = [row for row in rows if row.get("estado") in SUCCESS_STATUSES]
+        for row in successful:
+            bands = json.loads(row.get("bandas_MHz") or "[]")
+            (
+                row["numero_banda"],
+                row["bandas"],
+                row["tecnologia"],
+            ) = band_metadata(bands)
+            row["clasificacion_asumida"] = classify_bands(
+                json.loads(row["numero_banda"])
+            )
+    else:
+        stations = {}
+        for row in rows:
+            if row.get("estado") not in SUCCESS_STATUSES:
+                continue
+            code = row.get("Gis_Codigo", "")
+            if not code:
+                continue
+            station = stations.setdefault(code, {
+                "Gis_ID": row.get("Gis_ID", ""),
+                "Gis_Codigo": code,
+                "direccion": row.get("direccion", ""),
+                "operador": "",
+                "bandas_MHz": "[]",
+                "numero_banda": "[]",
+                "bandas": "[]",
+                "tecnologia": "[]",
+                "clasificacion_asumida": "2G/3G",
+                "estado": "SIN_DATOS",
+                "error": "",
+            })
+            operators = [value for value in station["operador"].split("; ") if value]
+            operator = row.get("operador", "").strip()
+            if operator and operator not in operators:
+                operators.append(operator)
+                station["operador"] = "; ".join(operators)
+            band = row.get("banda_asignada_MHz", "").strip()
+            bands = json.loads(station["bandas_MHz"])
+            if band and band not in bands:
+                bands.append(band)
+                station["bandas_MHz"] = json.dumps(bands, ensure_ascii=False)
+                station["estado"] = "OK"
+            (
+                station["numero_banda"],
+                station["bandas"],
+                station["tecnologia"],
+            ) = band_metadata(json.loads(station["bandas_MHz"]))
+            station["clasificacion_asumida"] = classify_bands(
+                json.loads(station["numero_banda"]),
+            )
+        successful = list(stations.values())
     completed_codes = {
         row["Gis_Codigo"] for row in successful if row.get("Gis_Codigo")
     }
