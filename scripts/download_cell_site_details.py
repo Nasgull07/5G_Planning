@@ -33,6 +33,10 @@ OUTPUT_COLUMNS = [
     "error",
 ]
 SUCCESS_STATUSES = {"OK", "SIN_DATOS"}
+OPERATOR_ALIASES = {
+    "vodafone españa, s.a.": "VODAFONE ESPAÑA, S.A.U.",
+    "vodafone españa, s.a.u.": "VODAFONE ESPAÑA, S.A.U.",
+}
 BAND_FREQUENCY_RANGES = {
     "LTE": {
         "B1": ((1920, 1980), (2110, 2170)),
@@ -62,6 +66,11 @@ BAND_FREQUENCY_RANGES = {
 }
 
 
+def normalize_operator(operator):
+    value = operator.strip()
+    return OPERATOR_ALIASES.get(value.casefold(), value)
+
+
 def band_metadata(bands):
     numbers = []
     technologies = set()
@@ -89,7 +98,7 @@ def band_metadata(bands):
 
 
 def classify_bands(band_numbers):
-    if any("n78" in item["NR"] for item in band_numbers):
+    if any({"n77", "n78"}.intersection(item["NR"]) for item in band_numbers):
         return "5G"
     lte_4g_bands = {"B4", "B7", "B20", "B28", "B38", "B40", "B41"}
     if any(lte_4g_bands.intersection(item["LTE"]) for item in band_numbers):
@@ -181,8 +190,9 @@ def make_records(station, address, technical):
     for row in technical:
         values = (row + [""] * 3)[:3]
         if any(values):
-            if values[0] and values[0] not in operators:
-                operators.append(values[0])
+            operator = normalize_operator(values[0])
+            if operator and operator not in operators:
+                operators.append(operator)
             if values[2] and values[2] not in bands:
                 bands.append(values[2])
     base["operador"] = "; ".join(operators)
@@ -252,6 +262,11 @@ def read_successful_rows(path):
     if "bandas_MHz" in fieldnames:
         successful = [row for row in rows if row.get("estado") in SUCCESS_STATUSES]
         for row in successful:
+            row["operador"] = "; ".join(dict.fromkeys(
+                normalize_operator(operator)
+                for operator in row.get("operador", "").split(";")
+                if operator.strip()
+            ))
             bands = json.loads(row.get("bandas_MHz") or "[]")
             (
                 row["numero_banda"],
@@ -284,6 +299,7 @@ def read_successful_rows(path):
             })
             operators = [value for value in station["operador"].split("; ") if value]
             operator = row.get("operador", "").strip()
+            operator = normalize_operator(operator)
             if operator and operator not in operators:
                 operators.append(operator)
                 station["operador"] = "; ".join(operators)

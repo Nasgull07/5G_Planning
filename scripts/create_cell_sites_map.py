@@ -11,7 +11,17 @@ PROJECT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_DIR / "data" / "processed"
 SITES_CSV = DATA_DIR / "cellular_sites.csv"
 DETAILS_CSV = DATA_DIR / "cellular_site_details.csv"
+SAMPLE_CSV = DATA_DIR / "350_CELLS.csv"
 OUTPUT_HTML = PROJECT_DIR / "output" / "cellular_sites_map.html"
+OPERATOR_ALIASES = {
+    "vodafone españa, s.a.": "VODAFONE ESPAÑA, S.A.U.",
+    "vodafone españa, s.a.u.": "VODAFONE ESPAÑA, S.A.U.",
+}
+
+
+def normalize_operator(operator):
+    value = operator.strip()
+    return OPERATOR_ALIASES.get(value.casefold(), value)
 
 
 def read_csv(path):
@@ -23,15 +33,21 @@ def group_stations(sites, details):
     details_by_code = defaultdict(list)
     technologies_by_code = {}
     classifications_by_code = {}
+    operators_by_code = {}
+    site_ids_by_code = {}
+    band_numbers_by_code = {}
     for row in details:
         code = row.get("Gis_Codigo", "").strip()
         if not code:
             continue
-        operator = row.get("operador", "").strip()
+        operator = normalize_operator(row.get("operador", ""))
+        operators_by_code[code] = operator
+        site_ids_by_code[code] = row.get("Gis_ID", "").strip()
         if "bandas_MHz" in row:
             try:
                 bands = json.loads(row["bandas_MHz"] or "[]")
                 band_numbers = json.loads(row.get("numero_banda") or "[]")
+                numeric_bands = json.loads(row.get("bandas") or "[]")
             except json.JSONDecodeError as error:
                 raise ValueError(f"Metadatos de bandas inválidos para Gis_Codigo={code!r}.") from error
             if not isinstance(bands, list) or not all(isinstance(band, str) for band in bands):
@@ -41,6 +57,12 @@ def group_stations(sites, details):
                 for item in band_numbers
             ):
                 raise ValueError(f"Array de números de banda inválido para Gis_Codigo={code!r}.")
+            if not isinstance(numeric_bands, list) or not all(
+                isinstance(number, int) and not isinstance(number, bool)
+                for number in numeric_bands
+            ):
+                raise ValueError(f"Array de bandas inválido para Gis_Codigo={code!r}.")
+            band_numbers_by_code[code] = numeric_bands
             band_numbers_by_frequency = {
                 item["frecuencia_MHz"]: item for item in band_numbers
             }
@@ -85,6 +107,9 @@ def group_stations(sites, details):
         location = locations[(latitude, longitude)]
         location["stations"][code] = {
             "code": code,
+            "operator": operators_by_code.get(code, ""),
+            "site_id": site_ids_by_code.get(code, ""),
+            "bands": band_numbers_by_code.get(code, []),
             "frequencies": details_by_code.get(code, []),
             "technologies": technologies_by_code.get(code, []),
             "classification": classifications_by_code.get(code, "SIN_DATOS"),
@@ -116,7 +141,10 @@ def make_popup(coordinate, location):
     parts.append("<hr style='margin:6px 0'>")
 
     for station in stations:
-        parts.append(f"<div><b>{escape(station['code'])}</b></div>")
+        station_label = station["operator"] or station["code"]
+        if station["site_id"] and station["site_id"] != station["code"]:
+            station_label = f"{station_label} — {station['site_id']}"
+        parts.append(f"<div><b>{escape(station_label)}</b></div>")
         parts.append(
             "<div><b>Clasificación asumida:</b> "
             f"{escape(station['classification'])}</div>"
@@ -159,6 +187,77 @@ def eligible_coordinates(locations):
     )
 
 
+def create_sample_csv(locations, coordinates, output_path):
+    columns = [
+        "Site ID",
+        "coordinates",
+        "operator 1",
+        "operator 2",
+        "operator 3",
+        "operator 4",
+        "technology_op1",
+        "technology_op2",
+        "technology_op3",
+        "technology_op4",
+        "frequency bands (band number)",
+    ]
+    rows = []
+    technology_order = {"2G/3G": 0, "4G": 1, "5G": 2}
+    for latitude, longitude in coordinates:
+        location = locations[(latitude, longitude)]
+        site_ids = set()
+        operators = defaultdict(set)
+        frequency_bands = set()
+        for station in location["stations"].values():
+            if station["site_id"]:
+                site_ids.add(station["site_id"])
+            if station["operator"]:
+                operators[station["operator"]].add(station["classification"])
+            frequency_bands.update(station["bands"])
+
+        ordered_operators = sorted(
+            operators,
+            key=lambda operator: (
+                -max(
+                    (technology_order.get(value, -1) for value in operators[operator]),
+                    default=-1,
+                ),
+                operator.casefold(),
+            ),
+        )
+        if len(ordered_operators) > 4:
+            raise ValueError(
+                f"Hay {len(ordered_operators)} operadores en "
+                f"{latitude},{longitude}; el CSV admite hasta cuatro."
+            )
+        row = {
+            "Site ID": json.dumps(sorted(site_ids), ensure_ascii=False),
+            "coordinates": f"{latitude:.6f}, {longitude:.6f}",
+            "frequency bands (band number)": json.dumps(
+                sorted(frequency_bands), ensure_ascii=False
+            ),
+        }
+        for index in range(1, 5):
+            if index <= len(ordered_operators):
+                operator = ordered_operators[index - 1]
+                row[f"operator {index}"] = operator
+                row[f"technology_op{index}"] = max(
+                    operators[operator],
+                    key=lambda value: technology_order.get(value, -1),
+                )
+            else:
+                row[f"operator {index}"] = ""
+                row[f"technology_op{index}"] = ""
+        rows.append(row)
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with output_path.open("w", newline="", encoding="utf-8-sig") as output:
+        writer = csv.DictWriter(output, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(rows)
+    return len(rows)
+
+
 def create_map(locations, count, seed, output_path):
     coordinates = eligible_coordinates(locations)
     if count > len(coordinates):
@@ -167,6 +266,7 @@ def create_map(locations, count, seed, output_path):
             "ubicaciones con celdas clasificadas como 4G o 5G."
         )
     selected = random.Random(seed).sample(coordinates, count)
+    create_sample_csv(locations, selected, SAMPLE_CSV)
     center = (
         sum(latitude for latitude, _ in selected) / count,
         sum(longitude for _, longitude in selected) / count,
@@ -323,7 +423,8 @@ def main():
     print(
         f"Mapa creado: {args.output.resolve()} "
         f"({selected_count} ubicaciones 4G/5G seleccionadas aleatoriamente "
-        f"de {eligible_count} elegibles; se cargaron {len(locations)} ubicaciones en total)."
+        f"de {eligible_count} elegibles; se cargaron {len(locations)} ubicaciones en total). "
+        f"Dataset creado: {SAMPLE_CSV.resolve()}."
     )
 
 
