@@ -9,41 +9,20 @@ import folium
 import matplotlib.pyplot as plt
 from matplotlib.colors import to_hex
 from pyproj import Transformer
+from shapely.geometry import Point, Polygon
 from scipy.spatial import ConvexHull
 import xml.etree.ElementTree as ET
 
 
 # ============================================================
-# HELPER: POINT-IN-POLYGON (RAY-CASTING ALGORITHM)
+# HELPER: PARSE KML POLYGON
 # ============================================================
-
-def point_in_polygon(x, y, poly):
-    """
-    Determina si un punto (x, y) está dentro de un polígono 2D arbitrario.
-    poly: lista de tuplas [(lon1, lat1), (lon2, lat2), ...]
-    """
-    n = len(poly)
-    inside = False
-    p1x, p1y = poly[0]
-    for i in range(n + 1):
-        p2x, p2y = poly[i % n]
-        if y > min(p1y, p2y):
-            if y <= max(p1y, p2y):
-                if x <= max(p1x, p2x):
-                    if p1y != p2y:
-                        xinters = (y - p1y) * (p2x - p1x) / (p2y - p1y) + p1x
-                    if p1x == p2x or x <= xinters:
-                        inside = not inside
-        p1x, p1y = p2x, p2y
-    return inside
-
 
 def parse_kml_polygon(kml_path):
     """Extrae las coordenadas del polígono delimitador desde un archivo KML."""
     tree = ET.parse(kml_path)
     root = tree.getroot()
     
-    # Namespaces KML
     ns = {'kml': 'http://www.opengis.net/kml/2.2'}
     
     coord_elements = root.findall('.//kml:Polygon//kml:coordinates', ns)
@@ -68,6 +47,10 @@ def parse_kml_polygon(kml_path):
 # ============================================================
 
 def load_rrhs_shared(csv_path):
+    """
+    Carga el dataset de celdas reales, descarta 2G/3G, filtra coordenadas nulas/invalidas,
+    y selecciona una única RRH por ubicación física priorizando 5G sobre 4G.
+    """
     df = pd.read_csv(csv_path, dtype=str)
 
     df.columns = [
@@ -156,40 +139,58 @@ def load_rrhs_shared(csv_path):
 
 
 # ============================================================
-# 2. INJECT SYNTHETIC RRHs STRICTLY INSIDE POLYGON
+# 2. INJECT SYNTHETIC RRHs STRICTLY INSIDE POLYGON (WITH PADDING)
 # ============================================================
 
-def inject_synthetic_rrhs(rrhs_real, n_synthetic, kml_path=None, seed=42):
+def inject_synthetic_rrhs(rrhs_real, n_synthetic, kml_path=None, padding_km=0.0, seed=42):
+    """
+    Genera n_synthetic RRHs distribuidas aleatoriamente dentro del polígono delimitador (KML o Convex Hull).
+    Aplica padding_km (en kilómetros, positivo para expandir, negativo para contraer/margen de seguridad).
+    """
     if n_synthetic <= 0:
         return rrhs_real
 
-    # Determinar el polígono límite (KML o Convex Hull de celdas reales)
-    polygon = None
-    if kml_path and os.path.exists(kml_path):
-        polygon = parse_kml_polygon(kml_path)
-        if polygon:
-            print(f"Using polygon boundary loaded from KML: {kml_path}")
+    # Proyectores UTM 31N (métrico)
+    to_utm = Transformer.from_crs("EPSG:4326", "EPSG:25831", always_xy=True)
+    to_wgs = Transformer.from_crs("EPSG:25831", "EPSG:4326", always_xy=True)
 
-    if polygon is None:
+    raw_coords_wgs = None
+
+    if kml_path and os.path.exists(kml_path):
+        raw_coords_wgs = parse_kml_polygon(kml_path)
+        if raw_coords_wgs:
+            print(f"Using boundary polygon loaded from KML: {kml_path}")
+
+    if raw_coords_wgs is None:
         points = rrhs_real[['longitude', 'latitude']].values
         hull = ConvexHull(points)
-        polygon = [tuple(points[v]) for v in hull.vertices]
+        raw_coords_wgs = [tuple(points[v]) for v in hull.vertices]
         print("Using Convex Hull boundary polygon derived from real RRHs")
 
-    poly_arr = np.array(polygon)
-    min_lon, min_lat = poly_arr[:, 0].min(), poly_arr[:, 1].min()
-    max_lon, max_lat = poly_arr[:, 0].max(), poly_arr[:, 1].max()
+    # Convertir polígono a UTM para métricas exactas en metros
+    utm_coords = [to_utm.transform(lon, lat) for lon, lat in raw_coords_wgs]
+    poly_utm = Polygon(utm_coords)
+
+    # Aplicar padding en metros si se especifica
+    if padding_km != 0.0:
+        buffer_m = padding_km * 1000.0
+        poly_utm = poly_utm.buffer(buffer_m)
+        print(f"Applied padding of {padding_km:+.2f} km ({buffer_m:+.1f} m) to polygon boundary.")
+
+    min_x, min_y, max_x, max_y = poly_utm.bounds
 
     rng = np.random.RandomState(seed)
     synthetic_list = []
 
-    # Generación por muestreo de rechazo dentro del polígono exacto
+    # Rejection sampling en espacio métrico UTM
     while len(synthetic_list) < n_synthetic:
-        batch_lons = rng.uniform(min_lon, max_lon, n_synthetic * 3)
-        batch_lats = rng.uniform(min_lat, max_lat, n_synthetic * 3)
+        batch_x = rng.uniform(min_x, max_x, n_synthetic * 3)
+        batch_y = rng.uniform(min_y, max_y, n_synthetic * 3)
 
-        for lon, lat in zip(batch_lons, batch_lats):
-            if point_in_polygon(lon, lat, polygon):
+        for x, y in zip(batch_x, batch_y):
+            pt_utm = Point(x, y)
+            if poly_utm.contains(pt_utm):
+                lon, lat = to_wgs.transform(x, y)
                 synthetic_list.append({
                     "rrh_id": f"RRH_SYN_{len(synthetic_list)+1:03d}",
                     "site_id": f"SYNTH_SITE_{len(synthetic_list)+1:03d}",
@@ -208,7 +209,7 @@ def inject_synthetic_rrhs(rrhs_real, n_synthetic, kml_path=None, seed=42):
 
 
 # ============================================================
-# 3. PROJECT COORDINATES
+# 3. CONVERT GEOGRAPHIC COORDINATES TO METERS
 # ============================================================
 
 def project_coordinates(rrhs):
@@ -371,6 +372,7 @@ def main():
     parser.add_argument("-k", "--k_pools", type=int, required=True, help="Número de BBU pools deseados (K)")
     parser.add_argument("-s", "--n_synthetic", type=int, default=0, help="Número de RRHs sintéticas a inyectar aleatoriamente")
     parser.add_argument("--kml_path", type=str, default=None, help="Ruta al archivo KML con el área delimitada")
+    parser.add_argument("--padding_km", type=float, default=0.0, help="Margen en km alrededor del polígono (negativo para contraer/margen interior)")
     parser.add_argument("--seed", type=int, default=42, help="Semilla aleatoria (default: 42)")
     parser.add_argument("--input_path", type=str, default="../data/processed/350_CELLS.csv", help="Ruta al CSV de celdas reales")
     parser.add_argument("--data_output_dir", type=str, default="../data/processed/", help="Directorio de salida CSV")
@@ -382,11 +384,14 @@ def main():
     os.makedirs(args.html_output_dir, exist_ok=True)
 
     rrhs_real = load_rrhs_shared(args.input_path)
-    rrhs = inject_synthetic_rrhs(rrhs_real, args.n_synthetic, kml_path=args.kml_path, seed=args.seed)
+    rrhs = inject_synthetic_rrhs(
+        rrhs_real, args.n_synthetic, kml_path=args.kml_path, padding_km=args.padding_km, seed=args.seed
+    )
 
     print("\n============================================================")
     print(" MODE: SHARED INFRASTRUCTURE (STRICT POLYGON CONTAINMENT)")
     print("============================================================")
+    print(f"Polygon Padding:           {args.padding_km:+.2f} km")
     print(f"Real physical RRHs loaded: {len(rrhs_real)}")
     print(f"Synthetic RRHs injected:   {args.n_synthetic}")
     print(f"TOTAL RRHs in scenario:    {len(rrhs)}")
