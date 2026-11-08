@@ -84,44 +84,47 @@ Al generar el mapa también se crea `data/processed/350_CELLS.csv`; los alias
 Respeta las condiciones de uso y atribución de los servicios consultados.
 
 
-## Generar RRH sintéticas para pruebas de robustez
+## Synthetic RRHs strictly inside the KML study area
 
-El script `scripts/add_synthetic_rrhs.py` permite añadir RRH sintéticas al
-escenario sin modificar los datos originales de Infoantenas.
-
-- Las ubicaciones se generan uniformemente al azar dentro del bounding box
-  rectangular definido por las coordenadas del KML.
-- Cada RRH sintética recibe un identificador `SYN_RRH_00001`, etc.
-- Cada punto debe quedar al menos a 200 metros de cualquier ubicación real
-  (coordenadas únicas de `cellular_sites.csv`) y de las demás RRH sintéticas.
-- Las filas se identifican con `source_type=SYNTHETIC` e
-  `is_synthetic=True`.
-- La semilla aleatoria permite reproducir los mismos resultados.
-
-Ejecuta desde la raíz del repositorio:
+Run from the repository root:
 
 ```powershell
-python .\scripts\add_synthetic_rrhs.py --count 50 --min-distance 200 --seed 42
+py scripts/add_synthetic_rrhs.py --count 50 --min-distance 200 --seed 42
 ```
 
-Opciones útiles:
+The script samples uniformly in the KML bounding box and rejects any point
+outside the actual KML polygon, including holes and boundary points. Accepted
+points are therefore strictly inside the study area. It enforces a minimum
+Haversine separation of 200 m from unique real Infoantenas coordinates and
+between generated synthetic RRHs. Change `--count` and `--min-distance` to
+run different robustness tests.
+
+Outputs:
+- `data/processed/synthetic_rrhs.csv`: synthetic records only.
+- `data/processed/scenario_sites.csv`: real and synthetic records together.
+
+The original `cellular_sites.csv` is never overwritten. Rejection sampling
+makes the accepted locations uniform conditional on being inside the polygon.
+
+
+## Synthetic RRHs strictly inside the KML study area
+
+Run from the repository root:
 
 ```powershell
-python .\scripts\add_synthetic_rrhs.py --count 100 --min-distance 200 --seed 42
-python .\scripts\add_synthetic_rrhs.py --count 0
+py scripts/add_synthetic_rrhs.py --count 50 --min-distance 200 --seed 42
 ```
 
-Se crean dos archivos:
+The script samples uniformly in the KML bounding box and rejects points
+outside the actual KML polygon, including holes and boundary points. Accepted
+points are strictly inside the study area. It enforces a minimum Haversine
+separation of 200 m from unique real Infoantenas coordinates and between
+generated synthetic RRHs. Change `--count` and `--min-distance` for robustness
+tests.
 
-- `data/processed/synthetic_rrhs.csv`: solo las RRH sintéticas.
-- `data/processed/scenario_sites.csv`: ubicaciones reales y sintéticas juntas.
+Outputs:
+- `data/processed/synthetic_rrhs.csv`: synthetic records only.
+- `data/processed/scenario_sites.csv`: real and synthetic records together.
 
-El archivo original `cellular_sites.csv` no se modifica. Si no hay espacio
-suficiente para colocar todos los puntos respetando la distancia mínima, el
-programa termina con un error explicativo en vez de crear ubicaciones que
-incumplan la restricción.
-
-**Nota:** la distribución uniforme se realiza dentro del bounding box
-rectangular. En un KML irregular, algunos puntos pueden quedar fuera del
-polígono. La distancia se calcula mediante la fórmula Haversine sobre
-coordenadas geográficas, en metros.
+The original `cellular_sites.csv` is never overwritten. Rejection sampling
+makes accepted locations uniform conditional on being inside the polygon.
