@@ -12,7 +12,7 @@ from pathlib import Path
 BASE_URL = "https://geoportal.minetur.gob.es/VCTEL/infoantenasGeoJSON.do"
 ZOOM = 7
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-KML_FILE = PROJECT_DIR / "data" / "input" / "selected_area.kml"
+KML_FILE = PROJECT_DIR / "data" / "input" / "working_area_900km2.kml"
 CSV_FILE = PROJECT_DIR / "data" / "processed" / "cellular_sites.csv"
 
 # Approximate width and height of the example bbox at zoom 7.
