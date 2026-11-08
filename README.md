@@ -82,3 +82,46 @@ Al generar el mapa también se crea `data/processed/350_CELLS.csv`; los alias
 - Mapa base: OpenStreetMap o Carto, seleccionable en el propio mapa.
 
 Respeta las condiciones de uso y atribución de los servicios consultados.
+
+
+## Generar RRH sintéticas para pruebas de robustez
+
+El script `scripts/add_synthetic_rrhs.py` permite añadir RRH sintéticas al
+escenario sin modificar los datos originales de Infoantenas.
+
+- Las ubicaciones se generan uniformemente al azar dentro del bounding box
+  rectangular definido por las coordenadas del KML.
+- Cada RRH sintética recibe un identificador `SYN_RRH_00001`, etc.
+- Cada punto debe quedar al menos a 200 metros de cualquier ubicación real
+  (coordenadas únicas de `cellular_sites.csv`) y de las demás RRH sintéticas.
+- Las filas se identifican con `source_type=SYNTHETIC` e
+  `is_synthetic=True`.
+- La semilla aleatoria permite reproducir los mismos resultados.
+
+Ejecuta desde la raíz del repositorio:
+
+```powershell
+python .\scripts\add_synthetic_rrhs.py --count 50 --min-distance 200 --seed 42
+```
+
+Opciones útiles:
+
+```powershell
+python .\scripts\add_synthetic_rrhs.py --count 100 --min-distance 200 --seed 42
+python .\scripts\add_synthetic_rrhs.py --count 0
+```
+
+Se crean dos archivos:
+
+- `data/processed/synthetic_rrhs.csv`: solo las RRH sintéticas.
+- `data/processed/scenario_sites.csv`: ubicaciones reales y sintéticas juntas.
+
+El archivo original `cellular_sites.csv` no se modifica. Si no hay espacio
+suficiente para colocar todos los puntos respetando la distancia mínima, el
+programa termina con un error explicativo en vez de crear ubicaciones que
+incumplan la restricción.
+
+**Nota:** la distribución uniforme se realiza dentro del bounding box
+rectangular. En un KML irregular, algunos puntos pueden quedar fuera del
+polígono. La distancia se calcula mediante la fórmula Haversine sobre
+coordenadas geográficas, en metros.
