@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 KML = ROOT / "data" / "input" / "selected_area.kml"
-REAL = ROOT / "data" / "processed" / "cellular_sites.csv"
+REAL = ROOT / "data" / "processed" / "350_CELLS.csv"
 SYNTHETIC = ROOT / "data" / "processed" / "synthetic_rrhs.csv"
 COMBINED = ROOT / "data" / "processed" / "scenario_sites.csv"
 FIELDS = ["rrh_id", "latitude", "longitude", "source_type", "operator", "technology", "is_synthetic"]
@@ -97,29 +97,40 @@ def distance_m(a_lat, a_lon, b_lat, b_lon):
 
 def read_real(path):
     if not path.exists():
-        raise FileNotFoundError(f"Real sites CSV not found: {path}")
+        raise FileNotFoundError(f"350-cell sample CSV not found: {path}")
     rows, seen = [], set()
     with path.open(newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        if not reader.fieldnames or not {"latitude", "longitude"}.issubset(reader.fieldnames):
-            raise ValueError("cellular_sites.csv must contain latitude and longitude.")
+        if not reader.fieldnames or not {"Site ID", "coordinates"}.issubset(reader.fieldnames):
+            raise ValueError("350_CELLS.csv must contain Site ID and coordinates.")
         for row in reader:
             try:
-                lat, lon = float(row["latitude"]), float(row["longitude"])
-            except (TypeError, ValueError):
+                lat, lon = (float(value.strip()) for value in row["coordinates"].split(",", 1))
+            except (AttributeError, TypeError, ValueError):
                 continue
             key = (round(lat, 8), round(lon, 8))
             if key in seen:
                 continue
             seen.add(key)
+            operators = [
+                row.get(f"operator {i}", "").strip()
+                for i in range(1, 5)
+                if row.get(f"operator {i}", "").strip()
+            ]
+            technologies = list(dict.fromkeys(
+                row.get(f"technology_op{i}", "").strip()
+                for i in range(1, 5)
+                if row.get(f"technology_op{i}", "").strip()
+            ))
             rows.append({
-                "rrh_id": row.get("Gis_Codigo") or row.get("feature_id") or f"REAL_SITE_{len(rows)+1:05d}",
+                "rrh_id": row.get("Site ID") or f"REAL_SITE_{len(rows)+1:05d}",
                 "latitude": f"{lat:.8f}", "longitude": f"{lon:.8f}",
-                "source_type": "REAL_INFOANTENAS", "operator": row.get("Código", ""),
-                "technology": "NOT_INFERRED_BY_GENERATOR", "is_synthetic": "False",
+                "source_type": "REAL_350_CELLS", "operator": "; ".join(operators),
+                "technology": "; ".join(technologies) or "NOT_INFERRED_BY_GENERATOR",
+                "is_synthetic": "False",
             })
     if not rows:
-        raise ValueError("No valid real site coordinates found.")
+        raise ValueError("No valid coordinates found in 350_CELLS.csv.")
     return rows
 
 

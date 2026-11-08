@@ -38,6 +38,7 @@ Ejecuta estos comandos desde la carpeta raíz del proyecto:
 ```powershell
 python .\scripts\download_cell_sites.py
 python .\scripts\download_cell_site_details.py
+py .\scripts\add_synthetic_rrhs.py --count 50 --min-distance 200 --seed 42
 python .\scripts\create_cell_sites_map.py
 ```
 
@@ -56,75 +57,37 @@ interrumpe. Para controlar el número de consultas:
 python .\scripts\download_cell_site_details.py --workers 2
 ```
 
-El mapa selecciona aleatoriamente 350 ubicaciones únicas entre las que tienen
-al menos una celda clasificada como 4G o 5G; las ubicaciones exclusivamente
-2G/3G no entran en la muestra. Si hay varios registros en una ubicación
-seleccionada, el pop-up conserva todos. En `350_CELLS.csv`, los operadores de
-cada ubicación se ordenan por la tecnología asumida más alta: 5G, 4G y 2G/3G.
-Cada operador tiene una sola categoría en esa columna; si agrupa varias celdas
-en una ubicación, se muestra la categoría más alta. La muestra es reproducible.
-Para cambiar el tamaño o la semilla:
-
-```powershell
-python .\scripts\create_cell_sites_map.py --count 350 --seed 42
-```
-
-Abre `output/cellular_sites_map.html` en un navegador. Las estaciones con las
-mismas coordenadas se muestran como un único punto; el pop-up incluye los
-registros de operadores, los rangos de frecuencia y sus números de banda LTE/NR.
-Al generar el mapa también se crea `data/processed/350_CELLS.csv`; los alias
-`VODAFONE ESPAÑA, S.A.` y `VODAFONE ESPAÑA, S.A.U.` se unifican como
-`VODAFONE ESPAÑA, S.A.U.` en los datos y el mapa.
+`data/processed/350_CELLS.csv` contiene la muestra de 350 ubicaciones reales
+que se usa como base del escenario sintético. Después de generar
+`scenario_sites.csv` con `add_synthetic_rrhs.py`,
+`create_cell_sites_map.py` muestra las ubicaciones reales y sintéticas de ese
+archivo. El pop-up incluye operador, tecnología y coordenadas; el archivo del
+escenario no contiene detalles de frecuencias.
 
 ## Fuentes
 
 - Geoportal del Ministerio: `https://geoportal.minetur.gob.es/VCTEL/`
-- Mapa base: OpenStreetMap o Carto, seleccionable en el propio mapa.
+- Mapa base: Esri World Street Map.
 
 Respeta las condiciones de uso y atribución de los servicios consultados.
 
 
-## Synthetic RRHs strictly inside the KML study area
+## Mapa del escenario con RRHs sintéticos
 
-Run from the repository root:
+Ejecuta estos comandos desde la carpeta raíz del proyecto:
 
 ```powershell
 py scripts/add_synthetic_rrhs.py --count 50 --min-distance 200 --seed 42
+py scripts/create_cell_sites_map.py
 ```
 
-The script samples uniformly in the KML bounding box and rejects any point
-outside the actual KML polygon, including holes and boundary points. Accepted
-points are therefore strictly inside the study area. It enforces a minimum
-Haversine separation of 200 m from unique real Infoantenas coordinates and
-between generated synthetic RRHs. Change `--count` and `--min-distance` to
-run different robustness tests.
+`add_synthetic_rrhs.py` genera puntos estrictamente dentro del polígono KML,
+con una separación mínima de 200 m de las ubicaciones reales y entre RRHs
+sintéticos. Cambia `--count` y `--min-distance` para modificar la generación.
+`create_cell_sites_map.py` lee `scenario_sites.csv` y crea
+`output/cellular_sites_map.html`; no vuelve a generar ni modifica los CSV de
+entrada.
 
 Outputs:
 - `data/processed/synthetic_rrhs.csv`: synthetic records only.
 - `data/processed/scenario_sites.csv`: real and synthetic records together.
-
-The original `cellular_sites.csv` is never overwritten. Rejection sampling
-makes the accepted locations uniform conditional on being inside the polygon.
-
-
-## Synthetic RRHs strictly inside the KML study area
-
-Run from the repository root:
-
-```powershell
-py scripts/add_synthetic_rrhs.py --count 50 --min-distance 200 --seed 42
-```
-
-The script samples uniformly in the KML bounding box and rejects points
-outside the actual KML polygon, including holes and boundary points. Accepted
-points are strictly inside the study area. It enforces a minimum Haversine
-separation of 200 m from unique real Infoantenas coordinates and between
-generated synthetic RRHs. Change `--count` and `--min-distance` for robustness
-tests.
-
-Outputs:
-- `data/processed/synthetic_rrhs.csv`: synthetic records only.
-- `data/processed/scenario_sites.csv`: real and synthetic records together.
-
-The original `cellular_sites.csv` is never overwritten. Rejection sampling
-makes accepted locations uniform conditional on being inside the polygon.

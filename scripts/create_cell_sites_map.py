@@ -2,293 +2,74 @@ import argparse
 import csv
 import html
 import json
-import random
-from collections import defaultdict
 from pathlib import Path
 
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_DIR / "data" / "processed"
-SITES_CSV = DATA_DIR / "cellular_sites.csv"
-DETAILS_CSV = DATA_DIR / "cellular_site_details.csv"
-SAMPLE_CSV = DATA_DIR / "350_CELLS.csv"
+SCENARIO_CSV = DATA_DIR / "scenario_sites.csv"
 KML_FILE = PROJECT_DIR / "data" / "input" / "selected_area.kml"
 OUTPUT_HTML = PROJECT_DIR / "output" / "cellular_sites_map.html"
-OPERATOR_ALIASES = {
-    "vodafone españa, s.a.": "VODAFONE ESPAÑA, S.A.U.",
-    "vodafone españa, s.a.u.": "VODAFONE ESPAÑA, S.A.U.",
-}
-
-
-def normalize_operator(operator):
-    value = operator.strip()
-    return OPERATOR_ALIASES.get(value.casefold(), value)
-
-
-def read_csv(path):
-    with path.open("r", newline="", encoding="utf-8-sig") as source:
-        return list(csv.DictReader(source))
-
-
-def group_stations(sites, details):
-    details_by_code = defaultdict(list)
-    technologies_by_code = {}
-    classifications_by_code = {}
-    operators_by_code = {}
-    site_ids_by_code = {}
-    band_numbers_by_code = {}
-    for row in details:
-        code = row.get("Gis_Codigo", "").strip()
-        if not code:
-            continue
-        operator = normalize_operator(row.get("operador", ""))
-        operators_by_code[code] = operator
-        site_ids_by_code[code] = row.get("Gis_ID", "").strip()
-        if "bandas_MHz" in row:
-            try:
-                bands = json.loads(row["bandas_MHz"] or "[]")
-                band_numbers = json.loads(row.get("numero_banda") or "[]")
-                numeric_bands = json.loads(row.get("bandas") or "[]")
-            except json.JSONDecodeError as error:
-                raise ValueError(f"Metadatos de bandas inválidos para Gis_Codigo={code!r}.") from error
-            if not isinstance(bands, list) or not all(isinstance(band, str) for band in bands):
-                raise ValueError(f"Array de bandas inválido para Gis_Codigo={code!r}.")
-            if not isinstance(band_numbers, list) or not all(
-                isinstance(item, dict) and isinstance(item.get("frecuencia_MHz"), str)
-                for item in band_numbers
-            ):
-                raise ValueError(f"Array de números de banda inválido para Gis_Codigo={code!r}.")
-            if not isinstance(numeric_bands, list) or not all(
-                isinstance(number, int) and not isinstance(number, bool)
-                for number in numeric_bands
-            ):
-                raise ValueError(f"Array de bandas inválido para Gis_Codigo={code!r}.")
-            band_numbers_by_code[code] = numeric_bands
-            band_numbers_by_frequency = {
-                item["frecuencia_MHz"]: item for item in band_numbers
-            }
-            technologies = json.loads(row.get("tecnologia") or "[]")
-            if not isinstance(technologies, list) or not all(
-                isinstance(item, str) for item in technologies
-            ):
-                raise ValueError(f"Array de tecnologías inválido para Gis_Codigo={code!r}.")
-            technologies_by_code[code] = technologies
-            classifications_by_code[code] = row.get(
-                "clasificacion_asumida", "SIN_DATOS"
-            )
-            frequencies = []
-            for band in bands:
-                metadata = band_numbers_by_frequency.get(band, {})
-                labels = [
-                    f"{technology} {number}"
-                    for technology in ("LTE", "NR")
-                    for number in metadata.get(technology, [])
-                ]
-                frequencies.append((operator, "", band, ", ".join(labels)))
-        elif row.get("tipo_registro") == "caracteristica_tecnica":
-            band = row.get("banda_asignada_MHz", "").strip()
-            frequencies = [(operator, row.get("referencia", "").strip(), band, "")] if band else []
-        else:
-            frequencies = []
-        for frequency in frequencies:
-            if frequency not in details_by_code[code]:
-                details_by_code[code].append(frequency)
-
-    locations = defaultdict(lambda: {"stations": {}, "addresses": set()})
-    for station in sites:
-        code = station.get("Gis_Codigo", "").strip()
-        try:
-            latitude = float(station["latitude"])
-            longitude = float(station["longitude"])
-        except (KeyError, ValueError) as error:
-            raise ValueError(f"Coordenadas inválidas para Gis_Codigo={code!r}.") from error
-        if not code:
-            raise ValueError("Hay una estación sin Gis_Codigo en cellular_sites.csv.")
-
-        location = locations[(latitude, longitude)]
-        location["stations"][code] = {
-            "code": code,
-            "operator": operators_by_code.get(code, ""),
-            "site_id": site_ids_by_code.get(code, ""),
-            "bands": band_numbers_by_code.get(code, []),
-            "frequencies": details_by_code.get(code, []),
-            "technologies": technologies_by_code.get(code, []),
-            "classification": classifications_by_code.get(code, "SIN_DATOS"),
-        }
-        address = station.get("Dirección", "").strip()
-        if address:
-            location["addresses"].add(address)
-
-    return locations
 
 
 def escape(value):
     return html.escape(str(value), quote=True)
 
 
-def make_popup(coordinate, location):
-    stations = sorted(
-        location["stations"].values(),
-        key=lambda station: station["code"].casefold(),
-    )
-    code_count = len(stations)
-    parts = [
-        f"<div><b>Emplazamiento compartido</b> ({code_count} "
-        f"{'operador/registro' if code_count == 1 else 'operadores/registros'})</div>"
-    ]
-    addresses = sorted(location["addresses"])
-    if addresses:
-        parts.append(f"<div><b>Dirección:</b> {escape('; '.join(addresses))}</div>")
-    parts.append("<hr style='margin:6px 0'>")
-
-    for station in stations:
-        station_label = station["operator"] or station["code"]
-        if station["site_id"] and station["site_id"] != station["code"]:
-            station_label = f"{station_label} — {station['site_id']}"
-        parts.append(f"<div><b>{escape(station_label)}</b></div>")
-        parts.append(
-            "<div><b>Clasificación asumida:</b> "
-            f"{escape(station['classification'])}</div>"
-        )
-        if station["frequencies"]:
-            parts.append("<ul style='margin:2px 0 8px;padding-left:20px'>")
-            for operator, reference, band, band_numbers in sorted(set(station["frequencies"])):
-                description = " — ".join(
-                    part for part in (
-                        operator,
-                        reference,
-                        f"{band} MHz",
-                        band_numbers,
-                    ) if part
-                )
-                parts.append(f"<li>{escape(description)}</li>")
-            parts.append("</ul>")
-            if station["technologies"]:
-                parts.append(
-                    "<small>Tecnologías compatibles por frecuencia (no confirma "
-                    f"despliegue activo): {escape(', '.join(station['technologies']))}</small>"
-                )
-        else:
-            parts.append("<div>Sin datos de bandas.</div>")
-
-    parts.append(
-        f"<small>Coordenadas: {coordinate[0]:.6f}, {coordinate[1]:.6f}</small>"
-    )
-    return "".join(parts)
-
-
-def eligible_coordinates(locations):
-    return sorted(
-        coordinate
-        for coordinate, location in locations.items()
-        if any(
-            station["classification"] in {"4G", "5G"}
-            for station in location["stations"].values()
-        )
-    )
-
-
-def create_sample_csv(locations, coordinates, output_path):
-    columns = [
-        "Site ID",
-        "coordinates",
-        "operator 1",
-        "operator 2",
-        "operator 3",
-        "operator 4",
-        "technology_op1",
-        "technology_op2",
-        "technology_op3",
-        "technology_op4",
-        "frequency bands (band number)",
-    ]
-    rows = []
-    technology_order = {"2G/3G": 0, "4G": 1, "5G": 2}
-    for latitude, longitude in coordinates:
-        location = locations[(latitude, longitude)]
-        site_ids = set()
-        operators = defaultdict(set)
-        frequency_bands = set()
-        for station in location["stations"].values():
-            if station["site_id"]:
-                site_ids.add(station["site_id"])
-            if station["operator"]:
-                operators[station["operator"]].add(station["classification"])
-            frequency_bands.update(station["bands"])
-
-        ordered_operators = sorted(
-            operators,
-            key=lambda operator: (
-                -max(
-                    (technology_order.get(value, -1) for value in operators[operator]),
-                    default=-1,
-                ),
-                operator.casefold(),
-            ),
-        )
-        if len(ordered_operators) > 4:
-            raise ValueError(
-                f"Hay {len(ordered_operators)} operadores en "
-                f"{latitude},{longitude}; el CSV admite hasta cuatro."
-            )
-        row = {
-            "Site ID": json.dumps(sorted(site_ids), ensure_ascii=False),
-            "coordinates": f"{latitude:.6f}, {longitude:.6f}",
-            "frequency bands (band number)": json.dumps(
-                sorted(frequency_bands), ensure_ascii=False
-            ),
-        }
-        for index in range(1, 5):
-            if index <= len(ordered_operators):
-                operator = ordered_operators[index - 1]
-                row[f"operator {index}"] = operator
-                row[f"technology_op{index}"] = max(
-                    operators[operator],
-                    key=lambda value: technology_order.get(value, -1),
-                )
-            else:
-                row[f"operator {index}"] = ""
-                row[f"technology_op{index}"] = ""
-        rows.append(row)
-
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open("w", newline="", encoding="utf-8-sig") as output:
-        writer = csv.DictWriter(output, fieldnames=columns)
-        writer.writeheader()
-        writer.writerows(rows)
-    return len(rows)
-
-
-
-def read_synthetic_sites(path):
-    """Read synthetic RRHs generated by add_synthetic_rrhs.py."""
+def read_scenario_sites(path):
     if not path.exists():
-        return []
-    rows = []
+        raise FileNotFoundError(
+            f"No se encontró {path}. Ejecuta primero add_synthetic_rrhs.py."
+        )
+
+    required = {
+        "rrh_id", "latitude", "longitude", "source_type",
+        "operator", "technology", "is_synthetic",
+    }
+    real_markers, synthetic_markers = [], []
     with path.open("r", newline="", encoding="utf-8-sig") as source:
         reader = csv.DictReader(source)
-        required = {"latitude", "longitude"}
         if not reader.fieldnames or not required.issubset(reader.fieldnames):
             raise ValueError(
-                f"{path.name} debe contener las columnas latitude y longitude."
+                f"{path.name} debe contener estas columnas: "
+                f"{', '.join(sorted(required))}."
             )
-        for index, row in enumerate(reader, start=1):
+        for index, row in enumerate(reader, start=2):
             try:
                 latitude = float(row["latitude"])
                 longitude = float(row["longitude"])
             except (TypeError, ValueError):
                 raise ValueError(
-                    f"Coordenadas sintéticas inválidas en la fila {index + 1}."
+                    f"Coordenadas inválidas en {path.name}, fila {index}."
+                ) from None
+
+            synthetic_flag = row["is_synthetic"].strip().casefold()
+            if synthetic_flag not in {"true", "false"}:
+                raise ValueError(
+                    f"is_synthetic inválido en {path.name}, fila {index}."
                 )
-            rows.append({
-                "rrh_id": row.get("rrh_id") or f"SYN_RRH_{index:05d}",
+            site = {
                 "latitude": latitude,
                 "longitude": longitude,
-                "source_type": row.get("source_type") or "SYNTHETIC",
-                "operator": row.get("operator") or "SYNTHETIC",
-                "technology": row.get("technology") or "ASSUMED_FOR_SIMULATION",
-            })
-    return rows
+                "rrh_id": row["rrh_id"].strip(),
+                "source_type": row["source_type"].strip(),
+                "operator": row["operator"].strip(),
+                "technology": row["technology"].strip(),
+            }
+            if synthetic_flag == "true":
+                synthetic_markers.append(site)
+            else:
+                coordinate = f"{latitude:.6f}, {longitude:.6f}"
+                site["popup"] = (
+                    "<div><b>Real site (350_CELLS)</b></div>"
+                    f"<div><b>Site ID:</b> {escape(site['rrh_id'])}</div>"
+                    f"<div><b>Operator:</b> {escape(site['operator'])}</div>"
+                    f"<div><b>Technology:</b> {escape(site['technology'])}</div>"
+                    f"<div><b>Coordinates:</b> {coordinate}</div>"
+                )
+                real_markers.append(site)
+
+    return real_markers, synthetic_markers
 
 
 def read_kml_geometry(path):
@@ -340,39 +121,7 @@ def read_kml_geometry(path):
     return {"type": "MultiPolygon", "coordinates": polygons}
 
 
-def create_map(locations, synthetic_rows, count, seed, output_path):
-    # Keep the team's original random 4G/5G sample export.
-    eligible = eligible_coordinates(locations)
-    if count > len(eligible):
-        raise ValueError(
-            f"Se solicitaron {count} ubicaciones para 350_CELLS.csv, pero solo "
-            f"hay {len(eligible)} ubicaciones clasificadas como 4G o 5G."
-        )
-    selected_sample = random.Random(seed).sample(eligible, count)
-    create_sample_csv(locations, selected_sample, SAMPLE_CSV)
-
-    # Map all real Infoantenas coordinate locations, not only the 350-row sample.
-    real_markers = []
-    for latitude, longitude in sorted(locations):
-        location = locations[(latitude, longitude)]
-        real_markers.append({
-            "latitude": latitude,
-            "longitude": longitude,
-            "popup": make_popup((latitude, longitude), location),
-            "count": len(location["stations"]),
-        })
-
-    synthetic_markers = []
-    for row in synthetic_rows:
-        synthetic_markers.append({
-            "latitude": row["latitude"],
-            "longitude": row["longitude"],
-            "rrh_id": row["rrh_id"],
-            "source_type": row["source_type"],
-            "operator": row["operator"],
-            "technology": row["technology"],
-        })
-
+def create_map(real_markers, synthetic_markers, output_path):
     all_coordinates = (
         [(m["latitude"], m["longitude"]) for m in real_markers]
         + [(m["latitude"], m["longitude"]) for m in synthetic_markers]
@@ -456,7 +205,7 @@ def create_map(locations, synthetic_rows, count, seed, output_path):
         radius: 5, color: "#145da0", weight: 1,
         fillColor: "#2e86de", fillOpacity: 0.78
       }});
-      marker.bindTooltip(`${{site.count}} real station record(s) at this location`);
+      marker.bindTooltip(site.rrh_id);
       marker.bindPopup(site.popup, {{ maxWidth: 480 }});
       marker.addTo(realLayer);
     }});
@@ -480,7 +229,7 @@ def create_map(locations, synthetic_rows, count, seed, output_path):
     }});
 
     const overlays = {{}};
-    overlays["Real Infoantenas sites (" + realSites.length + ")"] = realLayer;
+    overlays["Real 350-cell sites (" + realSites.length + ")"] = realLayer;
     overlays["Synthetic RRHs (" + syntheticSites.length + ")"] = syntheticLayer;
     realLayer.addTo(map);
     syntheticLayer.addTo(map);
@@ -510,7 +259,7 @@ def create_map(locations, synthetic_rows, count, seed, output_path):
       const div = L.DomUtil.create("div", "map-legend");
       div.innerHTML =
         '<b>Map legend</b><br>' +
-        '<span class="legend-dot" style="background:#2e86de"></span>Real Infoantenas sites<br>' +
+        '<span class="legend-dot" style="background:#2e86de"></span>Real 350-cell sites<br>' +
         '<span class="legend-dot" style="background:#f59e0b"></span>Synthetic RRHs<br>' +
         '<span style="color:#e0a000;font-weight:bold">━━</span> KML study boundary';
       return div;
@@ -522,24 +271,12 @@ def create_map(locations, synthetic_rows, count, seed, output_path):
 """
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(page, encoding="utf-8")
-    return len(real_markers), len(synthetic_markers), len(selected_sample)
+    return len(real_markers), len(synthetic_markers)
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Crea un mapa interactivo de emplazamientos celulares y sus bandas."
-    )
-    parser.add_argument(
-        "--count",
-        type=int,
-        default=350,
-        help="Número de ubicaciones únicas a seleccionar (por defecto: 350).",
-    )
-    parser.add_argument(
-        "--seed",
-        type=int,
-        default=42,
-        help="Semilla para que la muestra aleatoria sea reproducible (por defecto: 42).",
+        description="Crea un mapa interactivo a partir de scenario_sites.csv."
     )
     parser.add_argument(
         "--output",
@@ -548,24 +285,14 @@ def main():
         help="Ruta del mapa HTML de salida.",
     )
     args = parser.parse_args()
-    if args.count < 1:
-        parser.error("--count debe ser al menos 1.")
-
-    sites = read_csv(SITES_CSV)
-    details = read_csv(DETAILS_CSV)
-    locations = group_stations(sites, details)
-    synthetic_rows = read_synthetic_sites(DATA_DIR / "synthetic_rrhs.csv")
-    real_count, synthetic_count, sample_count = create_map(
-        locations, synthetic_rows, args.count, args.seed, args.output
+    real_markers, synthetic_markers = read_scenario_sites(SCENARIO_CSV)
+    real_count, synthetic_count = create_map(
+        real_markers, synthetic_markers, args.output
     )
-    eligible_count = len(eligible_coordinates(locations))
     print(f"Interactive map created: {args.output.resolve()}")
-    print(f"Real Infoantenas locations displayed: {real_count}")
+    print(f"Real 350-cell locations displayed: {real_count}")
     print(f"Synthetic RRHs displayed: {synthetic_count}")
-    print(
-        f"Original 4G/5G sample exported: {sample_count} of "
-        f"{eligible_count} eligible locations to {SAMPLE_CSV.resolve()}."
-    )
+    print(f"Scenario source: {SCENARIO_CSV.resolve()}")
     if KML_FILE.exists():
         print(f"KML study boundary loaded: {KML_FILE}")
     else:
