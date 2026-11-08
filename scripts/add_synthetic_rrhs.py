@@ -9,7 +9,7 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-KML = ROOT / "data" / "input" / "selected_area.kml"
+KML = ROOT / "data" / "input" / "working_area_900km2.kml"
 REAL = ROOT / "data" / "processed" / "350_CELLS.csv"
 SYNTHETIC = ROOT / "data" / "processed" / "synthetic_rrhs.csv"
 COMBINED = ROOT / "data" / "processed" / "scenario_sites.csv"
