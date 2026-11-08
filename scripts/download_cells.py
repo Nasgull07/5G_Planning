@@ -1,21 +1,31 @@
 import argparse
 import csv
 import json
+import math
 import os
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from html.parser import HTMLParser
 from pathlib import Path
+import xml.etree.ElementTree as ET
 
 
+BASE_URL = "https://geoportal.minetur.gob.es/VCTEL/infoantenasGeoJSON.do"
+ZOOM = 7
+TILE_WIDTH = 1.9830280064774 - 1.9068961857986
+TILE_HEIGHT = 41.47127122711 - 41.414107988584
+REQUEST_DELAY_SECONDS = 0.2
+SITE_MAX_ATTEMPTS = 3
 DETAIL_URL = "https://geoportal.minetur.gob.es/VCTEL/detalleEstacion.do"
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_DIR / "data" / "processed"
-SOURCE_CSV = DATA_DIR / "cellular_sites.csv"
-OUTPUT_CSV = DATA_DIR / "cellular_site_details.csv"
-CHECKPOINT_CSV = OUTPUT_CSV.with_suffix(".partial.csv")
+KML_FILE = PROJECT_DIR / "data" / "input" / "working_area_900km2.kml"
+OUTPUT_CSV = DATA_DIR / "cellular_sites.csv"
+CHECKPOINT_CSV = DATA_DIR / "cellular_site_details.partial.csv"
+TEMP_OUTPUT_CSV = OUTPUT_CSV.with_suffix(".tmp.csv")
 MAX_ATTEMPTS = 3
 RETRY_DELAY_SECONDS = 2
 DEFAULT_WORKERS = 2
@@ -64,6 +74,181 @@ BAND_FREQUENCY_RANGES = {
         "n78": ((3300, 3800),),
     },
 }
+
+
+def parse_coordinate_ring(text):
+    points = []
+    for coordinate in text.split():
+        parts = coordinate.split(",")
+        if len(parts) >= 2:
+            points.append((float(parts[0]), float(parts[1])))
+    if len(points) < 3:
+        raise ValueError("El KML contiene un anillo con menos de tres coordenadas.")
+    return points
+
+
+def load_polygons(path):
+    root = ET.parse(path).getroot()
+    polygons = []
+    for polygon in root.findall(".//{*}Polygon"):
+        outer = polygon.find("./{*}outerBoundaryIs/{*}LinearRing/{*}coordinates")
+        if outer is None or not outer.text:
+            continue
+        outer_ring = parse_coordinate_ring(outer.text)
+        holes = []
+        for inner in polygon.findall("./{*}innerBoundaryIs/{*}LinearRing/{*}coordinates"):
+            if inner.text:
+                holes.append(parse_coordinate_ring(inner.text))
+        polygons.append((outer_ring, holes))
+    if not polygons:
+        raise ValueError(f"No se encontraron polígonos en {path}.")
+    return polygons
+
+
+def point_in_ring(point, ring):
+    x, y = point
+    inside = False
+    for index, (x1, y1) in enumerate(ring):
+        x2, y2 = ring[(index + 1) % len(ring)]
+        cross = (x - x1) * (y2 - y1) - (y - y1) * (x2 - x1)
+        if (
+            abs(cross) < 1e-10
+            and min(x1, x2) - 1e-10 <= x <= max(x1, x2) + 1e-10
+            and min(y1, y2) - 1e-10 <= y <= max(y1, y2) + 1e-10
+        ):
+            return True
+        if (y1 > y) != (y2 > y):
+            crossing_x = x1 + (y - y1) * (x2 - x1) / (y2 - y1)
+            if x < crossing_x:
+                inside = not inside
+    return inside
+
+
+def point_in_polygons(point, polygons):
+    return any(
+        point_in_ring(point, outer)
+        and not any(point_in_ring(point, hole) for hole in holes)
+        for outer, holes in polygons
+    )
+
+
+def make_tiles(polygons):
+    all_points = [
+        point
+        for outer, holes in polygons
+        for ring in [outer, *holes]
+        for point in ring
+    ]
+    min_lon = min(point[0] for point in all_points)
+    max_lon = max(point[0] for point in all_points)
+    min_lat = min(point[1] for point in all_points)
+    max_lat = max(point[1] for point in all_points)
+    columns = max(1, math.ceil((max_lon - min_lon) / TILE_WIDTH))
+    rows = max(1, math.ceil((max_lat - min_lat) / TILE_HEIGHT))
+    tiles = []
+    for row in range(rows):
+        south = min_lat + (max_lat - min_lat) * row / rows
+        north = min_lat + (max_lat - min_lat) * (row + 1) / rows
+        for column in range(columns):
+            west = min_lon + (max_lon - min_lon) * column / columns
+            east = min_lon + (max_lon - min_lon) * (column + 1) / columns
+            tiles.append((west, south, east, north))
+    return tiles
+
+
+def fetch_geojson(bbox):
+    params = urllib.parse.urlencode({
+        "idCapa": "null",
+        "bbox": ",".join(format(value, ".12f").rstrip("0").rstrip(".") for value in bbox),
+        "zoom": ZOOM,
+    })
+    request = urllib.request.Request(
+        f"{BASE_URL}?{params}",
+        headers={"User-Agent": "cellular-site-export/1.0", "Accept": "application/json"},
+    )
+    for attempt in range(SITE_MAX_ATTEMPTS):
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                charset = response.headers.get_content_charset() or "utf-8"
+                payload = response.read().decode(charset)
+            data = json.loads(payload)
+            if data == {}:
+                return []
+            if not isinstance(data, dict) or not isinstance(data.get("features"), list):
+                raise ValueError(
+                    f"Respuesta no válida para bbox={bbox}: {payload[:200]!r}"
+                )
+            return data["features"]
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            UnicodeError,
+            json.JSONDecodeError,
+        ) as error:
+            if attempt == SITE_MAX_ATTEMPTS - 1:
+                raise RuntimeError(f"Falló la consulta bbox={bbox}: {error}") from error
+            time.sleep(2 ** attempt)
+
+
+def feature_key(feature, properties):
+    return (
+        feature.get("id")
+        or properties.get("Gis_ID")
+        or properties.get("Gis_Codigo")
+        or json.dumps(feature, sort_keys=True, ensure_ascii=False)
+    )
+
+
+def download_cell_sites():
+    polygons = load_polygons(KML_FILE)
+    tiles = make_tiles(polygons)
+    unique_features = {}
+
+    for index, bbox in enumerate(tiles, start=1):
+        print(f"Consulta de estaciones {index}/{len(tiles)} (zoom {ZOOM})...")
+        for feature in fetch_geojson(bbox):
+            geometry = feature.get("geometry") or {}
+            coordinates = geometry.get("coordinates")
+            if (
+                geometry.get("type") != "Point"
+                or not isinstance(coordinates, list)
+                or len(coordinates) < 2
+            ):
+                continue
+            longitude, latitude = coordinates[:2]
+            if not point_in_polygons((longitude, latitude), polygons):
+                continue
+            properties = feature.get("properties") or {}
+            unique_features.setdefault(
+                feature_key(feature, properties),
+                (longitude, latitude, properties),
+            )
+        if index < len(tiles):
+            time.sleep(REQUEST_DELAY_SECONDS)
+
+    property_names = sorted({
+        name
+        for _, _, properties in unique_features.values()
+        for name in properties
+    })
+    rows = []
+    for identifier, (longitude, latitude, properties) in unique_features.items():
+        row = {
+            "feature_id": identifier,
+            "latitude": latitude,
+            "longitude": longitude,
+        }
+        row.update({
+            name: value if isinstance(value, (str, int, float, bool)) or value is None
+            else json.dumps(value, ensure_ascii=False)
+            for name, value in properties.items()
+        })
+        for name in ("Gis_ID", "Gis_Codigo"):
+            if row.get(name) is not None:
+                row[name] = str(row[name])
+        rows.append(row)
+
+    return rows, property_names
 
 
 def normalize_operator(operator):
@@ -324,9 +509,39 @@ def read_successful_rows(path):
     return successful, completed_codes
 
 
+def write_combined_csv(site_rows, detail_rows):
+    details_by_code = {
+        row.get("Gis_Codigo", "").strip(): row
+        for row in detail_rows
+        if row.get("Gis_Codigo", "").strip()
+    }
+    site_columns = list(dict.fromkeys(
+        name for row in site_rows for name in row
+    ))
+    columns = list(dict.fromkeys([
+        *site_columns,
+        *OUTPUT_COLUMNS,
+    ]))
+    if not site_rows:
+        columns = ["feature_id", "latitude", "longitude", *OUTPUT_COLUMNS]
+
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    with TEMP_OUTPUT_CSV.open("w", newline="", encoding="utf-8-sig") as output:
+        writer = csv.DictWriter(output, fieldnames=columns, extrasaction="ignore")
+        writer.writeheader()
+        for site in site_rows:
+            row = {name: "" for name in OUTPUT_COLUMNS}
+            row["estado"] = "NO_CONSULTADO"
+            row.update(site)
+            code = str(site.get("Gis_Codigo") or "").strip()
+            row.update(details_by_code.get(code, {}))
+            writer.writerow(row)
+    os.replace(TEMP_OUTPUT_CSV, OUTPUT_CSV)
+
+
 def main():
     argument_parser = argparse.ArgumentParser(
-        description="Descarga los datos técnicos de las estaciones del CSV de entrada."
+        description="Descarga las estaciones móviles y sus detalles técnicos."
     )
     argument_parser.add_argument(
         "--workers",
@@ -337,32 +552,38 @@ def main():
     argument_parser.add_argument(
         "--limit",
         type=int,
-        help="Limita el número de estaciones para una prueba.",
+        help="Limita las consultas de detalles (la descarga de estaciones es completa).",
     )
     args = argument_parser.parse_args()
     if args.workers < 1:
         argument_parser.error("--workers debe ser al menos 1.")
+    if args.limit is not None and args.limit < 1:
+        argument_parser.error("--limit debe ser al menos 1.")
 
-    with SOURCE_CSV.open("r", newline="", encoding="utf-8-sig") as source:
-        stations = list(csv.DictReader(source))
-    if any(not station.get("Gis_Codigo", "").strip() for station in stations):
-        raise ValueError(f"Hay filas sin Gis_Codigo en {SOURCE_CSV}.")
+    site_rows, _ = download_cell_sites()
+    if any(not str(station.get("Gis_Codigo") or "").strip() for station in site_rows):
+        raise ValueError(f"Hay filas sin Gis_Codigo en los datos descargados.")
+    stations_by_code = {
+        str(station.get("Gis_Codigo") or "").strip(): station
+        for station in site_rows
+        if str(station.get("Gis_Codigo") or "").strip()
+    }
+    stations = list(stations_by_code.values())
     if args.limit is not None:
-        if args.limit < 1:
-            argument_parser.error("--limit debe ser al menos 1.")
         stations = stations[:args.limit]
 
     prior_path = CHECKPOINT_CSV if CHECKPOINT_CSV.exists() else OUTPUT_CSV
     retained_rows, completed_codes = read_successful_rows(prior_path)
-    stations_by_code = {
-        station.get("Gis_Codigo", "").strip(): station
-        for station in stations
-        if station.get("Gis_Codigo", "").strip()
-    }
+    active_codes = {station["Gis_Codigo"] for station in stations}
+    retained_rows = [
+        row for row in retained_rows
+        if row.get("Gis_Codigo", "").strip() in active_codes
+    ]
+    completed_codes.intersection_update(active_codes)
     pending = [
         station
-        for code, station in stations_by_code.items()
-        if code not in completed_codes
+        for station in stations
+        if station["Gis_Codigo"] not in completed_codes
     ]
     CHECKPOINT_CSV.parent.mkdir(parents=True, exist_ok=True)
 
@@ -376,15 +597,10 @@ def main():
             futures = {executor.submit(fetch_station, station): station for station in pending}
             total = len(pending)
             failed = 0
-            new_successful_codes = set()
             for completed, future in enumerate(as_completed(futures), start=1):
                 records = future.result()
                 if records and records[0].get("estado") == "ERROR":
                     failed += 1
-                else:
-                    code = records[0].get("Gis_Codigo", "").strip() if records else ""
-                    if code:
-                        new_successful_codes.add(code)
                 writer.writerows(records)
                 checkpoint.flush()
                 if completed % 25 == 0 or completed == total:
@@ -393,16 +609,19 @@ def main():
                         flush=True,
                     )
 
-    os.replace(CHECKPOINT_CSV, OUTPUT_CSV)
+    with CHECKPOINT_CSV.open("r", newline="", encoding="utf-8-sig") as checkpoint:
+        detail_rows = list(csv.DictReader(checkpoint))
+    write_combined_csv(site_rows, detail_rows)
+    CHECKPOINT_CSV.unlink()
     successful_codes = {
         row.get("Gis_Codigo", "").strip()
-        for row in retained_rows
+        for row in detail_rows
         if row.get("estado") in SUCCESS_STATUSES and row.get("Gis_Codigo", "").strip()
     }
-    successful_codes.update(new_successful_codes)
     print(
-        f"CSV creado: {OUTPUT_CSV} "
-        f"({len(successful_codes)} Gis_Codigo completados; {failed} errores nuevos)."
+        f"CSV combinado creado: {OUTPUT_CSV} "
+        f"({len(site_rows)} celdas; {len(successful_codes)} Gis_Codigo con detalles; "
+        f"{failed} errores nuevos)."
     )
 
 

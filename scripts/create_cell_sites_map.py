@@ -19,7 +19,7 @@ def escape(value):
 def read_scenario_sites(path):
     if not path.exists():
         raise FileNotFoundError(
-            f"No se encontró {path}. Ejecuta primero add_synthetic_rrhs.py."
+            f"No se encontró {path}. Ejecuta primero create_scenario_sites.py."
         )
 
     required = {
@@ -61,7 +61,7 @@ def read_scenario_sites(path):
             else:
                 coordinate = f"{latitude:.6f}, {longitude:.6f}"
                 site["popup"] = (
-                    "<div><b>Real site (350_CELLS)</b></div>"
+                    "<div><b>Real 4G/5G site selected for scenario</b></div>"
                     f"<div><b>Site ID:</b> {escape(site['rrh_id'])}</div>"
                     f"<div><b>Operator:</b> {escape(site['operator'])}</div>"
                     f"<div><b>Technology:</b> {escape(site['technology'])}</div>"
