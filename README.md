@@ -17,6 +17,7 @@ output/
 scripts/
   download_cells.py               Descarga estaciones y sus detalles técnicos
   create_cell_sites_map.py        Genera el mapa HTML
+  bbu_initial_assignment_kmedian.py  Optimiza y asigna RRHs a BBU Pools
 ```
 
 El script de descarga genera `cellular_sites.csv` y puede sobrescribirlo en
@@ -25,7 +26,9 @@ cada ejecución.
 ## Requisitos
 
 - Python 3.10 o posterior.
-- No hacen falta paquetes externos de Python.
+- Para la descarga y generación del escenario no hacen falta paquetes externos
+  de Python. La optimización de BBU Pools requiere `pandas`, `numpy`, `folium`,
+  `matplotlib` y `pyproj`.
 - Se necesita Internet para consultar el Geoportal y para cargar las teselas
   del mapa interactivo.
 
@@ -92,3 +95,25 @@ El proceso escribe un único archivo de escenario:
 `data/processed/scenario_sites.csv`. Después,
 `create_cell_sites_map.py` lo lee para generar
 `output/cellular_sites_map.html`.
+
+## Asignación de RRHs a BBU Pools
+
+Instala las dependencias de la optimización:
+
+```powershell
+pip install pandas numpy folium matplotlib pyproj
+```
+
+Con `scenario_sites.csv` generado, ejecuta la asignación para desplegar tres
+BBU Pools:
+
+```powershell
+python .\scripts\bbu_initial_assignment_kmedian.py -k 3
+```
+
+El algoritmo K-Median (K-Medoids) busca minimizar la suma de las distancias
+entre RRHs y sus BBU Pools asignados. Lee por defecto
+`data/processed/scenario_sites.csv` y genera los archivos de asignaciones y
+ubicaciones de pools en `data/processed/`, además de un mapa interactivo en
+`output/`. Usa `--input_path`, `--data_output_dir` y `--html_output_dir` para
+cambiar las rutas.
