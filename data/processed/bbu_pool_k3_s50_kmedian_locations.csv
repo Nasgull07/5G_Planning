@@ -1,0 +1,4 @@
+rrh_id,site_id,operator,technology,latitude,longitude,is_synthetic,bbu_pool,num_assigned_rrhs
+RRH_030,0804960,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.35017,2.040428,False,BBU_01,95
+RRH_318,CATR3282A,"ORANGE ESPAGNE, S.A.U.",4G,41.50808,2.039433,False,BBU_02,94
+RRH_159,0800033,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.396305,2.162556,False,BBU_03,211
