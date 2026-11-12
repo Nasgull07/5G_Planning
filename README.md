@@ -32,6 +32,23 @@ cada ejecución.
 - Se necesita Internet para consultar el Geoportal y para cargar las teselas
   del mapa interactivo.
 
+## Dashboard local
+
+Inicia la interfaz desde la raíz del proyecto:
+
+```powershell
+python .\scripts\dashboard_server.py
+```
+
+Abre `http://127.0.0.1:8765` en el navegador. El dashboard permite descargar
+estaciones, generar un escenario, ejecutar la asignación K-Medoids y consultar
+los mapas, gráficos y tablas existentes. La galería de mapas permite filtrar
+por número de BBU Pools, RRHs totales y RRHs sintéticos; al terminar una
+asignación, muestra automáticamente el mapa recién generado. Las acciones usan
+los scripts del proyecto y muestran su progreso y errores. El servidor solo
+escucha en la máquina local. Los nuevos análisis de retardo y perfiles de
+tráfico aparecen como futuras extensiones y todavía no se ejecutan.
+
 ## Uso
 
 Ejecuta estos comandos desde la carpeta raíz del proyecto:

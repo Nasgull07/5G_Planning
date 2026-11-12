@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b2d">
+  <title>5G Planning | Workspace</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17243a;
+      --muted: #718096;
+      --line: #e4e9f0;
+      --panel: #fff;
+      --canvas: #f3f6fa;
+      --blue: #2563eb;
+      --blue-dark: #1748b5;
+      --teal: #0e8a82;
+      --amber: #d97706;
+      --red: #c2414b;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    .topbar {
+      height: 66px; padding: 0 24px; display: flex; align-items: center;
+      justify-content: space-between; color: #fff; background: #101b2d;
+      border-bottom: 1px solid #26344a;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 700; }
+    .brand-mark {
+      display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px;
+      color: #fff; background: linear-gradient(140deg, #39b6c8, #2761d7); font-size: 12px;
+    }
+    .brand-subtitle { color: #a7b5ca; font-size: 12px; font-weight: 400; margin-top: 3px; }
+    .top-actions { display: flex; align-items: center; gap: 14px; color: #b7c3d4; font-size: 12px; }
+    .status-dot { width: 8px; height: 8px; display: inline-block; border-radius: 50%; background: #43d3a1; margin-right: 7px; }
+    .app-shell {
+      height: calc(100vh - 66px); min-height: 620px; display: grid;
+      grid-template-columns: 300px minmax(420px, 1fr) 330px; gap: 14px; padding: 14px;
+    }
+    .panel, .map-card { background: var(--panel); border: 1px solid var(--line); border-radius: 13px; box-shadow: 0 4px 16px #13213a0a; }
+    .control-panel, .results-panel { min-height: 0; overflow: auto; }
+    .panel-heading { padding: 18px 18px 12px; border-bottom: 1px solid var(--line); }
+    .panel-heading h1, .panel-heading h2 { margin: 0; font-size: 15px; letter-spacing: -.01em; }
+    .panel-heading p { color: var(--muted); font-size: 12px; line-height: 1.5; margin: 6px 0 0; }
+    .section { padding: 15px 17px; border-bottom: 1px solid var(--line); }
+    .section-title { display: flex; align-items: center; gap: 8px; margin: 0 0 11px; font-size: 12px; font-weight: 700; }
+    .section-index { width: 20px; height: 20px; display: inline-grid; place-items: center; border-radius: 6px; background: #edf3ff; color: var(--blue); font-size: 10px; }
+    .field { display: block; margin: 9px 0; }
+    .field span { display: block; margin-bottom: 5px; color: #56647a; font-size: 11px; font-weight: 600; }
+    .field input, .field select, .filter-control {
+      width: 100%; height: 35px; border: 1px solid #d8e0ea; border-radius: 7px;
+      padding: 0 9px; color: var(--ink); background: #fff; outline: none;
+    }
+    .field input:focus, .field select:focus, .filter-control:focus { border-color: #80a9fb; box-shadow: 0 0 0 3px #2563eb18; }
+    .field-hint { display: block; margin-top: 4px; color: #8591a3; font-size: 10px; line-height: 1.45; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 9px; }
+    .button {
+      min-height: 35px; border: 0; border-radius: 7px; padding: 8px 11px;
+      color: #fff; background: var(--blue); font-size: 11px; font-weight: 700;
+      transition: background .15s, transform .15s;
+    }
+    .button:hover { background: var(--blue-dark); }
+    .button:active { transform: translateY(1px); }
+    .button:disabled { opacity: .5; cursor: wait; }
+    .button.secondary { color: #30425c; background: #edf2f8; }
+    .button.secondary:hover { background: #e2eaf3; }
+    .button.full { width: 100%; margin-top: 5px; }
+    .future-card { padding: 12px; border: 1px dashed #c9d4e2; border-radius: 9px; background: #f9fbfd; }
+    .future-card strong { display: block; margin-bottom: 4px; font-size: 11px; }
+    .future-card p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+    .future-tags { display: flex; gap: 5px; margin-top: 8px; flex-wrap: wrap; }
+    .future-tags span { border: 1px solid #e1e7ef; border-radius: 12px; padding: 4px 7px; color: #69778c; background: #fff; font-size: 9px; }
+    .workspace { min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    .stat {
+      min-height: 68px; padding: 12px 14px; background: #fff; border: 1px solid var(--line);
+      border-radius: 11px; box-shadow: 0 4px 16px #13213a0a;
+    }
+    .stat-label { color: var(--muted); font-size: 10px; }
+    .stat-value { margin-top: 6px; font-size: 19px; font-weight: 700; letter-spacing: -.03em; }
+    .map-card { min-height: 0; flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+    .map-toolbar {
+      min-height: 53px; padding: 9px 13px; display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; border-bottom: 1px solid var(--line);
+    }
+    .map-title { font-size: 12px; font-weight: 700; }
+    .map-subtitle { margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .map-tools { display: flex; align-items: center; gap: 7px; }
+    .map-frame-wrap { position: relative; flex: 1; min-height: 300px; background: #e9eff4; }
+    #map-frame { width: 100%; height: 100%; min-height: 300px; border: 0; }
+    .map-empty { position: absolute; inset: 0; display: none; place-items: center; padding: 25px; text-align: center; color: var(--muted); font-size: 12px; background: #f6f8fb; }
+    .map-empty strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 13px; }
+    .map-note { padding: 8px 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+    .results-panel .panel-heading { position: sticky; top: 0; z-index: 2; background: white; }
+    .gallery-filters { padding: 12px 14px 9px; display: grid; gap: 8px; border-bottom: 1px solid var(--line); }
+    .filter-row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .filter-control { height: 32px; font-size: 10px; }
+    .filter-hint { color: var(--muted); font-size: 10px; }
+    .gallery-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 10px 12px 0; }
+    .gallery-tab { min-height: 31px; border: 1px solid transparent; border-radius: 7px; color: #64748b; background: transparent; font-size: 10px; font-weight: 700; }
+    .gallery-tab.active { border-color: #d7e3f8; color: #1d4ed8; background: #edf4ff; }
+    .gallery-list { padding: 10px; display: grid; gap: 9px; }
+    .artifact-card { overflow: hidden; border: 1px solid var(--line); border-radius: 9px; background: #fff; }
+    .artifact-card.selected { border-color: #4a83ef; box-shadow: 0 0 0 2px #4a83ef20; }
+    .artifact-preview { display: block; width: 100%; max-height: 175px; object-fit: contain; background: #f6f8fb; border-bottom: 1px solid var(--line); }
+    .map-preview { min-height: 82px; display: grid; place-items: center; border-bottom: 1px solid var(--line); color: #1c4d93; background: linear-gradient(135deg, #eaf3f9, #dcebe9); }
+    .map-preview strong { font-size: 12px; }
+    .map-preview span { display: block; margin-top: 4px; color: #60738b; font-size: 9px; }
+    .artifact-body { padding: 9px 10px; }
+    .artifact-title { margin: 0; overflow-wrap: anywhere; font-size: 11px; font-weight: 700; line-height: 1.4; }
+    .artifact-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin-top: 7px; color: var(--muted); font-size: 9px; }
+    .chip { padding: 3px 6px; border-radius: 10px; color: #526179; background: #f0f3f7; }
+    .artifact-link { display: inline-block; margin-top: 8px; color: var(--blue); font-size: 10px; font-weight: 700; text-decoration: none; }
+    .artifact-link:hover { text-decoration: underline; }
+    .map-open { margin-top: 9px; padding: 6px 9px; border: 0; border-radius: 6px; color: #fff; background: var(--blue); font-size: 10px; font-weight: 700; }
+    .map-open:hover { background: var(--blue-dark); }
+    .empty-state { padding: 22px 12px; text-align: center; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .jobbar { position: fixed; right: 24px; bottom: 20px; z-index: 1200; width: min(460px, calc(100vw - 32px)); padding: 13px; display: none; border: 1px solid #d5deea; border-radius: 11px; background: white; box-shadow: 0 10px 40px #17243a24; }
+    .jobbar.visible { display: block; }
+    .job-title-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .job-title { font-size: 11px; font-weight: 700; }
+    .job-status { color: var(--muted); font-size: 10px; }
+    .job-log { max-height: 135px; overflow: auto; margin: 9px 0 0; padding: 8px; border-radius: 6px; color: #dbe8ff; background: #152238; font: 10px/1.5 Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .toast { position: fixed; top: 78px; left: 50%; z-index: 1300; transform: translateX(-50%); display: none; max-width: calc(100vw - 30px); padding: 10px 14px; border: 1px solid #f0b5b7; border-radius: 8px; color: #8d2932; background: #fff5f5; box-shadow: 0 5px 20px #17243a1a; font-size: 11px; }
+    .toast.visible { display: block; }
+    @media (max-width: 1150px) {
+      .app-shell { grid-template-columns: 270px minmax(360px, 1fr); height: auto; min-height: calc(100vh - 66px); }
+      .results-panel { grid-column: 1 / -1; max-height: 470px; }
+      .gallery-list { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      .topbar { height: 58px; padding: 0 13px; }
+      .top-actions { font-size: 10px; }
+      .app-shell { display: flex; flex-direction: column; min-height: 0; height: auto; padding: 9px; gap: 9px; }
+      .control-panel { max-height: none; }
+      .workspace { min-height: 560px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .map-card { min-height: 520px; }
+      .map-toolbar { align-items: flex-start; flex-direction: column; }
+      .map-tools, .map-tools select { width: 100%; }
+      .results-panel { max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">5G</div>
+      <div>
+        <div>5G Planning <span style="color:#7788a0;font-weight:400">/</span> Workspace</div>
+        <div class="brand-subtitle">Radio access network planning</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span><i class="status-dot"></i><span id="connection-status">Connecting</span></span>
+      <span>Local workspace</span>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="panel control-panel">
+      <div class="panel-heading">
+        <h1>Planning controls</h1>
+        <p>Prepare network inputs and run the project's current workflows.</p>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title"><span class="section-index">1</span>Cell data</h2>
+        <p id="cell-data-status" class="field-hint">Checking downloaded cell data...</p>
+        <form id="download-form">
+          <label class="field">
+            <span>Parallel detail requests</span>
+            <input name="workers" type="number" min="1" max="16" value="2" required>
+          </label>
+          <button class="button full" type="submit">Download cells from Infoantenas</button>
+        </form>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="section-index">2</span>Build a scenario</h2>
+        <form id="scenario-form">
+          <div class="form-grid">
+            <label class="field">
+              <span>Real RRH locations</span>
+              <input name="real_count" type="number" min="1" max="5000" value="350" required>
+            </label>
+            <label class="field">
+              <span>Additional random RRHs</span>
+              <input name="synthetic_count" type="number" min="0" max="5000" value="50" required>
+            </label>
+          </div>
+          <div class="form-grid">
+            <label class="field">
+              <span>Minimum spacing (m)</span>
+              <input name="min_distance" type="number" min="1" step="1" value="200" required>
+            </label>
+            <label class="field">
+              <span>Random seed</span>
+              <input name="seed" type="number" step="1" value="42" required>
+            </label>
+          </div>
+          <button class="button full" type="submit">Generate scenario and map</button>
+        </form>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="section-index">3</span>Configure BBU Pools</h2>
+        <form id="assignment-form">
+          <label class="field">
+            <span>Number of pools (K)</span>
+            <input name="pool_count" type="number" min="1" value="3" required>
+            <small class="field-hint">Current workflow selects pool locations using K-Medoids.</small>
+          </label>
+          <button class="button full" type="submit">Run K-Medoids assignment</button>
+        </form>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title"><span class="section-index">+</span>Next analysis features</h2>
+        <div class="future-card">
+          <strong>Designed to extend</strong>
+          <p>Delay feasibility and traffic profiles are not implemented yet. These controls are reserved until their calculation rules are defined.</p>
+          <div class="future-tags">
+            <span>200 μs delay limit</span>
+            <span>Residential / Office / Mixed</span>
+            <span>Feasible pool options</span>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <section class="workspace" aria-label="Map workspace">
+      <div class="stats">
+        <div class="stat"><div class="stat-label">Downloaded cells</div><div class="stat-value" id="stat-cells">—</div></div>
+        <div class="stat"><div class="stat-label">Scenario RRHs</div><div class="stat-value" id="stat-total">—</div></div>
+        <div class="stat"><div class="stat-label">Real locations</div><div class="stat-value" id="stat-real">—</div></div>
+        <div class="stat"><div class="stat-label">Synthetic RRHs</div><div class="stat-value" id="stat-synthetic">—</div></div>
+      </div>
+      <section class="map-card">
+        <div class="map-toolbar">
+          <div>
+            <div class="map-title">Geographic workspace</div>
+            <div class="map-subtitle" id="map-current-name">Use the results panel to choose a map.</div>
+          </div>
+          <div class="map-tools">
+            <button type="button" class="button secondary" id="refresh-map">Refresh map</button>
+          </div>
+        </div>
+        <div class="map-frame-wrap">
+          <iframe id="map-frame" title="Selected interactive planning map"></iframe>
+          <div id="map-empty" class="map-empty">
+            <div><strong>No map has been generated yet</strong>Download cells or generate a scenario to create a map.</div>
+          </div>
+        </div>
+        <div class="map-note">Map tiles require an internet connection. Layer options depend on the selected map.</div>
+      </section>
+    </section>
+
+    <aside class="panel results-panel">
+      <div class="panel-heading">
+        <h2>Results library</h2>
+        <p>Browse saved charts, tables, and generated maps.</p>
+      </div>
+      <div class="gallery-tabs" role="tablist" aria-label="Result type">
+        <button id="artifacts-tab" class="gallery-tab active" type="button" role="tab" aria-selected="true">Charts &amp; tables</button>
+        <button id="maps-tab" class="gallery-tab" type="button" role="tab" aria-selected="false">Maps</button>
+      </div>
+      <div class="gallery-filters">
+        <input id="search-filter" class="filter-control" type="search" placeholder="Search by name..." aria-label="Search results">
+        <div class="filter-row">
+          <select id="kind-filter" class="filter-control" aria-label="Filter by file type">
+            <option value="all">All results</option>
+            <option value="chart">Charts</option>
+            <option value="table">Tables (CSV)</option>
+          </select>
+          <select id="pool-filter" class="filter-control" aria-label="Filter by BBU Pool count"></select>
+        </div>
+        <div class="filter-row">
+          <select id="rrh-filter" class="filter-control" aria-label="Filter by total RRH count"></select>
+          <select id="synthetic-filter" class="filter-control" aria-label="Filter by synthetic RRH count"></select>
+        </div>
+        <div class="filter-row">
+          <span id="filter-note" class="filter-hint"></span>
+          <span id="result-count" class="filter-hint" style="align-self:center;text-align:right"></span>
+        </div>
+      </div>
+      <div id="gallery-list" class="gallery-list">
+        <div class="empty-state">Loading saved results...</div>
+      </div>
+    </aside>
+  </main>
+
+  <div id="toast" class="toast" role="alert"></div>
+  <div id="jobbar" class="jobbar" aria-live="polite">
+    <div class="job-title-row">
+      <div class="job-title" id="job-title">Workflow</div>
+      <div class="job-status" id="job-status"></div>
+    </div>
+    <pre id="job-log" class="job-log"></pre>
+  </div>
+
+  <script>
+    const stateUrl = "/api/state";
+    let artifacts = [];
+    let maps = [];
+    let galleryMode = "artifacts";
+    let activeMapUrl = null;
+    let currentJobId = null;
+    let pollTimer = null;
+
+    const byId = (id) => document.getElementById(id);
+    const formatNumber = (number) => Number(number || 0).toLocaleString();
+    const showToast = (message) => {
+      const toast = byId("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      window.setTimeout(() => toast.classList.remove("visible"), 6000);
+    };
+
+    async function fetchJson(url, options = {}) {
+      const response = await fetch(url, options);
+      let payload;
+      try { payload = await response.json(); }
+      catch { throw new Error(`Unexpected response (${response.status}).`); }
+      if (!response.ok) throw new Error(payload.error || `Request failed (${response.status}).`);
+      return payload;
+    }
+
+    function mapSummary(map) {
+      const details = [];
+      if (map.k !== null) details.push(`K = ${map.k}`);
+      if (map.rrhs !== null) details.push(`${formatNumber(map.rrhs)} RRHs`);
+      if (map.synthetic_rrhs !== null) details.push(`${formatNumber(map.synthetic_rrhs)} synthetic`);
+      return details.join(" · ");
+    }
+
+    function setMap(map, forceReload = false) {
+      const frame = byId("map-frame");
+      const empty = byId("map-empty");
+      if (!map) {
+        activeMapUrl = null;
+        frame.style.display = "none";
+        empty.style.display = "grid";
+        frame.removeAttribute("src");
+        byId("map-current-name").textContent = "Use the results panel to choose a map.";
+        return;
+      }
+      empty.style.display = "none";
+      frame.style.display = "block";
+      byId("map-current-name").textContent = [map.title, mapSummary(map)]
+        .filter(Boolean)
+        .join(" · ");
+      if (forceReload || activeMapUrl !== map.url) {
+        activeMapUrl = map.url;
+        frame.src = `${map.url}?t=${Date.now()}`;
+      }
+    }
+
+    function renderMaps() {
+      if (!maps.length) {
+        setMap(null);
+        return;
+      }
+      setMap(maps.find((map) => map.url === activeMapUrl) || maps[0]);
+    }
+
+    function updateSelectOptions(select, values, label) {
+      const selected = select.value;
+      select.replaceChildren();
+      const any = document.createElement("option");
+      any.value = "all";
+      any.textContent = label;
+      select.append(any);
+      for (const value of values) {
+        const option = document.createElement("option");
+        option.value = String(value);
+        option.textContent = value;
+        select.append(option);
+      }
+      if (values.map(String).includes(selected)) select.value = selected;
+    }
+
+    function makeChip(text) {
+      const chip = document.createElement("span");
+      chip.className = "chip";
+      chip.textContent = text;
+      return chip;
+    }
+
+    function renderGallery() {
+      const query = byId("search-filter").value.trim().toLowerCase();
+      const kind = byId("kind-filter").value;
+      const pool = byId("pool-filter").value;
+      const rrhCount = byId("rrh-filter").value;
+      const synthetic = byId("synthetic-filter").value;
+      const source = galleryMode === "maps" ? maps : artifacts;
+      const visible = source.filter((item) => {
+        const searchable = `${item.title} ${item.name} ${item.kind}`.toLowerCase();
+        return (!query || searchable.includes(query))
+          && (galleryMode === "maps" || kind === "all" || kind === item.kind)
+          && (pool === "all" || String(item.k) === pool)
+          && (rrhCount === "all" || String(item.rrhs) === rrhCount)
+          && (synthetic === "all" || String(item.synthetic_rrhs) === synthetic);
+      });
+      const list = byId("gallery-list");
+      list.replaceChildren();
+      byId("result-count").textContent = `${visible.length} result${visible.length === 1 ? "" : "s"}`;
+      if (!visible.length) {
+        const empty = document.createElement("div");
+        empty.className = "empty-state";
+        empty.textContent = source.length
+          ? "No results match these filters."
+          : galleryMode === "maps"
+            ? "No generated maps are available yet."
+            : "No saved charts or result tables yet.";
+        list.append(empty);
+        return;
+      }
+      for (const item of visible) {
+        const card = document.createElement("article");
+        card.className = "artifact-card";
+        if (galleryMode === "maps") {
+          if (item.url === activeMapUrl) card.classList.add("selected");
+          const preview = document.createElement("div");
+          preview.className = "map-preview";
+          const previewLabel = document.createElement("div");
+          const previewTitle = document.createElement("strong");
+          previewTitle.textContent = item.map_type === "assignment" ? "ASSIGNMENT MAP" : "SCENARIO MAP";
+          const previewDescription = document.createElement("span");
+          previewDescription.textContent = "Interactive map";
+          previewLabel.append(previewTitle, previewDescription);
+          preview.append(previewLabel);
+          card.append(preview);
+        } else if (item.kind === "chart") {
+          const image = document.createElement("img");
+          image.className = "artifact-preview";
+          image.src = item.url;
+          image.alt = item.title;
+          card.append(image);
+        }
+        const body = document.createElement("div");
+        body.className = "artifact-body";
+        const title = document.createElement("h3");
+        title.className = "artifact-title";
+        title.textContent = item.title;
+        body.append(title);
+        const meta = document.createElement("div");
+        meta.className = "artifact-meta";
+        meta.append(makeChip(
+          galleryMode === "maps"
+            ? (item.map_type === "assignment" ? "Interactive assignment map" : "Interactive map")
+            : (item.kind === "chart" ? "PNG chart" : "CSV table")
+        ));
+        if (item.k !== null) meta.append(makeChip(`K = ${item.k}`));
+        if (item.rrhs !== null) meta.append(makeChip(`${formatNumber(item.rrhs)} RRHs`));
+        if (item.real_rrhs !== null) meta.append(makeChip(`${formatNumber(item.real_rrhs)} real`));
+        if (item.synthetic_rrhs !== null) {
+          meta.append(makeChip(`${formatNumber(item.synthetic_rrhs)} synthetic`));
+        }
+        if (item.size !== undefined) meta.append(makeChip(`${formatNumber(item.size)} bytes`));
+        body.append(meta);
+        if (galleryMode === "maps") {
+          const button = document.createElement("button");
+          button.className = "map-open";
+          button.type = "button";
+          button.dataset.mapUrl = item.url;
+          button.textContent = item.url === activeMapUrl ? "Currently displayed" : "Show this map";
+          button.disabled = item.url === activeMapUrl;
+          body.append(button);
+        } else {
+          const link = document.createElement("a");
+          link.className = "artifact-link";
+          link.href = item.url;
+          link.textContent = item.kind === "chart" ? "Open chart" : "Download CSV";
+          if (item.kind === "chart") link.target = "_blank";
+          body.append(link);
+        }
+        card.append(body);
+        list.append(card);
+      }
+    }
+
+    function updateGalleryFilters() {
+      const items = galleryMode === "maps" ? maps : artifacts;
+      const valuesFor = (key) => [...new Set(
+        items.map((item) => item[key]).filter((value) => Number.isFinite(value))
+      )].sort((a, b) => a - b);
+      byId("kind-filter").style.display = galleryMode === "maps" ? "none" : "block";
+      byId("filter-note").textContent = galleryMode === "maps"
+        ? "Choose a map card to display it in the workspace."
+        : "Filter saved outputs by their run parameters.";
+      updateSelectOptions(byId("pool-filter"), valuesFor("k"), "Any BBU Pool count");
+      updateSelectOptions(byId("rrh-filter"), valuesFor("rrhs"), "Any RRH count");
+      updateSelectOptions(byId("synthetic-filter"), valuesFor("synthetic_rrhs"), "Any synthetic count");
+    }
+
+    function switchGallery(mode) {
+      galleryMode = mode;
+      byId("artifacts-tab").classList.toggle("active", mode === "artifacts");
+      byId("maps-tab").classList.toggle("active", mode === "maps");
+      byId("artifacts-tab").setAttribute("aria-selected", String(mode === "artifacts"));
+      byId("maps-tab").setAttribute("aria-selected", String(mode === "maps"));
+      updateGalleryFilters();
+      renderGallery();
+    }
+
+    async function refreshDashboard() {
+      const [state, catalog] = await Promise.all([
+        fetchJson(stateUrl),
+        fetchJson("/api/catalog"),
+      ]);
+      byId("connection-status").textContent = "Connected";
+      byId("stat-cells").textContent = state.cells_available ? formatNumber(state.cell_count) : "—";
+      byId("stat-total").textContent = state.scenario.available ? formatNumber(state.scenario.total) : "—";
+      byId("stat-real").textContent = state.scenario.available ? formatNumber(state.scenario.real) : "—";
+      byId("stat-synthetic").textContent = state.scenario.available ? formatNumber(state.scenario.synthetic) : "—";
+      byId("cell-data-status").textContent = state.cells_available
+        ? `${formatNumber(state.cell_count)} rows available in cellular_sites.csv.`
+        : "No downloaded cell data found yet.";
+      maps = catalog.maps;
+      artifacts = catalog.artifacts;
+      renderMaps();
+      updateGalleryFilters();
+      renderGallery();
+      await refreshJob();
+    }
+
+    async function refreshJob() {
+      const job = await fetchJson("/api/job");
+      const jobbar = byId("jobbar");
+      const active = job.status === "running";
+      if (job.id) {
+        jobbar.classList.add("visible");
+        byId("job-title").textContent = job.label || "Workflow";
+        byId("job-status").textContent = `${job.status}${job.step ? ` · ${job.step}` : ""}`;
+        byId("job-log").textContent = (job.log || []).join("\n");
+        byId("job-log").scrollTop = byId("job-log").scrollHeight;
+        for (const button of document.querySelectorAll(".button")) {
+          if (button.type === "submit") button.disabled = active;
+        }
+      }
+      if (job.id && job.id !== currentJobId && job.status === "running") currentJobId = job.id;
+      if (active && !pollTimer) {
+        pollTimer = window.setInterval(() => refreshJob().catch((error) => showToast(error.message)), 1000);
+      }
+      if (currentJobId && job.id === currentJobId && !active && job.status !== "idle") {
+        if (pollTimer) window.clearInterval(pollTimer);
+        pollTimer = null;
+        currentJobId = null;
+        await refreshDashboard();
+        if (job.status === "completed" && job.label === "Running K-Medoids assignment") {
+          const assignmentMap = maps.find((map) => map.map_type === "assignment");
+          if (assignmentMap) {
+            switchGallery("maps");
+            setMap(assignmentMap);
+            renderGallery();
+          }
+        } else if (job.status === "completed" && job.label === "Generating scenario and map") {
+          const scenarioMap = maps.find((map) => map.name === "cellular_sites_map.html");
+          if (scenarioMap) {
+            switchGallery("maps");
+            setMap(scenarioMap);
+            renderGallery();
+          }
+        }
+        if (job.status === "completed") showToast("Workflow completed successfully.");
+        else if (job.error) showToast(job.error);
+      }
+    }
+
+    async function startJob(action, payload) {
+      try {
+        const job = await fetchJson(`/api/jobs/${action}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        currentJobId = job.id;
+        await refreshJob();
+        if (currentJobId) {
+          if (pollTimer) window.clearInterval(pollTimer);
+          pollTimer = window.setInterval(() => refreshJob().catch((error) => showToast(error.message)), 1000);
+        }
+      } catch (error) {
+        showToast(error.message);
+      }
+    }
+
+    function formValues(form) {
+      const values = {};
+      for (const [key, value] of new FormData(form).entries()) values[key] = value;
+      return values;
+    }
+
+    byId("download-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const values = formValues(event.currentTarget);
+      startJob("download", { workers: Number(values.workers) });
+    });
+    byId("scenario-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const values = formValues(event.currentTarget);
+      startJob("scenario", {
+        real_count: Number(values.real_count),
+        synthetic_count: Number(values.synthetic_count),
+        min_distance: Number(values.min_distance),
+        seed: Number(values.seed),
+      });
+    });
+    byId("assignment-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const values = formValues(event.currentTarget);
+      startJob("assignment", { pool_count: Number(values.pool_count) });
+    });
+    byId("gallery-list").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-map-url]");
+      if (!button) return;
+      const map = maps.find((item) => item.url === button.dataset.mapUrl);
+      if (map) {
+        setMap(map);
+        renderGallery();
+      }
+    });
+    byId("artifacts-tab").addEventListener("click", () => switchGallery("artifacts"));
+    byId("maps-tab").addEventListener("click", () => switchGallery("maps"));
+    byId("refresh-map").addEventListener("click", () => {
+      const map = maps.find((item) => item.url === activeMapUrl);
+      if (map) setMap(map, true);
+    });
+    for (const id of ["search-filter", "kind-filter", "pool-filter", "rrh-filter", "synthetic-filter"]) {
+      byId(id).addEventListener("input", renderGallery);
+      byId(id).addEventListener("change", renderGallery);
+    }
+
+    refreshDashboard().catch((error) => {
+      byId("connection-status").textContent = "Unavailable";
+      showToast(error.message);
+    });
+  </script>
+</body>
+</html>
