@@ -1,0 +1,1201 @@
+rrh_id,source_type,office_threshold,office_count,traffic_category
+"[""CATR0704C""]",REAL_4G_5G,3,113,Mixed
+"[""CATR5941A""]",REAL_4G_5G,3,7,Office
+"[""CATR6114A""]",REAL_4G_5G,3,1,Residential
+"[""030664"", ""30664"", ""CATR4791A""]",REAL_4G_5G,3,1,Undetermined
+"[""0800354""]",REAL_4G_5G,3,36,Mixed
+"[""0800388""]",REAL_4G_5G,3,4,Office
+"[""0803378""]",REAL_4G_5G,3,6,Mixed
+"[""0804442""]",REAL_4G_5G,3,9,Mixed
+"[""063922"", ""63922"", ""CATR3007M""]",REAL_4G_5G,3,13,Office
+"[""0801563""]",REAL_4G_5G,3,24,Office
+"[""193605"", ""CATR2868A""]",REAL_4G_5G,3,13,Office
+"[""024269"", ""0801435"", ""24269"", ""CATR2823A""]",REAL_4G_5G,3,31,Mixed
+"[""0800658""]",REAL_4G_5G,3,0,Undetermined
+"[""0806331""]",REAL_4G_5G,3,87,Mixed
+"[""0801461"", ""CATR0205A""]",REAL_4G_5G,3,81,Mixed
+"[""0800967""]",REAL_4G_5G,3,0,Undetermined
+"[""063112"", ""0800323"", ""63112""]",REAL_4G_5G,3,41,Office
+"[""0800184"", ""CATR2045B""]",REAL_4G_5G,3,1,Undetermined
+"[""10060""]",REAL_4G_5G,3,1,Residential
+"[""599"", ""CATR0031Z""]",REAL_4G_5G,3,12,Mixed
+"[""0805257""]",REAL_4G_5G,3,7,Office
+"[""040008"", ""0800331"", ""CATR4608A""]",REAL_4G_5G,3,0,Undetermined
+"[""0800261""]",REAL_4G_5G,3,14,Mixed
+"[""0808050""]",REAL_4G_5G,3,29,Mixed
+"[""0802590""]",REAL_4G_5G,3,6,Office
+"[""0800047"", ""87994""]",REAL_4G_5G,3,2,Undetermined
+"[""0805243""]",REAL_4G_5G,3,3,Mixed
+"[""55299""]",REAL_4G_5G,3,17,Mixed
+"[""0800588"", ""91701"", ""CATR4793A""]",REAL_4G_5G,3,2,Undetermined
+"[""0803252""]",REAL_4G_5G,3,97,Mixed
+"[""013090"", ""0807642"", ""13090""]",REAL_4G_5G,3,2,Undetermined
+"[""028723""]",REAL_4G_5G,3,43,Mixed
+"[""0808536""]",REAL_4G_5G,3,2,Undetermined
+"[""CATR2893C""]",REAL_4G_5G,3,9,Mixed
+"[""CATR0591A""]",REAL_4G_5G,3,9,Mixed
+"[""0802491"", ""CATR0414A""]",REAL_4G_5G,3,11,Mixed
+"[""0800533""]",REAL_4G_5G,3,28,Mixed
+"[""0801257""]",REAL_4G_5G,3,39,Mixed
+"[""CATR0567A""]",REAL_4G_5G,3,3,Office
+"[""157010""]",REAL_4G_5G,3,0,Undetermined
+"[""73207"", ""CATR4782A""]",REAL_4G_5G,3,1,Undetermined
+"[""149604"", ""CATR4779A""]",REAL_4G_5G,3,0,Undetermined
+"[""66957"", ""CATR2833A""]",REAL_4G_5G,3,0,Undetermined
+"[""0806345""]",REAL_4G_5G,3,0,Residential
+"[""005287""]",REAL_4G_5G,3,19,Mixed
+"[""075389"", ""0802416"", ""75389"", ""CATR2032A""]",REAL_4G_5G,3,3,Mixed
+"[""CATR0331A""]",REAL_4G_5G,3,45,Mixed
+"[""0803755""]",REAL_4G_5G,3,7,Office
+"[""074202"", ""0804323"", ""CATR0035A""]",REAL_4G_5G,3,18,Office
+"[""0800202""]",REAL_4G_5G,3,1,Undetermined
+"[""0802607"", ""080289"", ""CATR0484A""]",REAL_4G_5G,3,36,Mixed
+"[""075137"", ""75137"", ""CATR1999F""]",REAL_4G_5G,3,0,Undetermined
+"[""0800965""]",REAL_4G_5G,3,0,Undetermined
+"[""003251"", ""3251""]",REAL_4G_5G,3,53,Mixed
+"[""CATR1503A""]",REAL_4G_5G,3,20,Mixed
+"[""0801564""]",REAL_4G_5G,3,12,Mixed
+"[""054856""]",REAL_4G_5G,3,0,Residential
+"[""85407""]",REAL_4G_5G,3,114,Mixed
+"[""CATR0595A""]",REAL_4G_5G,3,30,Mixed
+"[""052713""]",REAL_4G_5G,3,4,Office
+"[""0802605""]",REAL_4G_5G,3,1,Undetermined
+"[""27569""]",REAL_4G_5G,3,36,Office
+"[""018746"", ""0802621"", ""18746"", ""CATR3045H""]",REAL_4G_5G,3,2,Residential
+"[""0801850""]",REAL_4G_5G,3,100,Mixed
+"[""CATR0374B""]",REAL_4G_5G,3,36,Mixed
+"[""0800603"", ""181889""]",REAL_4G_5G,3,16,Office
+"[""0800030"", ""71989"", ""CATR3006S""]",REAL_4G_5G,3,4,Mixed
+"[""000656"", ""0802475"", ""CATR0713C""]",REAL_4G_5G,3,23,Mixed
+"[""054886"", ""CATR0604A""]",REAL_4G_5G,3,5,Mixed
+"[""0802479""]",REAL_4G_5G,3,13,Office
+"[""0800584"", ""66248"", ""CATR4829A""]",REAL_4G_5G,3,0,Undetermined
+"[""0808067""]",REAL_4G_5G,3,4,Office
+"[""0802849""]",REAL_4G_5G,3,617,Mixed
+"[""0800447""]",REAL_4G_5G,3,3,Office
+"[""CATR1707F""]",REAL_4G_5G,3,1,Undetermined
+"[""0807983""]",REAL_4G_5G,3,66,Mixed
+"[""59988""]",REAL_4G_5G,3,14,Mixed
+"[""000604"", ""CATR4781A""]",REAL_4G_5G,3,0,Undetermined
+"[""0803283""]",REAL_4G_5G,3,11,Mixed
+"[""0808908""]",REAL_4G_5G,3,3,Mixed
+"[""000464"", ""464""]",REAL_4G_5G,3,19,Mixed
+"[""078308"", ""78308"", ""CATR3114Y""]",REAL_4G_5G,3,1,Undetermined
+"[""042908"", ""42908"", ""CATR6056A""]",REAL_4G_5G,3,3,Office
+"[""0808453""]",REAL_4G_5G,3,14,Mixed
+"[""712""]",REAL_4G_5G,3,0,Residential
+"[""028177""]",REAL_4G_5G,3,5,Office
+"[""0801039""]",REAL_4G_5G,3,76,Mixed
+"[""0800349"", ""080173"", ""CATR0425A""]",REAL_4G_5G,3,8,Mixed
+"[""CATR0574J""]",REAL_4G_5G,3,12,Mixed
+"[""000475"", ""0807449"", ""475""]",REAL_4G_5G,3,8,Mixed
+"[""0803644""]",REAL_4G_5G,3,0,Undetermined
+"[""0800280"", ""52687""]",REAL_4G_5G,3,4,Office
+"[""027974"", ""0801448""]",REAL_4G_5G,3,52,Mixed
+"[""CATR1024A""]",REAL_4G_5G,3,5,Mixed
+"[""0802518"", ""085434"", ""85431"", ""CATR0822A""]",REAL_4G_5G,3,0,Residential
+"[""000465"", ""0804416""]",REAL_4G_5G,3,27,Mixed
+"[""000594"", ""0802418"", ""594"", ""CATR0336A""]",REAL_4G_5G,3,50,Mixed
+"[""0809139""]",REAL_4G_5G,3,22,Mixed
+"[""0803811""]",REAL_4G_5G,3,12,Mixed
+"[""0800315""]",REAL_4G_5G,3,29,Mixed
+"[""0802914"", ""186094""]",REAL_4G_5G,3,7,Mixed
+"[""066631"", ""66631"", ""CATR0712A""]",REAL_4G_5G,3,42,Mixed
+"[""000634"", ""0800187"", ""CATR0019A""]",REAL_4G_5G,3,66,Mixed
+"[""0802904"", ""080871"", ""80871"", ""CATR2016G""]",REAL_4G_5G,3,6,Office
+"[""000863"", ""0805326"", ""863"", ""CATR0594F""]",REAL_4G_5G,3,31,Mixed
+"[""0800033""]",REAL_4G_5G,3,116,Mixed
+"[""0800616"", ""CATR1081A""]",REAL_4G_5G,3,11,Undetermined
+"[""000682""]",REAL_4G_5G,3,1,Undetermined
+"[""0801420""]",REAL_4G_5G,3,100,Mixed
+"[""0800161"", ""183714""]",REAL_4G_5G,3,1,Undetermined
+"[""0804061""]",REAL_4G_5G,3,6,Mixed
+"[""0803840"", ""CATR0140R""]",REAL_4G_5G,3,4,Office
+"[""012622"", ""0802835""]",REAL_4G_5G,3,0,Undetermined
+"[""0802121"", ""CATR6059A""]",REAL_4G_5G,3,6,Office
+"[""0800119""]",REAL_4G_5G,3,3,Office
+"[""003266"", ""3266""]",REAL_4G_5G,3,86,Mixed
+"[""0806792""]",REAL_4G_5G,3,22,Mixed
+"[""018836"", ""0802552"", ""18836""]",REAL_4G_5G,3,7,Mixed
+"[""0802501""]",REAL_4G_5G,3,0,Undetermined
+"[""CATR2035A""]",REAL_4G_5G,3,0,Undetermined
+"[""0802887"", ""75238""]",REAL_4G_5G,3,0,Undetermined
+"[""208945""]",REAL_4G_5G,3,7,Undetermined
+"[""0808365""]",REAL_4G_5G,3,22,Mixed
+"[""CATR5976A""]",REAL_4G_5G,3,21,Mixed
+"[""CATR1045B"", ""CATR1045U""]",REAL_4G_5G,3,1,Residential
+"[""0801047""]",REAL_4G_5G,3,2,Residential
+"[""0807822""]",REAL_4G_5G,3,13,Mixed
+"[""0800767""]",REAL_4G_5G,3,0,Undetermined
+"[""056359"", ""56359"", ""CATR6168A""]",REAL_4G_5G,3,3,Office
+"[""0803350""]",REAL_4G_5G,3,4,Mixed
+"[""CATR3023B""]",REAL_4G_5G,3,29,Office
+"[""139484""]",REAL_4G_5G,3,0,Undetermined
+"[""CATR0102F""]",REAL_4G_5G,3,28,Mixed
+"[""0801323""]",REAL_4G_5G,3,3,Mixed
+"[""CATR5830A""]",REAL_4G_5G,3,33,Mixed
+"[""073493"", ""73493"", ""CATR1982F""]",REAL_4G_5G,3,9,Undetermined
+"[""CATR3282A""]",REAL_4G_5G,3,1,Undetermined
+"[""085139""]",REAL_4G_5G,3,1,Residential
+"[""0800106""]",REAL_4G_5G,3,2,Undetermined
+"[""080873""]",REAL_4G_5G,3,0,Undetermined
+"[""058043"", ""0801567"", ""58043"", ""CATR0429A""]",REAL_4G_5G,3,13,Office
+"[""0800532""]",REAL_4G_5G,3,14,Office
+"[""0800049"", ""52429""]",REAL_4G_5G,3,9,Office
+"[""0801341""]",REAL_4G_5G,3,53,Mixed
+"[""CATR0901C""]",REAL_4G_5G,3,0,Undetermined
+"[""085375"", ""CATR0601F""]",REAL_4G_5G,3,215,Mixed
+"[""CATR0404A""]",REAL_4G_5G,3,16,Mixed
+"[""0801103""]",REAL_4G_5G,3,64,Mixed
+"[""0808254""]",REAL_4G_5G,3,50,Mixed
+"[""CATR6144B1""]",REAL_4G_5G,3,7,Mixed
+"[""003593"", ""3593"", ""CATR0964A""]",REAL_4G_5G,3,1,Residential
+"[""CATR0568G""]",REAL_4G_5G,3,6,Office
+"[""0803302""]",REAL_4G_5G,3,49,Mixed
+"[""0802420"", ""CATR3015K""]",REAL_4G_5G,3,50,Mixed
+"[""0800155"", ""CATR0956B""]",REAL_4G_5G,3,2,Residential
+"[""142870""]",REAL_4G_5G,3,8,Mixed
+"[""CATR0047A""]",REAL_4G_5G,3,26,Mixed
+"[""0808421""]",REAL_4G_5G,3,34,Mixed
+"[""066282"", ""66282"", ""CATR4595A""]",REAL_4G_5G,3,9,Undetermined
+"[""0804394"", ""CATR1068A""]",REAL_4G_5G,3,2,Residential
+"[""0802422""]",REAL_4G_5G,3,14,Mixed
+"[""0803187""]",REAL_4G_5G,3,29,Mixed
+"[""0809125""]",REAL_4G_5G,3,26,Office
+"[""CATR0374C""]",REAL_4G_5G,3,15,Mixed
+"[""120662""]",REAL_4G_5G,3,13,Mixed
+"[""061363""]",REAL_4G_5G,3,1057,Mixed
+"[""0800253""]",REAL_4G_5G,3,5,Mixed
+"[""0808412""]",REAL_4G_5G,3,10,Undetermined
+"[""076648"", ""0801987"", ""76648"", ""CATR2817A""]",REAL_4G_5G,3,11,Mixed
+"[""142976""]",REAL_4G_5G,3,4,Office
+"[""026746"", ""26746"", ""CATR0519C""]",REAL_4G_5G,3,14,Mixed
+"[""67340""]",REAL_4G_5G,3,6,Mixed
+"[""061826"", ""0804092"", ""61826""]",REAL_4G_5G,3,2,Undetermined
+"[""CATR3382A""]",REAL_4G_5G,3,41,Mixed
+"[""0807064""]",REAL_4G_5G,3,52,Mixed
+"[""0804670"", ""51929"", ""CATR0613D""]",REAL_4G_5G,3,31,Mixed
+"[""CATB0952D"", ""CATR0952D""]",REAL_4G_5G,3,0,Undetermined
+"[""0805256"", ""CATR0551A""]",REAL_4G_5G,3,12,Mixed
+"[""0800496"", ""CATR2894A""]",REAL_4G_5G,3,7,Mixed
+"[""0802582"", ""54756"", ""CATR1963A"", ""CATR4792A""]",REAL_4G_5G,3,0,Undetermined
+"[""70958""]",REAL_4G_5G,3,8,Mixed
+"[""CATR0998B""]",REAL_4G_5G,3,1,Undetermined
+"[""CATR6001A""]",REAL_4G_5G,3,16,Mixed
+"[""0802930"", ""CATR0614E""]",REAL_4G_5G,3,117,Mixed
+"[""078807"", ""CATR0598A""]",REAL_4G_5G,3,0,Undetermined
+"[""0806796""]",REAL_4G_5G,3,27,Mixed
+"[""006795"", ""0804039"", ""6795""]",REAL_4G_5G,3,9,Mixed
+"[""18411""]",REAL_4G_5G,3,2,Residential
+"[""061338"", ""61338"", ""CATB0039Z"", ""CATR0039Z""]",REAL_4G_5G,3,18,Office
+"[""CATR0576D""]",REAL_4G_5G,3,3,Office
+"[""0803659""]",REAL_4G_5G,3,0,Undetermined
+"[""0807500""]",REAL_4G_5G,3,83,Office
+"[""67342""]",REAL_4G_5G,3,18,Mixed
+"[""0807901""]",REAL_4G_5G,3,0,Undetermined
+"[""0801784""]",REAL_4G_5G,3,23,Office
+"[""0800057""]",REAL_4G_5G,3,0,Undetermined
+"[""CATR5971A""]",REAL_4G_5G,3,3,Mixed
+"[""0801981"", ""64404"", ""BX0336A"", ""BX1256A"", ""BX65UL"", ""CATR5928A""]",REAL_4G_5G,3,9,Mixed
+"[""110480"", ""CATR0250A""]",REAL_4G_5G,3,5,Mixed
+"[""0800907"", ""CATR0458A""]",REAL_4G_5G,3,1,Residential
+"[""000468"", ""468""]",REAL_4G_5G,3,14,Mixed
+"[""0801660"", ""79712"", ""CATR0517C"", ""CATR0517D""]",REAL_4G_5G,3,2,Residential
+"[""0802532"", ""086040"", ""86040"", ""CATR0228A""]",REAL_4G_5G,3,32,Office
+"[""0808138""]",REAL_4G_5G,3,14,Mixed
+"[""000454"", ""454""]",REAL_4G_5G,3,45,Mixed
+"[""54915""]",REAL_4G_5G,3,0,Undetermined
+"[""70454"", ""CATR3142W""]",REAL_4G_5G,3,6,Office
+"[""0800269""]",REAL_4G_5G,3,14,Mixed
+"[""669"", ""CATR2004C""]",REAL_4G_5G,3,1,Undetermined
+"[""66739""]",REAL_4G_5G,3,9,Office
+"[""0800168""]",REAL_4G_5G,3,1,Undetermined
+"[""0800351""]",REAL_4G_5G,3,6,Mixed
+"[""CATR0072A""]",REAL_4G_5G,3,7,Mixed
+"[""79518"", ""CATR4540A""]",REAL_4G_5G,3,4,Office
+"[""CATR3242A""]",REAL_4G_5G,3,0,Undetermined
+"[""0800409"", ""21574""]",REAL_4G_5G,3,52,Mixed
+"[""73968""]",REAL_4G_5G,3,0,Residential
+"[""0801694"", ""54846"", ""CATR3021A""]",REAL_4G_5G,3,37,Office
+"[""025292""]",REAL_4G_5G,3,21,Mixed
+"[""CATR0389Y""]",REAL_4G_5G,3,133,Mixed
+"[""0801732"", ""84937"", ""CATR4775A""]",REAL_4G_5G,3,1,Undetermined
+"[""012610"", ""CATR7280A""]",REAL_4G_5G,3,2,Undetermined
+"[""059688"", ""0800971"", ""59688"", ""CATR0383A""]",REAL_4G_5G,3,7,Mixed
+"[""0801868"", ""CATR3322A""]",REAL_4G_5G,3,5,Mixed
+"[""0800368""]",REAL_4G_5G,3,8,Mixed
+"[""0805808""]",REAL_4G_5G,3,0,Undetermined
+"[""CATR0014Z""]",REAL_4G_5G,3,68,Mixed
+"[""011469"", ""11469""]",REAL_4G_5G,3,34,Mixed
+"[""155558"", ""CATR1502A""]",REAL_4G_5G,3,42,Mixed
+"[""0800412""]",REAL_4G_5G,3,36,Mixed
+"[""CATR6144C1""]",REAL_4G_5G,3,2,Residential
+"[""0802314""]",REAL_4G_5G,3,10,Mixed
+"[""0808886"", ""CATR0449Z""]",REAL_4G_5G,3,7,Mixed
+"[""0807988""]",REAL_4G_5G,3,98,Mixed
+"[""085057"", ""85057"", ""CATR2090A"", ""CATR7203A""]",REAL_4G_5G,3,0,Undetermined
+"[""0800250""]",REAL_4G_5G,3,23,Office
+"[""0802424"", ""11514""]",REAL_4G_5G,3,1,Undetermined
+"[""0800372""]",REAL_4G_5G,3,3,Undetermined
+"[""0801672""]",REAL_4G_5G,3,3,Office
+"[""000644"", ""644""]",REAL_4G_5G,3,2,Undetermined
+"[""077532"", ""0803228"", ""CATR4037F""]",REAL_4G_5G,3,9,Mixed
+"[""029219"", ""0801681"", ""CATR0328A""]",REAL_4G_5G,3,4,Mixed
+"[""070958""]",REAL_4G_5G,3,8,Mixed
+"[""0808416""]",REAL_4G_5G,3,24,Mixed
+"[""CATR2761T""]",REAL_4G_5G,3,5,Mixed
+"[""023299""]",REAL_4G_5G,3,6,Mixed
+"[""0801699"", ""CATR1070A""]",REAL_4G_5G,3,0,Undetermined
+"[""0801497"", ""CATR0027I""]",REAL_4G_5G,3,26,Mixed
+"[""0800914""]",REAL_4G_5G,3,1,Undetermined
+"[""CATR2766O""]",REAL_4G_5G,3,2,Residential
+"[""CATR0386Z""]",REAL_4G_5G,3,27,Mixed
+"[""CATR0024A""]",REAL_4G_5G,3,0,Undetermined
+"[""CATR1008CY""]",REAL_4G_5G,3,0,Residential
+"[""0808586"", ""CATR6058A""]",REAL_4G_5G,3,6,Office
+"[""072355"", ""72355"", ""CATR1003A""]",REAL_4G_5G,3,52,Mixed
+"[""80785"", ""CATR4604A""]",REAL_4G_5G,3,2,Undetermined
+"[""0808255""]",REAL_4G_5G,3,68,Mixed
+"[""088903"", ""CATR7254A""]",REAL_4G_5G,3,1,Undetermined
+"[""000801"", ""0804098"", ""801""]",REAL_4G_5G,3,8,Mixed
+"[""077881""]",REAL_4G_5G,3,22,Mixed
+"[""0805740""]",REAL_4G_5G,3,1,Residential
+"[""086407"", ""86407"", ""CATR4591A""]",REAL_4G_5G,3,0,Undetermined
+"[""0800880""]",REAL_4G_5G,3,14,Mixed
+"[""0806439""]",REAL_4G_5G,3,1,Undetermined
+"[""0806817""]",REAL_4G_5G,3,19,Mixed
+"[""012905"", ""0801996"", ""12905""]",REAL_4G_5G,3,8,Undetermined
+"[""0803056""]",REAL_4G_5G,3,29,Mixed
+"[""57069"", ""CATR0919D""]",REAL_4G_5G,3,3,Mixed
+"[""CATR0211A""]",REAL_4G_5G,3,22,Mixed
+"[""CATR1727A""]",REAL_4G_5G,3,0,Undetermined
+"[""0801173""]",REAL_4G_5G,3,28,Mixed
+"[""065548"", ""65548""]",REAL_4G_5G,3,1,Undetermined
+"[""0808298""]",REAL_4G_5G,3,27,Mixed
+"[""133413"", ""CATR0502Z""]",REAL_4G_5G,3,11,Mixed
+"[""0804338"", ""CATR3087A""]",REAL_4G_5G,3,2,Undetermined
+"[""0802482"", ""CATR3349A""]",REAL_4G_5G,3,5,Office
+"[""028347""]",REAL_4G_5G,3,2,Residential
+"[""CATR3044J""]",REAL_4G_5G,3,13,Mixed
+"[""0801184""]",REAL_4G_5G,3,30,Mixed
+"[""0800231""]",REAL_4G_5G,3,5,Undetermined
+"[""0802566""]",REAL_4G_5G,3,0,Undetermined
+"[""054515""]",REAL_4G_5G,3,54,Mixed
+"[""0808127""]",REAL_4G_5G,3,16,Mixed
+"[""CATR5850A""]",REAL_4G_5G,3,19,Mixed
+"[""000642"", ""0804536"", ""CATR4799A""]",REAL_4G_5G,3,6,Undetermined
+"[""0808242""]",REAL_4G_5G,3,75,Mixed
+"[""0801714""]",REAL_4G_5G,3,20,Mixed
+"[""0800104""]",REAL_4G_5G,3,1,Residential
+"[""63510""]",REAL_4G_5G,3,3,Office
+"[""134113"", ""CATR7305A""]",REAL_4G_5G,3,0,Undetermined
+"[""058163"", ""58163"", ""CATR3028J""]",REAL_4G_5G,3,22,Office
+"[""0804141""]",REAL_4G_5G,3,28,Office
+"[""0803868""]",REAL_4G_5G,3,5,Mixed
+"[""CATR0344A""]",REAL_4G_5G,3,652,Mixed
+"[""0802012"", ""27/11/2025"", ""73000"", ""CATR0542I""]",REAL_4G_5G,3,11,Mixed
+"[""CATR4880A""]",REAL_4G_5G,3,11,Undetermined
+"[""0804764""]",REAL_4G_5G,3,0,Undetermined
+"[""0802358""]",REAL_4G_5G,3,1,Residential
+"[""11847""]",REAL_4G_5G,3,9,Mixed
+"[""52648""]",REAL_4G_5G,3,584,Mixed
+"[""0800149""]",REAL_4G_5G,3,0,Undetermined
+"[""CATR0522V""]",REAL_4G_5G,3,35,Mixed
+"[""079941""]",REAL_4G_5G,3,0,Residential
+"[""054711"", ""0806306"", ""CATR3279A""]",REAL_4G_5G,3,7,Undetermined
+"[""CATR5851AJOS""]",REAL_4G_5G,3,5,Mixed
+"[""CATB3038A""]",REAL_4G_5G,3,25,Mixed
+"[""24117""]",REAL_4G_5G,3,4,Mixed
+"[""0803623""]",REAL_4G_5G,3,96,Mixed
+"[""0802433""]",REAL_4G_5G,3,42,Mixed
+"[""067731"", ""CATR6004A""]",REAL_4G_5G,3,15,Mixed
+"[""142079""]",REAL_4G_5G,3,2,Undetermined
+"[""0802445"", ""CATR2776A""]",REAL_4G_5G,3,79,Mixed
+"[""073589"", ""0801045"", ""73589"", ""CATR1611H""]",REAL_4G_5G,3,0,Residential
+"[""083901"", ""CATR0703B""]",REAL_4G_5G,3,56,Mixed
+"[""CATR0071G""]",REAL_4G_5G,3,3,Mixed
+"[""0801873""]",REAL_4G_5G,3,0,Undetermined
+"[""0804960"", ""35913"", ""CATR1052A""]",REAL_4G_5G,3,21,Office
+"[""000672"", ""CATR4607A""]",REAL_4G_5G,3,1,Undetermined
+"[""0800056""]",REAL_4G_5G,3,12,Undetermined
+"[""0800590"", ""800590"", ""CATR0062A""]",REAL_4G_5G,3,20,Office
+"[""CATR2846A""]",REAL_4G_5G,3,22,Mixed
+"[""0805821""]",REAL_4G_5G,3,29,Mixed
+"[""093251"", ""93251"", ""CATR7297A""]",REAL_4G_5G,3,0,Undetermined
+"[""CATR1918E""]",REAL_4G_5G,3,9,Undetermined
+"[""156377""]",REAL_4G_5G,3,5,Mixed
+"[""0802143"", ""088279"", ""CATR7259A""]",REAL_4G_5G,3,0,Undetermined
+"[""000714"", ""0802614"", ""714""]",REAL_4G_5G,3,6,Mixed
+"[""029424"", ""29424""]",REAL_4G_5G,3,125,Mixed
+"[""0802629"", ""142824""]",REAL_4G_5G,3,6,Mixed
+"[""0808428""]",REAL_4G_5G,3,39,Mixed
+"[""0802489"", ""CATR0430A""]",REAL_4G_5G,3,9,Office
+"[""000470""]",REAL_4G_5G,3,12,Mixed
+"[""206635""]",REAL_4G_5G,3,1,Undetermined
+"[""084888""]",REAL_4G_5G,3,23,Mixed
+"[""0803870"", ""CATR0006Z""]",REAL_4G_5G,3,72,Mixed
+"[""0800303"", ""CATR0608I""]",REAL_4G_5G,3,13,Mixed
+"[""0800235""]",REAL_4G_5G,3,18,Mixed
+"[""81598"", ""CATR1713A""]",REAL_4G_5G,3,0,Undetermined
+"[""0801135""]",REAL_4G_5G,3,28,Mixed
+"[""000804"", ""CATR0335A""]",REAL_4G_5G,3,29,Mixed
+"[""195316"", ""CATR1968A"", ""CATR4796A""]",REAL_4G_5G,3,2,Undetermined
+"[""0800501"", ""CATR2028A""]",REAL_4G_5G,3,0,Undetermined
+"[""024008"", ""24008""]",REAL_4G_5G,3,10,Office
+"[""0807704""]",REAL_4G_5G,3,0,Undetermined
+"[""54959"", ""CATR4794A""]",REAL_4G_5G,3,0,Undetermined
+"[""0802965""]",REAL_4G_5G,3,0,Undetermined
+"[""054881"", ""54881""]",REAL_4G_5G,3,118,Mixed
+"[""CATR2845A""]",REAL_4G_5G,3,34,Mixed
+"[""CATR6094A""]",REAL_4G_5G,3,10,Mixed
+"[""0800387""]",REAL_4G_5G,3,0,Undetermined
+SYN_RRH_00001,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00002,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00003,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00004,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00005,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00006,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00007,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00008,SYNTHETIC,3,18,Undetermined
+SYN_RRH_00009,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00010,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00011,SYNTHETIC,3,1,Undetermined
+SYN_RRH_00012,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00013,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00014,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00015,SYNTHETIC,3,1,Undetermined
+SYN_RRH_00016,SYNTHETIC,3,0,Residential
+SYN_RRH_00017,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00018,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00019,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00020,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00021,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00022,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00023,SYNTHETIC,3,3,Office
+SYN_RRH_00024,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00025,SYNTHETIC,3,0,Residential
+SYN_RRH_00026,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00027,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00028,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00029,SYNTHETIC,3,7,Mixed
+SYN_RRH_00030,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00031,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00032,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00033,SYNTHETIC,3,0,Residential
+SYN_RRH_00034,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00035,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00036,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00037,SYNTHETIC,3,0,Residential
+SYN_RRH_00038,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00039,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00040,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00041,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00042,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00043,SYNTHETIC,3,13,Mixed
+SYN_RRH_00044,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00045,SYNTHETIC,3,0,Residential
+SYN_RRH_00046,SYNTHETIC,3,3,Mixed
+SYN_RRH_00047,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00048,SYNTHETIC,3,2,Undetermined
+SYN_RRH_00049,SYNTHETIC,3,0,Undetermined
+SYN_RRH_00050,SYNTHETIC,3,0,Residential
+"[""CATR0704C""]",REAL_4G_5G,5,113,Mixed
+"[""CATR5941A""]",REAL_4G_5G,5,7,Office
+"[""CATR6114A""]",REAL_4G_5G,5,1,Residential
+"[""030664"", ""30664"", ""CATR4791A""]",REAL_4G_5G,5,1,Undetermined
+"[""0800354""]",REAL_4G_5G,5,36,Mixed
+"[""0800388""]",REAL_4G_5G,5,4,Undetermined
+"[""0803378""]",REAL_4G_5G,5,6,Mixed
+"[""0804442""]",REAL_4G_5G,5,9,Mixed
+"[""063922"", ""63922"", ""CATR3007M""]",REAL_4G_5G,5,13,Office
+"[""0801563""]",REAL_4G_5G,5,24,Office
+"[""193605"", ""CATR2868A""]",REAL_4G_5G,5,13,Office
+"[""024269"", ""0801435"", ""24269"", ""CATR2823A""]",REAL_4G_5G,5,31,Mixed
+"[""0800658""]",REAL_4G_5G,5,0,Undetermined
+"[""0806331""]",REAL_4G_5G,5,87,Mixed
+"[""0801461"", ""CATR0205A""]",REAL_4G_5G,5,81,Mixed
+"[""0800967""]",REAL_4G_5G,5,0,Undetermined
+"[""063112"", ""0800323"", ""63112""]",REAL_4G_5G,5,41,Office
+"[""0800184"", ""CATR2045B""]",REAL_4G_5G,5,1,Undetermined
+"[""10060""]",REAL_4G_5G,5,1,Residential
+"[""599"", ""CATR0031Z""]",REAL_4G_5G,5,12,Mixed
+"[""0805257""]",REAL_4G_5G,5,7,Office
+"[""040008"", ""0800331"", ""CATR4608A""]",REAL_4G_5G,5,0,Undetermined
+"[""0800261""]",REAL_4G_5G,5,14,Mixed
+"[""0808050""]",REAL_4G_5G,5,29,Mixed
+"[""0802590""]",REAL_4G_5G,5,6,Office
+"[""0800047"", ""87994""]",REAL_4G_5G,5,2,Undetermined
+"[""0805243""]",REAL_4G_5G,5,3,Residential
+"[""55299""]",REAL_4G_5G,5,17,Mixed
+"[""0800588"", ""91701"", ""CATR4793A""]",REAL_4G_5G,5,2,Undetermined
+"[""0803252""]",REAL_4G_5G,5,97,Mixed
+"[""013090"", ""0807642"", ""13090""]",REAL_4G_5G,5,2,Undetermined
+"[""028723""]",REAL_4G_5G,5,43,Mixed
+"[""0808536""]",REAL_4G_5G,5,2,Undetermined
+"[""CATR2893C""]",REAL_4G_5G,5,9,Mixed
+"[""CATR0591A""]",REAL_4G_5G,5,9,Mixed
+"[""0802491"", ""CATR0414A""]",REAL_4G_5G,5,11,Mixed
+"[""0800533""]",REAL_4G_5G,5,28,Mixed
+"[""0801257""]",REAL_4G_5G,5,39,Mixed
+"[""CATR0567A""]",REAL_4G_5G,5,3,Undetermined
+"[""157010""]",REAL_4G_5G,5,0,Undetermined
+"[""73207"", ""CATR4782A""]",REAL_4G_5G,5,1,Undetermined
+"[""149604"", ""CATR4779A""]",REAL_4G_5G,5,0,Undetermined
+"[""66957"", ""CATR2833A""]",REAL_4G_5G,5,0,Undetermined
+"[""0806345""]",REAL_4G_5G,5,0,Residential
+"[""005287""]",REAL_4G_5G,5,19,Mixed
+"[""075389"", ""0802416"", ""75389"", ""CATR2032A""]",REAL_4G_5G,5,3,Residential
+"[""CATR0331A""]",REAL_4G_5G,5,45,Mixed
+"[""0803755""]",REAL_4G_5G,5,7,Office
+"[""074202"", ""0804323"", ""CATR0035A""]",REAL_4G_5G,5,18,Office
+"[""0800202""]",REAL_4G_5G,5,1,Undetermined
+"[""0802607"", ""080289"", ""CATR0484A""]",REAL_4G_5G,5,36,Mixed
+"[""075137"", ""75137"", ""CATR1999F""]",REAL_4G_5G,5,0,Undetermined
+"[""0800965""]",REAL_4G_5G,5,0,Undetermined
+"[""003251"", ""3251""]",REAL_4G_5G,5,53,Mixed
+"[""CATR1503A""]",REAL_4G_5G,5,20,Mixed
+"[""0801564""]",REAL_4G_5G,5,12,Mixed
+"[""054856""]",REAL_4G_5G,5,0,Residential
+"[""85407""]",REAL_4G_5G,5,114,Mixed
+"[""CATR0595A""]",REAL_4G_5G,5,30,Mixed
+"[""052713""]",REAL_4G_5G,5,4,Undetermined
+"[""0802605""]",REAL_4G_5G,5,1,Undetermined
+"[""27569""]",REAL_4G_5G,5,36,Office
+"[""018746"", ""0802621"", ""18746"", ""CATR3045H""]",REAL_4G_5G,5,2,Residential
+"[""0801850""]",REAL_4G_5G,5,100,Mixed
+"[""CATR0374B""]",REAL_4G_5G,5,36,Mixed
+"[""0800603"", ""181889""]",REAL_4G_5G,5,16,Office
+"[""0800030"", ""71989"", ""CATR3006S""]",REAL_4G_5G,5,4,Residential
+"[""000656"", ""0802475"", ""CATR0713C""]",REAL_4G_5G,5,23,Mixed
+"[""054886"", ""CATR0604A""]",REAL_4G_5G,5,5,Mixed
+"[""0802479""]",REAL_4G_5G,5,13,Office
+"[""0800584"", ""66248"", ""CATR4829A""]",REAL_4G_5G,5,0,Undetermined
+"[""0808067""]",REAL_4G_5G,5,4,Undetermined
+"[""0802849""]",REAL_4G_5G,5,617,Mixed
+"[""0800447""]",REAL_4G_5G,5,3,Undetermined
+"[""CATR1707F""]",REAL_4G_5G,5,1,Undetermined
+"[""0807983""]",REAL_4G_5G,5,66,Mixed
+"[""59988""]",REAL_4G_5G,5,14,Mixed
+"[""000604"", ""CATR4781A""]",REAL_4G_5G,5,0,Undetermined
+"[""0803283""]",REAL_4G_5G,5,11,Mixed
+"[""0808908""]",REAL_4G_5G,5,3,Residential
+"[""000464"", ""464""]",REAL_4G_5G,5,19,Mixed
+"[""078308"", ""78308"", ""CATR3114Y""]",REAL_4G_5G,5,1,Undetermined
+"[""042908"", ""42908"", ""CATR6056A""]",REAL_4G_5G,5,3,Undetermined
+"[""0808453""]",REAL_4G_5G,5,14,Mixed
+"[""712""]",REAL_4G_5G,5,0,Residential
+"[""028177""]",REAL_4G_5G,5,5,Office
+"[""0801039""]",REAL_4G_5G,5,76,Mixed
+"[""0800349"", ""080173"", ""CATR0425A""]",REAL_4G_5G,5,8,Mixed
+"[""CATR0574J""]",REAL_4G_5G,5,12,Mixed
+"[""000475"", ""0807449"", ""475""]",REAL_4G_5G,5,8,Mixed
+"[""0803644""]",REAL_4G_5G,5,0,Undetermined
+"[""0800280"", ""52687""]",REAL_4G_5G,5,4,Undetermined
+"[""027974"", ""0801448""]",REAL_4G_5G,5,52,Mixed
+"[""CATR1024A""]",REAL_4G_5G,5,5,Mixed
+"[""0802518"", ""085434"", ""85431"", ""CATR0822A""]",REAL_4G_5G,5,0,Residential
+"[""000465"", ""0804416""]",REAL_4G_5G,5,27,Mixed
+"[""000594"", ""0802418"", ""594"", ""CATR0336A""]",REAL_4G_5G,5,50,Mixed
+"[""0809139""]",REAL_4G_5G,5,22,Mixed
+"[""0803811""]",REAL_4G_5G,5,12,Mixed
+"[""0800315""]",REAL_4G_5G,5,29,Mixed
+"[""0802914"", ""186094""]",REAL_4G_5G,5,7,Mixed
+"[""066631"", ""66631"", ""CATR0712A""]",REAL_4G_5G,5,42,Mixed
+"[""000634"", ""0800187"", ""CATR0019A""]",REAL_4G_5G,5,66,Mixed
+"[""0802904"", ""080871"", ""80871"", ""CATR2016G""]",REAL_4G_5G,5,6,Office
+"[""000863"", ""0805326"", ""863"", ""CATR0594F""]",REAL_4G_5G,5,31,Mixed
+"[""0800033""]",REAL_4G_5G,5,116,Mixed
+"[""0800616"", ""CATR1081A""]",REAL_4G_5G,5,11,Undetermined
+"[""000682""]",REAL_4G_5G,5,1,Undetermined
+"[""0801420""]",REAL_4G_5G,5,100,Mixed
+"[""0800161"", ""183714""]",REAL_4G_5G,5,1,Undetermined
+"[""0804061""]",REAL_4G_5G,5,6,Mixed
+"[""0803840"", ""CATR0140R""]",REAL_4G_5G,5,4,Undetermined
+"[""012622"", ""0802835""]",REAL_4G_5G,5,0,Undetermined
+"[""0802121"", ""CATR6059A""]",REAL_4G_5G,5,6,Office
+"[""0800119""]",REAL_4G_5G,5,3,Undetermined
+"[""003266"", ""3266""]",REAL_4G_5G,5,86,Mixed
+"[""0806792""]",REAL_4G_5G,5,22,Mixed
+"[""018836"", ""0802552"", ""18836""]",REAL_4G_5G,5,7,Mixed
+"[""0802501""]",REAL_4G_5G,5,0,Undetermined
+"[""CATR2035A""]",REAL_4G_5G,5,0,Undetermined
+"[""0802887"", ""75238""]",REAL_4G_5G,5,0,Undetermined
+"[""208945""]",REAL_4G_5G,5,7,Undetermined
+"[""0808365""]",REAL_4G_5G,5,22,Mixed
+"[""CATR5976A""]",REAL_4G_5G,5,21,Mixed
+"[""CATR1045B"", ""CATR1045U""]",REAL_4G_5G,5,1,Residential
+"[""0801047""]",REAL_4G_5G,5,2,Residential
+"[""0807822""]",REAL_4G_5G,5,13,Mixed
+"[""0800767""]",REAL_4G_5G,5,0,Undetermined
+"[""056359"", ""56359"", ""CATR6168A""]",REAL_4G_5G,5,3,Undetermined
+"[""0803350""]",REAL_4G_5G,5,4,Residential
+"[""CATR3023B""]",REAL_4G_5G,5,29,Office
+"[""139484""]",REAL_4G_5G,5,0,Undetermined
+"[""CATR0102F""]",REAL_4G_5G,5,28,Mixed
+"[""0801323""]",REAL_4G_5G,5,3,Residential
+"[""CATR5830A""]",REAL_4G_5G,5,33,Mixed
+"[""073493"", ""73493"", ""CATR1982F""]",REAL_4G_5G,5,9,Undetermined
+"[""CATR3282A""]",REAL_4G_5G,5,1,Undetermined
+"[""085139""]",REAL_4G_5G,5,1,Residential
+"[""0800106""]",REAL_4G_5G,5,2,Undetermined
+"[""080873""]",REAL_4G_5G,5,0,Undetermined
+"[""058043"", ""0801567"", ""58043"", ""CATR0429A""]",REAL_4G_5G,5,13,Office
+"[""0800532""]",REAL_4G_5G,5,14,Office
+"[""0800049"", ""52429""]",REAL_4G_5G,5,9,Office
+"[""0801341""]",REAL_4G_5G,5,53,Mixed
+"[""CATR0901C""]",REAL_4G_5G,5,0,Undetermined
+"[""085375"", ""CATR0601F""]",REAL_4G_5G,5,215,Mixed
+"[""CATR0404A""]",REAL_4G_5G,5,16,Mixed
+"[""0801103""]",REAL_4G_5G,5,64,Mixed
+"[""0808254""]",REAL_4G_5G,5,50,Mixed
+"[""CATR6144B1""]",REAL_4G_5G,5,7,Mixed
+"[""003593"", ""3593"", ""CATR0964A""]",REAL_4G_5G,5,1,Residential
+"[""CATR0568G""]",REAL_4G_5G,5,6,Office
+"[""0803302""]",REAL_4G_5G,5,49,Mixed
+"[""0802420"", ""CATR3015K""]",REAL_4G_5G,5,50,Mixed
+"[""0800155"", ""CATR0956B""]",REAL_4G_5G,5,2,Residential
+"[""142870""]",REAL_4G_5G,5,8,Mixed
+"[""CATR0047A""]",REAL_4G_5G,5,26,Mixed
+"[""0808421""]",REAL_4G_5G,5,34,Mixed
+"[""066282"", ""66282"", ""CATR4595A""]",REAL_4G_5G,5,9,Undetermined
+"[""0804394"", ""CATR1068A""]",REAL_4G_5G,5,2,Residential
+"[""0802422""]",REAL_4G_5G,5,14,Mixed
+"[""0803187""]",REAL_4G_5G,5,29,Mixed
+"[""0809125""]",REAL_4G_5G,5,26,Office
+"[""CATR0374C""]",REAL_4G_5G,5,15,Mixed
+"[""120662""]",REAL_4G_5G,5,13,Mixed
+"[""061363""]",REAL_4G_5G,5,1057,Mixed
+"[""0800253""]",REAL_4G_5G,5,5,Mixed
+"[""0808412""]",REAL_4G_5G,5,10,Undetermined
+"[""076648"", ""0801987"", ""76648"", ""CATR2817A""]",REAL_4G_5G,5,11,Mixed
+"[""142976""]",REAL_4G_5G,5,4,Undetermined
+"[""026746"", ""26746"", ""CATR0519C""]",REAL_4G_5G,5,14,Mixed
+"[""67340""]",REAL_4G_5G,5,6,Mixed
+"[""061826"", ""0804092"", ""61826""]",REAL_4G_5G,5,2,Undetermined
+"[""CATR3382A""]",REAL_4G_5G,5,41,Mixed
+"[""0807064""]",REAL_4G_5G,5,52,Mixed
+"[""0804670"", ""51929"", ""CATR0613D""]",REAL_4G_5G,5,31,Mixed
+"[""CATB0952D"", ""CATR0952D""]",REAL_4G_5G,5,0,Undetermined
+"[""0805256"", ""CATR0551A""]",REAL_4G_5G,5,12,Mixed
+"[""0800496"", ""CATR2894A""]",REAL_4G_5G,5,7,Mixed
+"[""0802582"", ""54756"", ""CATR1963A"", ""CATR4792A""]",REAL_4G_5G,5,0,Undetermined
+"[""70958""]",REAL_4G_5G,5,8,Mixed
+"[""CATR0998B""]",REAL_4G_5G,5,1,Undetermined
+"[""CATR6001A""]",REAL_4G_5G,5,16,Mixed
+"[""0802930"", ""CATR0614E""]",REAL_4G_5G,5,117,Mixed
+"[""078807"", ""CATR0598A""]",REAL_4G_5G,5,0,Undetermined
+"[""0806796""]",REAL_4G_5G,5,27,Mixed
+"[""006795"", ""0804039"", ""6795""]",REAL_4G_5G,5,9,Mixed
+"[""18411""]",REAL_4G_5G,5,2,Residential
+"[""061338"", ""61338"", ""CATB0039Z"", ""CATR0039Z""]",REAL_4G_5G,5,18,Office
+"[""CATR0576D""]",REAL_4G_5G,5,3,Undetermined
+"[""0803659""]",REAL_4G_5G,5,0,Undetermined
+"[""0807500""]",REAL_4G_5G,5,83,Office
+"[""67342""]",REAL_4G_5G,5,18,Mixed
+"[""0807901""]",REAL_4G_5G,5,0,Undetermined
+"[""0801784""]",REAL_4G_5G,5,23,Office
+"[""0800057""]",REAL_4G_5G,5,0,Undetermined
+"[""CATR5971A""]",REAL_4G_5G,5,3,Residential
+"[""0801981"", ""64404"", ""BX0336A"", ""BX1256A"", ""BX65UL"", ""CATR5928A""]",REAL_4G_5G,5,9,Mixed
+"[""110480"", ""CATR0250A""]",REAL_4G_5G,5,5,Mixed
+"[""0800907"", ""CATR0458A""]",REAL_4G_5G,5,1,Residential
+"[""000468"", ""468""]",REAL_4G_5G,5,14,Mixed
+"[""0801660"", ""79712"", ""CATR0517C"", ""CATR0517D""]",REAL_4G_5G,5,2,Residential
+"[""0802532"", ""086040"", ""86040"", ""CATR0228A""]",REAL_4G_5G,5,32,Office
+"[""0808138""]",REAL_4G_5G,5,14,Mixed
+"[""000454"", ""454""]",REAL_4G_5G,5,45,Mixed
+"[""54915""]",REAL_4G_5G,5,0,Undetermined
+"[""70454"", ""CATR3142W""]",REAL_4G_5G,5,6,Office
+"[""0800269""]",REAL_4G_5G,5,14,Mixed
+"[""669"", ""CATR2004C""]",REAL_4G_5G,5,1,Undetermined
+"[""66739""]",REAL_4G_5G,5,9,Office
+"[""0800168""]",REAL_4G_5G,5,1,Undetermined
+"[""0800351""]",REAL_4G_5G,5,6,Mixed
+"[""CATR0072A""]",REAL_4G_5G,5,7,Mixed
+"[""79518"", ""CATR4540A""]",REAL_4G_5G,5,4,Undetermined
+"[""CATR3242A""]",REAL_4G_5G,5,0,Undetermined
+"[""0800409"", ""21574""]",REAL_4G_5G,5,52,Mixed
+"[""73968""]",REAL_4G_5G,5,0,Residential
+"[""0801694"", ""54846"", ""CATR3021A""]",REAL_4G_5G,5,37,Office
+"[""025292""]",REAL_4G_5G,5,21,Mixed
+"[""CATR0389Y""]",REAL_4G_5G,5,133,Mixed
+"[""0801732"", ""84937"", ""CATR4775A""]",REAL_4G_5G,5,1,Undetermined
+"[""012610"", ""CATR7280A""]",REAL_4G_5G,5,2,Undetermined
+"[""059688"", ""0800971"", ""59688"", ""CATR0383A""]",REAL_4G_5G,5,7,Mixed
+"[""0801868"", ""CATR3322A""]",REAL_4G_5G,5,5,Mixed
+"[""0800368""]",REAL_4G_5G,5,8,Mixed
+"[""0805808""]",REAL_4G_5G,5,0,Undetermined
+"[""CATR0014Z""]",REAL_4G_5G,5,68,Mixed
+"[""011469"", ""11469""]",REAL_4G_5G,5,34,Mixed
+"[""155558"", ""CATR1502A""]",REAL_4G_5G,5,42,Mixed
+"[""0800412""]",REAL_4G_5G,5,36,Mixed
+"[""CATR6144C1""]",REAL_4G_5G,5,2,Residential
+"[""0802314""]",REAL_4G_5G,5,10,Mixed
+"[""0808886"", ""CATR0449Z""]",REAL_4G_5G,5,7,Mixed
+"[""0807988""]",REAL_4G_5G,5,98,Mixed
+"[""085057"", ""85057"", ""CATR2090A"", ""CATR7203A""]",REAL_4G_5G,5,0,Undetermined
+"[""0800250""]",REAL_4G_5G,5,23,Office
+"[""0802424"", ""11514""]",REAL_4G_5G,5,1,Undetermined
+"[""0800372""]",REAL_4G_5G,5,3,Undetermined
+"[""0801672""]",REAL_4G_5G,5,3,Undetermined
+"[""000644"", ""644""]",REAL_4G_5G,5,2,Undetermined
+"[""077532"", ""0803228"", ""CATR4037F""]",REAL_4G_5G,5,9,Mixed
+"[""029219"", ""0801681"", ""CATR0328A""]",REAL_4G_5G,5,4,Residential
+"[""070958""]",REAL_4G_5G,5,8,Mixed
+"[""0808416""]",REAL_4G_5G,5,24,Mixed
+"[""CATR2761T""]",REAL_4G_5G,5,5,Mixed
+"[""023299""]",REAL_4G_5G,5,6,Mixed
+"[""0801699"", ""CATR1070A""]",REAL_4G_5G,5,0,Undetermined
+"[""0801497"", ""CATR0027I""]",REAL_4G_5G,5,26,Mixed
+"[""0800914""]",REAL_4G_5G,5,1,Undetermined
+"[""CATR2766O""]",REAL_4G_5G,5,2,Residential
+"[""CATR0386Z""]",REAL_4G_5G,5,27,Mixed
+"[""CATR0024A""]",REAL_4G_5G,5,0,Undetermined
+"[""CATR1008CY""]",REAL_4G_5G,5,0,Residential
+"[""0808586"", ""CATR6058A""]",REAL_4G_5G,5,6,Office
+"[""072355"", ""72355"", ""CATR1003A""]",REAL_4G_5G,5,52,Mixed
+"[""80785"", ""CATR4604A""]",REAL_4G_5G,5,2,Undetermined
+"[""0808255""]",REAL_4G_5G,5,68,Mixed
+"[""088903"", ""CATR7254A""]",REAL_4G_5G,5,1,Undetermined
+"[""000801"", ""0804098"", ""801""]",REAL_4G_5G,5,8,Mixed
+"[""077881""]",REAL_4G_5G,5,22,Mixed
+"[""0805740""]",REAL_4G_5G,5,1,Residential
+"[""086407"", ""86407"", ""CATR4591A""]",REAL_4G_5G,5,0,Undetermined
+"[""0800880""]",REAL_4G_5G,5,14,Mixed
+"[""0806439""]",REAL_4G_5G,5,1,Undetermined
+"[""0806817""]",REAL_4G_5G,5,19,Mixed
+"[""012905"", ""0801996"", ""12905""]",REAL_4G_5G,5,8,Undetermined
+"[""0803056""]",REAL_4G_5G,5,29,Mixed
+"[""57069"", ""CATR0919D""]",REAL_4G_5G,5,3,Residential
+"[""CATR0211A""]",REAL_4G_5G,5,22,Mixed
+"[""CATR1727A""]",REAL_4G_5G,5,0,Undetermined
+"[""0801173""]",REAL_4G_5G,5,28,Mixed
+"[""065548"", ""65548""]",REAL_4G_5G,5,1,Undetermined
+"[""0808298""]",REAL_4G_5G,5,27,Mixed
+"[""133413"", ""CATR0502Z""]",REAL_4G_5G,5,11,Mixed
+"[""0804338"", ""CATR3087A""]",REAL_4G_5G,5,2,Undetermined
+"[""0802482"", ""CATR3349A""]",REAL_4G_5G,5,5,Office
+"[""028347""]",REAL_4G_5G,5,2,Residential
+"[""CATR3044J""]",REAL_4G_5G,5,13,Mixed
+"[""0801184""]",REAL_4G_5G,5,30,Mixed
+"[""0800231""]",REAL_4G_5G,5,5,Undetermined
+"[""0802566""]",REAL_4G_5G,5,0,Undetermined
+"[""054515""]",REAL_4G_5G,5,54,Mixed
+"[""0808127""]",REAL_4G_5G,5,16,Mixed
+"[""CATR5850A""]",REAL_4G_5G,5,19,Mixed
+"[""000642"", ""0804536"", ""CATR4799A""]",REAL_4G_5G,5,6,Undetermined
+"[""0808242""]",REAL_4G_5G,5,75,Mixed
+"[""0801714""]",REAL_4G_5G,5,20,Mixed
+"[""0800104""]",REAL_4G_5G,5,1,Residential
+"[""63510""]",REAL_4G_5G,5,3,Undetermined
+"[""134113"", ""CATR7305A""]",REAL_4G_5G,5,0,Undetermined
+"[""058163"", ""58163"", ""CATR3028J""]",REAL_4G_5G,5,22,Office
+"[""0804141""]",REAL_4G_5G,5,28,Office
+"[""0803868""]",REAL_4G_5G,5,5,Mixed
+"[""CATR0344A""]",REAL_4G_5G,5,652,Mixed
+"[""0802012"", ""27/11/2025"", ""73000"", ""CATR0542I""]",REAL_4G_5G,5,11,Mixed
+"[""CATR4880A""]",REAL_4G_5G,5,11,Undetermined
+"[""0804764""]",REAL_4G_5G,5,0,Undetermined
+"[""0802358""]",REAL_4G_5G,5,1,Residential
+"[""11847""]",REAL_4G_5G,5,9,Mixed
+"[""52648""]",REAL_4G_5G,5,584,Mixed
+"[""0800149""]",REAL_4G_5G,5,0,Undetermined
+"[""CATR0522V""]",REAL_4G_5G,5,35,Mixed
+"[""079941""]",REAL_4G_5G,5,0,Residential
+"[""054711"", ""0806306"", ""CATR3279A""]",REAL_4G_5G,5,7,Undetermined
+"[""CATR5851AJOS""]",REAL_4G_5G,5,5,Mixed
+"[""CATB3038A""]",REAL_4G_5G,5,25,Mixed
+"[""24117""]",REAL_4G_5G,5,4,Residential
+"[""0803623""]",REAL_4G_5G,5,96,Mixed
+"[""0802433""]",REAL_4G_5G,5,42,Mixed
+"[""067731"", ""CATR6004A""]",REAL_4G_5G,5,15,Mixed
+"[""142079""]",REAL_4G_5G,5,2,Undetermined
+"[""0802445"", ""CATR2776A""]",REAL_4G_5G,5,79,Mixed
+"[""073589"", ""0801045"", ""73589"", ""CATR1611H""]",REAL_4G_5G,5,0,Residential
+"[""083901"", ""CATR0703B""]",REAL_4G_5G,5,56,Mixed
+"[""CATR0071G""]",REAL_4G_5G,5,3,Residential
+"[""0801873""]",REAL_4G_5G,5,0,Undetermined
+"[""0804960"", ""35913"", ""CATR1052A""]",REAL_4G_5G,5,21,Office
+"[""000672"", ""CATR4607A""]",REAL_4G_5G,5,1,Undetermined
+"[""0800056""]",REAL_4G_5G,5,12,Undetermined
+"[""0800590"", ""800590"", ""CATR0062A""]",REAL_4G_5G,5,20,Office
+"[""CATR2846A""]",REAL_4G_5G,5,22,Mixed
+"[""0805821""]",REAL_4G_5G,5,29,Mixed
+"[""093251"", ""93251"", ""CATR7297A""]",REAL_4G_5G,5,0,Undetermined
+"[""CATR1918E""]",REAL_4G_5G,5,9,Undetermined
+"[""156377""]",REAL_4G_5G,5,5,Mixed
+"[""0802143"", ""088279"", ""CATR7259A""]",REAL_4G_5G,5,0,Undetermined
+"[""000714"", ""0802614"", ""714""]",REAL_4G_5G,5,6,Mixed
+"[""029424"", ""29424""]",REAL_4G_5G,5,125,Mixed
+"[""0802629"", ""142824""]",REAL_4G_5G,5,6,Mixed
+"[""0808428""]",REAL_4G_5G,5,39,Mixed
+"[""0802489"", ""CATR0430A""]",REAL_4G_5G,5,9,Office
+"[""000470""]",REAL_4G_5G,5,12,Mixed
+"[""206635""]",REAL_4G_5G,5,1,Undetermined
+"[""084888""]",REAL_4G_5G,5,23,Mixed
+"[""0803870"", ""CATR0006Z""]",REAL_4G_5G,5,72,Mixed
+"[""0800303"", ""CATR0608I""]",REAL_4G_5G,5,13,Mixed
+"[""0800235""]",REAL_4G_5G,5,18,Mixed
+"[""81598"", ""CATR1713A""]",REAL_4G_5G,5,0,Undetermined
+"[""0801135""]",REAL_4G_5G,5,28,Mixed
+"[""000804"", ""CATR0335A""]",REAL_4G_5G,5,29,Mixed
+"[""195316"", ""CATR1968A"", ""CATR4796A""]",REAL_4G_5G,5,2,Undetermined
+"[""0800501"", ""CATR2028A""]",REAL_4G_5G,5,0,Undetermined
+"[""024008"", ""24008""]",REAL_4G_5G,5,10,Office
+"[""0807704""]",REAL_4G_5G,5,0,Undetermined
+"[""54959"", ""CATR4794A""]",REAL_4G_5G,5,0,Undetermined
+"[""0802965""]",REAL_4G_5G,5,0,Undetermined
+"[""054881"", ""54881""]",REAL_4G_5G,5,118,Mixed
+"[""CATR2845A""]",REAL_4G_5G,5,34,Mixed
+"[""CATR6094A""]",REAL_4G_5G,5,10,Mixed
+"[""0800387""]",REAL_4G_5G,5,0,Undetermined
+SYN_RRH_00001,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00002,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00003,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00004,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00005,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00006,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00007,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00008,SYNTHETIC,5,18,Undetermined
+SYN_RRH_00009,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00010,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00011,SYNTHETIC,5,1,Undetermined
+SYN_RRH_00012,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00013,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00014,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00015,SYNTHETIC,5,1,Undetermined
+SYN_RRH_00016,SYNTHETIC,5,0,Residential
+SYN_RRH_00017,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00018,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00019,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00020,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00021,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00022,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00023,SYNTHETIC,5,3,Undetermined
+SYN_RRH_00024,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00025,SYNTHETIC,5,0,Residential
+SYN_RRH_00026,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00027,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00028,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00029,SYNTHETIC,5,7,Mixed
+SYN_RRH_00030,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00031,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00032,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00033,SYNTHETIC,5,0,Residential
+SYN_RRH_00034,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00035,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00036,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00037,SYNTHETIC,5,0,Residential
+SYN_RRH_00038,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00039,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00040,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00041,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00042,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00043,SYNTHETIC,5,13,Mixed
+SYN_RRH_00044,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00045,SYNTHETIC,5,0,Residential
+SYN_RRH_00046,SYNTHETIC,5,3,Residential
+SYN_RRH_00047,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00048,SYNTHETIC,5,2,Undetermined
+SYN_RRH_00049,SYNTHETIC,5,0,Undetermined
+SYN_RRH_00050,SYNTHETIC,5,0,Residential
+"[""CATR0704C""]",REAL_4G_5G,10,113,Mixed
+"[""CATR5941A""]",REAL_4G_5G,10,7,Undetermined
+"[""CATR6114A""]",REAL_4G_5G,10,1,Residential
+"[""030664"", ""30664"", ""CATR4791A""]",REAL_4G_5G,10,1,Undetermined
+"[""0800354""]",REAL_4G_5G,10,36,Mixed
+"[""0800388""]",REAL_4G_5G,10,4,Undetermined
+"[""0803378""]",REAL_4G_5G,10,6,Residential
+"[""0804442""]",REAL_4G_5G,10,9,Residential
+"[""063922"", ""63922"", ""CATR3007M""]",REAL_4G_5G,10,13,Office
+"[""0801563""]",REAL_4G_5G,10,24,Office
+"[""193605"", ""CATR2868A""]",REAL_4G_5G,10,13,Office
+"[""024269"", ""0801435"", ""24269"", ""CATR2823A""]",REAL_4G_5G,10,31,Mixed
+"[""0800658""]",REAL_4G_5G,10,0,Undetermined
+"[""0806331""]",REAL_4G_5G,10,87,Mixed
+"[""0801461"", ""CATR0205A""]",REAL_4G_5G,10,81,Mixed
+"[""0800967""]",REAL_4G_5G,10,0,Undetermined
+"[""063112"", ""0800323"", ""63112""]",REAL_4G_5G,10,41,Office
+"[""0800184"", ""CATR2045B""]",REAL_4G_5G,10,1,Undetermined
+"[""10060""]",REAL_4G_5G,10,1,Residential
+"[""599"", ""CATR0031Z""]",REAL_4G_5G,10,12,Mixed
+"[""0805257""]",REAL_4G_5G,10,7,Undetermined
+"[""040008"", ""0800331"", ""CATR4608A""]",REAL_4G_5G,10,0,Undetermined
+"[""0800261""]",REAL_4G_5G,10,14,Mixed
+"[""0808050""]",REAL_4G_5G,10,29,Mixed
+"[""0802590""]",REAL_4G_5G,10,6,Undetermined
+"[""0800047"", ""87994""]",REAL_4G_5G,10,2,Undetermined
+"[""0805243""]",REAL_4G_5G,10,3,Residential
+"[""55299""]",REAL_4G_5G,10,17,Mixed
+"[""0800588"", ""91701"", ""CATR4793A""]",REAL_4G_5G,10,2,Undetermined
+"[""0803252""]",REAL_4G_5G,10,97,Mixed
+"[""013090"", ""0807642"", ""13090""]",REAL_4G_5G,10,2,Undetermined
+"[""028723""]",REAL_4G_5G,10,43,Mixed
+"[""0808536""]",REAL_4G_5G,10,2,Undetermined
+"[""CATR2893C""]",REAL_4G_5G,10,9,Residential
+"[""CATR0591A""]",REAL_4G_5G,10,9,Residential
+"[""0802491"", ""CATR0414A""]",REAL_4G_5G,10,11,Mixed
+"[""0800533""]",REAL_4G_5G,10,28,Mixed
+"[""0801257""]",REAL_4G_5G,10,39,Mixed
+"[""CATR0567A""]",REAL_4G_5G,10,3,Undetermined
+"[""157010""]",REAL_4G_5G,10,0,Undetermined
+"[""73207"", ""CATR4782A""]",REAL_4G_5G,10,1,Undetermined
+"[""149604"", ""CATR4779A""]",REAL_4G_5G,10,0,Undetermined
+"[""66957"", ""CATR2833A""]",REAL_4G_5G,10,0,Undetermined
+"[""0806345""]",REAL_4G_5G,10,0,Residential
+"[""005287""]",REAL_4G_5G,10,19,Mixed
+"[""075389"", ""0802416"", ""75389"", ""CATR2032A""]",REAL_4G_5G,10,3,Residential
+"[""CATR0331A""]",REAL_4G_5G,10,45,Mixed
+"[""0803755""]",REAL_4G_5G,10,7,Undetermined
+"[""074202"", ""0804323"", ""CATR0035A""]",REAL_4G_5G,10,18,Office
+"[""0800202""]",REAL_4G_5G,10,1,Undetermined
+"[""0802607"", ""080289"", ""CATR0484A""]",REAL_4G_5G,10,36,Mixed
+"[""075137"", ""75137"", ""CATR1999F""]",REAL_4G_5G,10,0,Undetermined
+"[""0800965""]",REAL_4G_5G,10,0,Undetermined
+"[""003251"", ""3251""]",REAL_4G_5G,10,53,Mixed
+"[""CATR1503A""]",REAL_4G_5G,10,20,Mixed
+"[""0801564""]",REAL_4G_5G,10,12,Mixed
+"[""054856""]",REAL_4G_5G,10,0,Residential
+"[""85407""]",REAL_4G_5G,10,114,Mixed
+"[""CATR0595A""]",REAL_4G_5G,10,30,Mixed
+"[""052713""]",REAL_4G_5G,10,4,Undetermined
+"[""0802605""]",REAL_4G_5G,10,1,Undetermined
+"[""27569""]",REAL_4G_5G,10,36,Office
+"[""018746"", ""0802621"", ""18746"", ""CATR3045H""]",REAL_4G_5G,10,2,Residential
+"[""0801850""]",REAL_4G_5G,10,100,Mixed
+"[""CATR0374B""]",REAL_4G_5G,10,36,Mixed
+"[""0800603"", ""181889""]",REAL_4G_5G,10,16,Office
+"[""0800030"", ""71989"", ""CATR3006S""]",REAL_4G_5G,10,4,Residential
+"[""000656"", ""0802475"", ""CATR0713C""]",REAL_4G_5G,10,23,Mixed
+"[""054886"", ""CATR0604A""]",REAL_4G_5G,10,5,Residential
+"[""0802479""]",REAL_4G_5G,10,13,Office
+"[""0800584"", ""66248"", ""CATR4829A""]",REAL_4G_5G,10,0,Undetermined
+"[""0808067""]",REAL_4G_5G,10,4,Undetermined
+"[""0802849""]",REAL_4G_5G,10,617,Mixed
+"[""0800447""]",REAL_4G_5G,10,3,Undetermined
+"[""CATR1707F""]",REAL_4G_5G,10,1,Undetermined
+"[""0807983""]",REAL_4G_5G,10,66,Mixed
+"[""59988""]",REAL_4G_5G,10,14,Mixed
+"[""000604"", ""CATR4781A""]",REAL_4G_5G,10,0,Undetermined
+"[""0803283""]",REAL_4G_5G,10,11,Mixed
+"[""0808908""]",REAL_4G_5G,10,3,Residential
+"[""000464"", ""464""]",REAL_4G_5G,10,19,Mixed
+"[""078308"", ""78308"", ""CATR3114Y""]",REAL_4G_5G,10,1,Undetermined
+"[""042908"", ""42908"", ""CATR6056A""]",REAL_4G_5G,10,3,Undetermined
+"[""0808453""]",REAL_4G_5G,10,14,Mixed
+"[""712""]",REAL_4G_5G,10,0,Residential
+"[""028177""]",REAL_4G_5G,10,5,Undetermined
+"[""0801039""]",REAL_4G_5G,10,76,Mixed
+"[""0800349"", ""080173"", ""CATR0425A""]",REAL_4G_5G,10,8,Residential
+"[""CATR0574J""]",REAL_4G_5G,10,12,Mixed
+"[""000475"", ""0807449"", ""475""]",REAL_4G_5G,10,8,Residential
+"[""0803644""]",REAL_4G_5G,10,0,Undetermined
+"[""0800280"", ""52687""]",REAL_4G_5G,10,4,Undetermined
+"[""027974"", ""0801448""]",REAL_4G_5G,10,52,Mixed
+"[""CATR1024A""]",REAL_4G_5G,10,5,Residential
+"[""0802518"", ""085434"", ""85431"", ""CATR0822A""]",REAL_4G_5G,10,0,Residential
+"[""000465"", ""0804416""]",REAL_4G_5G,10,27,Mixed
+"[""000594"", ""0802418"", ""594"", ""CATR0336A""]",REAL_4G_5G,10,50,Mixed
+"[""0809139""]",REAL_4G_5G,10,22,Mixed
+"[""0803811""]",REAL_4G_5G,10,12,Mixed
+"[""0800315""]",REAL_4G_5G,10,29,Mixed
+"[""0802914"", ""186094""]",REAL_4G_5G,10,7,Residential
+"[""066631"", ""66631"", ""CATR0712A""]",REAL_4G_5G,10,42,Mixed
+"[""000634"", ""0800187"", ""CATR0019A""]",REAL_4G_5G,10,66,Mixed
+"[""0802904"", ""080871"", ""80871"", ""CATR2016G""]",REAL_4G_5G,10,6,Undetermined
+"[""000863"", ""0805326"", ""863"", ""CATR0594F""]",REAL_4G_5G,10,31,Mixed
+"[""0800033""]",REAL_4G_5G,10,116,Mixed
+"[""0800616"", ""CATR1081A""]",REAL_4G_5G,10,11,Undetermined
+"[""000682""]",REAL_4G_5G,10,1,Undetermined
+"[""0801420""]",REAL_4G_5G,10,100,Mixed
+"[""0800161"", ""183714""]",REAL_4G_5G,10,1,Undetermined
+"[""0804061""]",REAL_4G_5G,10,6,Residential
+"[""0803840"", ""CATR0140R""]",REAL_4G_5G,10,4,Undetermined
+"[""012622"", ""0802835""]",REAL_4G_5G,10,0,Undetermined
+"[""0802121"", ""CATR6059A""]",REAL_4G_5G,10,6,Undetermined
+"[""0800119""]",REAL_4G_5G,10,3,Undetermined
+"[""003266"", ""3266""]",REAL_4G_5G,10,86,Mixed
+"[""0806792""]",REAL_4G_5G,10,22,Mixed
+"[""018836"", ""0802552"", ""18836""]",REAL_4G_5G,10,7,Residential
+"[""0802501""]",REAL_4G_5G,10,0,Undetermined
+"[""CATR2035A""]",REAL_4G_5G,10,0,Undetermined
+"[""0802887"", ""75238""]",REAL_4G_5G,10,0,Undetermined
+"[""208945""]",REAL_4G_5G,10,7,Undetermined
+"[""0808365""]",REAL_4G_5G,10,22,Mixed
+"[""CATR5976A""]",REAL_4G_5G,10,21,Mixed
+"[""CATR1045B"", ""CATR1045U""]",REAL_4G_5G,10,1,Residential
+"[""0801047""]",REAL_4G_5G,10,2,Residential
+"[""0807822""]",REAL_4G_5G,10,13,Mixed
+"[""0800767""]",REAL_4G_5G,10,0,Undetermined
+"[""056359"", ""56359"", ""CATR6168A""]",REAL_4G_5G,10,3,Undetermined
+"[""0803350""]",REAL_4G_5G,10,4,Residential
+"[""CATR3023B""]",REAL_4G_5G,10,29,Office
+"[""139484""]",REAL_4G_5G,10,0,Undetermined
+"[""CATR0102F""]",REAL_4G_5G,10,28,Mixed
+"[""0801323""]",REAL_4G_5G,10,3,Residential
+"[""CATR5830A""]",REAL_4G_5G,10,33,Mixed
+"[""073493"", ""73493"", ""CATR1982F""]",REAL_4G_5G,10,9,Undetermined
+"[""CATR3282A""]",REAL_4G_5G,10,1,Undetermined
+"[""085139""]",REAL_4G_5G,10,1,Residential
+"[""0800106""]",REAL_4G_5G,10,2,Undetermined
+"[""080873""]",REAL_4G_5G,10,0,Undetermined
+"[""058043"", ""0801567"", ""58043"", ""CATR0429A""]",REAL_4G_5G,10,13,Office
+"[""0800532""]",REAL_4G_5G,10,14,Office
+"[""0800049"", ""52429""]",REAL_4G_5G,10,9,Undetermined
+"[""0801341""]",REAL_4G_5G,10,53,Mixed
+"[""CATR0901C""]",REAL_4G_5G,10,0,Undetermined
+"[""085375"", ""CATR0601F""]",REAL_4G_5G,10,215,Mixed
+"[""CATR0404A""]",REAL_4G_5G,10,16,Mixed
+"[""0801103""]",REAL_4G_5G,10,64,Mixed
+"[""0808254""]",REAL_4G_5G,10,50,Mixed
+"[""CATR6144B1""]",REAL_4G_5G,10,7,Residential
+"[""003593"", ""3593"", ""CATR0964A""]",REAL_4G_5G,10,1,Residential
+"[""CATR0568G""]",REAL_4G_5G,10,6,Undetermined
+"[""0803302""]",REAL_4G_5G,10,49,Mixed
+"[""0802420"", ""CATR3015K""]",REAL_4G_5G,10,50,Mixed
+"[""0800155"", ""CATR0956B""]",REAL_4G_5G,10,2,Residential
+"[""142870""]",REAL_4G_5G,10,8,Residential
+"[""CATR0047A""]",REAL_4G_5G,10,26,Mixed
+"[""0808421""]",REAL_4G_5G,10,34,Mixed
+"[""066282"", ""66282"", ""CATR4595A""]",REAL_4G_5G,10,9,Undetermined
+"[""0804394"", ""CATR1068A""]",REAL_4G_5G,10,2,Residential
+"[""0802422""]",REAL_4G_5G,10,14,Mixed
+"[""0803187""]",REAL_4G_5G,10,29,Mixed
+"[""0809125""]",REAL_4G_5G,10,26,Office
+"[""CATR0374C""]",REAL_4G_5G,10,15,Mixed
+"[""120662""]",REAL_4G_5G,10,13,Mixed
+"[""061363""]",REAL_4G_5G,10,1057,Mixed
+"[""0800253""]",REAL_4G_5G,10,5,Residential
+"[""0808412""]",REAL_4G_5G,10,10,Undetermined
+"[""076648"", ""0801987"", ""76648"", ""CATR2817A""]",REAL_4G_5G,10,11,Mixed
+"[""142976""]",REAL_4G_5G,10,4,Undetermined
+"[""026746"", ""26746"", ""CATR0519C""]",REAL_4G_5G,10,14,Mixed
+"[""67340""]",REAL_4G_5G,10,6,Residential
+"[""061826"", ""0804092"", ""61826""]",REAL_4G_5G,10,2,Undetermined
+"[""CATR3382A""]",REAL_4G_5G,10,41,Mixed
+"[""0807064""]",REAL_4G_5G,10,52,Mixed
+"[""0804670"", ""51929"", ""CATR0613D""]",REAL_4G_5G,10,31,Mixed
+"[""CATB0952D"", ""CATR0952D""]",REAL_4G_5G,10,0,Undetermined
+"[""0805256"", ""CATR0551A""]",REAL_4G_5G,10,12,Mixed
+"[""0800496"", ""CATR2894A""]",REAL_4G_5G,10,7,Residential
+"[""0802582"", ""54756"", ""CATR1963A"", ""CATR4792A""]",REAL_4G_5G,10,0,Undetermined
+"[""70958""]",REAL_4G_5G,10,8,Residential
+"[""CATR0998B""]",REAL_4G_5G,10,1,Undetermined
+"[""CATR6001A""]",REAL_4G_5G,10,16,Mixed
+"[""0802930"", ""CATR0614E""]",REAL_4G_5G,10,117,Mixed
+"[""078807"", ""CATR0598A""]",REAL_4G_5G,10,0,Undetermined
+"[""0806796""]",REAL_4G_5G,10,27,Mixed
+"[""006795"", ""0804039"", ""6795""]",REAL_4G_5G,10,9,Residential
+"[""18411""]",REAL_4G_5G,10,2,Residential
+"[""061338"", ""61338"", ""CATB0039Z"", ""CATR0039Z""]",REAL_4G_5G,10,18,Office
+"[""CATR0576D""]",REAL_4G_5G,10,3,Undetermined
+"[""0803659""]",REAL_4G_5G,10,0,Undetermined
+"[""0807500""]",REAL_4G_5G,10,83,Office
+"[""67342""]",REAL_4G_5G,10,18,Mixed
+"[""0807901""]",REAL_4G_5G,10,0,Undetermined
+"[""0801784""]",REAL_4G_5G,10,23,Office
+"[""0800057""]",REAL_4G_5G,10,0,Undetermined
+"[""CATR5971A""]",REAL_4G_5G,10,3,Residential
+"[""0801981"", ""64404"", ""BX0336A"", ""BX1256A"", ""BX65UL"", ""CATR5928A""]",REAL_4G_5G,10,9,Residential
+"[""110480"", ""CATR0250A""]",REAL_4G_5G,10,5,Residential
+"[""0800907"", ""CATR0458A""]",REAL_4G_5G,10,1,Residential
+"[""000468"", ""468""]",REAL_4G_5G,10,14,Mixed
+"[""0801660"", ""79712"", ""CATR0517C"", ""CATR0517D""]",REAL_4G_5G,10,2,Residential
+"[""0802532"", ""086040"", ""86040"", ""CATR0228A""]",REAL_4G_5G,10,32,Office
+"[""0808138""]",REAL_4G_5G,10,14,Mixed
+"[""000454"", ""454""]",REAL_4G_5G,10,45,Mixed
+"[""54915""]",REAL_4G_5G,10,0,Undetermined
+"[""70454"", ""CATR3142W""]",REAL_4G_5G,10,6,Undetermined
+"[""0800269""]",REAL_4G_5G,10,14,Mixed
+"[""669"", ""CATR2004C""]",REAL_4G_5G,10,1,Undetermined
+"[""66739""]",REAL_4G_5G,10,9,Undetermined
+"[""0800168""]",REAL_4G_5G,10,1,Undetermined
+"[""0800351""]",REAL_4G_5G,10,6,Residential
+"[""CATR0072A""]",REAL_4G_5G,10,7,Residential
+"[""79518"", ""CATR4540A""]",REAL_4G_5G,10,4,Undetermined
+"[""CATR3242A""]",REAL_4G_5G,10,0,Undetermined
+"[""0800409"", ""21574""]",REAL_4G_5G,10,52,Mixed
+"[""73968""]",REAL_4G_5G,10,0,Residential
+"[""0801694"", ""54846"", ""CATR3021A""]",REAL_4G_5G,10,37,Office
+"[""025292""]",REAL_4G_5G,10,21,Mixed
+"[""CATR0389Y""]",REAL_4G_5G,10,133,Mixed
+"[""0801732"", ""84937"", ""CATR4775A""]",REAL_4G_5G,10,1,Undetermined
+"[""012610"", ""CATR7280A""]",REAL_4G_5G,10,2,Undetermined
+"[""059688"", ""0800971"", ""59688"", ""CATR0383A""]",REAL_4G_5G,10,7,Residential
+"[""0801868"", ""CATR3322A""]",REAL_4G_5G,10,5,Residential
+"[""0800368""]",REAL_4G_5G,10,8,Residential
+"[""0805808""]",REAL_4G_5G,10,0,Undetermined
+"[""CATR0014Z""]",REAL_4G_5G,10,68,Mixed
+"[""011469"", ""11469""]",REAL_4G_5G,10,34,Mixed
+"[""155558"", ""CATR1502A""]",REAL_4G_5G,10,42,Mixed
+"[""0800412""]",REAL_4G_5G,10,36,Mixed
+"[""CATR6144C1""]",REAL_4G_5G,10,2,Residential
+"[""0802314""]",REAL_4G_5G,10,10,Mixed
+"[""0808886"", ""CATR0449Z""]",REAL_4G_5G,10,7,Residential
+"[""0807988""]",REAL_4G_5G,10,98,Mixed
+"[""085057"", ""85057"", ""CATR2090A"", ""CATR7203A""]",REAL_4G_5G,10,0,Undetermined
+"[""0800250""]",REAL_4G_5G,10,23,Office
+"[""0802424"", ""11514""]",REAL_4G_5G,10,1,Undetermined
+"[""0800372""]",REAL_4G_5G,10,3,Undetermined
+"[""0801672""]",REAL_4G_5G,10,3,Undetermined
+"[""000644"", ""644""]",REAL_4G_5G,10,2,Undetermined
+"[""077532"", ""0803228"", ""CATR4037F""]",REAL_4G_5G,10,9,Residential
+"[""029219"", ""0801681"", ""CATR0328A""]",REAL_4G_5G,10,4,Residential
+"[""070958""]",REAL_4G_5G,10,8,Residential
+"[""0808416""]",REAL_4G_5G,10,24,Mixed
+"[""CATR2761T""]",REAL_4G_5G,10,5,Residential
+"[""023299""]",REAL_4G_5G,10,6,Residential
+"[""0801699"", ""CATR1070A""]",REAL_4G_5G,10,0,Undetermined
+"[""0801497"", ""CATR0027I""]",REAL_4G_5G,10,26,Mixed
+"[""0800914""]",REAL_4G_5G,10,1,Undetermined
+"[""CATR2766O""]",REAL_4G_5G,10,2,Residential
+"[""CATR0386Z""]",REAL_4G_5G,10,27,Mixed
+"[""CATR0024A""]",REAL_4G_5G,10,0,Undetermined
+"[""CATR1008CY""]",REAL_4G_5G,10,0,Residential
+"[""0808586"", ""CATR6058A""]",REAL_4G_5G,10,6,Undetermined
+"[""072355"", ""72355"", ""CATR1003A""]",REAL_4G_5G,10,52,Mixed
+"[""80785"", ""CATR4604A""]",REAL_4G_5G,10,2,Undetermined
+"[""0808255""]",REAL_4G_5G,10,68,Mixed
+"[""088903"", ""CATR7254A""]",REAL_4G_5G,10,1,Undetermined
+"[""000801"", ""0804098"", ""801""]",REAL_4G_5G,10,8,Residential
+"[""077881""]",REAL_4G_5G,10,22,Mixed
+"[""0805740""]",REAL_4G_5G,10,1,Residential
+"[""086407"", ""86407"", ""CATR4591A""]",REAL_4G_5G,10,0,Undetermined
+"[""0800880""]",REAL_4G_5G,10,14,Mixed
+"[""0806439""]",REAL_4G_5G,10,1,Undetermined
+"[""0806817""]",REAL_4G_5G,10,19,Mixed
+"[""012905"", ""0801996"", ""12905""]",REAL_4G_5G,10,8,Undetermined
+"[""0803056""]",REAL_4G_5G,10,29,Mixed
+"[""57069"", ""CATR0919D""]",REAL_4G_5G,10,3,Residential
+"[""CATR0211A""]",REAL_4G_5G,10,22,Mixed
+"[""CATR1727A""]",REAL_4G_5G,10,0,Undetermined
+"[""0801173""]",REAL_4G_5G,10,28,Mixed
+"[""065548"", ""65548""]",REAL_4G_5G,10,1,Undetermined
+"[""0808298""]",REAL_4G_5G,10,27,Mixed
+"[""133413"", ""CATR0502Z""]",REAL_4G_5G,10,11,Mixed
+"[""0804338"", ""CATR3087A""]",REAL_4G_5G,10,2,Undetermined
+"[""0802482"", ""CATR3349A""]",REAL_4G_5G,10,5,Undetermined
+"[""028347""]",REAL_4G_5G,10,2,Residential
+"[""CATR3044J""]",REAL_4G_5G,10,13,Mixed
+"[""0801184""]",REAL_4G_5G,10,30,Mixed
+"[""0800231""]",REAL_4G_5G,10,5,Undetermined
+"[""0802566""]",REAL_4G_5G,10,0,Undetermined
+"[""054515""]",REAL_4G_5G,10,54,Mixed
+"[""0808127""]",REAL_4G_5G,10,16,Mixed
+"[""CATR5850A""]",REAL_4G_5G,10,19,Mixed
+"[""000642"", ""0804536"", ""CATR4799A""]",REAL_4G_5G,10,6,Undetermined
+"[""0808242""]",REAL_4G_5G,10,75,Mixed
+"[""0801714""]",REAL_4G_5G,10,20,Mixed
+"[""0800104""]",REAL_4G_5G,10,1,Residential
+"[""63510""]",REAL_4G_5G,10,3,Undetermined
+"[""134113"", ""CATR7305A""]",REAL_4G_5G,10,0,Undetermined
+"[""058163"", ""58163"", ""CATR3028J""]",REAL_4G_5G,10,22,Office
+"[""0804141""]",REAL_4G_5G,10,28,Office
+"[""0803868""]",REAL_4G_5G,10,5,Residential
+"[""CATR0344A""]",REAL_4G_5G,10,652,Mixed
+"[""0802012"", ""27/11/2025"", ""73000"", ""CATR0542I""]",REAL_4G_5G,10,11,Mixed
+"[""CATR4880A""]",REAL_4G_5G,10,11,Undetermined
+"[""0804764""]",REAL_4G_5G,10,0,Undetermined
+"[""0802358""]",REAL_4G_5G,10,1,Residential
+"[""11847""]",REAL_4G_5G,10,9,Residential
+"[""52648""]",REAL_4G_5G,10,584,Mixed
+"[""0800149""]",REAL_4G_5G,10,0,Undetermined
+"[""CATR0522V""]",REAL_4G_5G,10,35,Mixed
+"[""079941""]",REAL_4G_5G,10,0,Residential
+"[""054711"", ""0806306"", ""CATR3279A""]",REAL_4G_5G,10,7,Undetermined
+"[""CATR5851AJOS""]",REAL_4G_5G,10,5,Residential
+"[""CATB3038A""]",REAL_4G_5G,10,25,Mixed
+"[""24117""]",REAL_4G_5G,10,4,Residential
+"[""0803623""]",REAL_4G_5G,10,96,Mixed
+"[""0802433""]",REAL_4G_5G,10,42,Mixed
+"[""067731"", ""CATR6004A""]",REAL_4G_5G,10,15,Mixed
+"[""142079""]",REAL_4G_5G,10,2,Undetermined
+"[""0802445"", ""CATR2776A""]",REAL_4G_5G,10,79,Mixed
+"[""073589"", ""0801045"", ""73589"", ""CATR1611H""]",REAL_4G_5G,10,0,Residential
+"[""083901"", ""CATR0703B""]",REAL_4G_5G,10,56,Mixed
+"[""CATR0071G""]",REAL_4G_5G,10,3,Residential
+"[""0801873""]",REAL_4G_5G,10,0,Undetermined
+"[""0804960"", ""35913"", ""CATR1052A""]",REAL_4G_5G,10,21,Office
+"[""000672"", ""CATR4607A""]",REAL_4G_5G,10,1,Undetermined
+"[""0800056""]",REAL_4G_5G,10,12,Undetermined
+"[""0800590"", ""800590"", ""CATR0062A""]",REAL_4G_5G,10,20,Office
+"[""CATR2846A""]",REAL_4G_5G,10,22,Mixed
+"[""0805821""]",REAL_4G_5G,10,29,Mixed
+"[""093251"", ""93251"", ""CATR7297A""]",REAL_4G_5G,10,0,Undetermined
+"[""CATR1918E""]",REAL_4G_5G,10,9,Undetermined
+"[""156377""]",REAL_4G_5G,10,5,Residential
+"[""0802143"", ""088279"", ""CATR7259A""]",REAL_4G_5G,10,0,Undetermined
+"[""000714"", ""0802614"", ""714""]",REAL_4G_5G,10,6,Residential
+"[""029424"", ""29424""]",REAL_4G_5G,10,125,Mixed
+"[""0802629"", ""142824""]",REAL_4G_5G,10,6,Residential
+"[""0808428""]",REAL_4G_5G,10,39,Mixed
+"[""0802489"", ""CATR0430A""]",REAL_4G_5G,10,9,Undetermined
+"[""000470""]",REAL_4G_5G,10,12,Mixed
+"[""206635""]",REAL_4G_5G,10,1,Undetermined
+"[""084888""]",REAL_4G_5G,10,23,Mixed
+"[""0803870"", ""CATR0006Z""]",REAL_4G_5G,10,72,Mixed
+"[""0800303"", ""CATR0608I""]",REAL_4G_5G,10,13,Mixed
+"[""0800235""]",REAL_4G_5G,10,18,Mixed
+"[""81598"", ""CATR1713A""]",REAL_4G_5G,10,0,Undetermined
+"[""0801135""]",REAL_4G_5G,10,28,Mixed
+"[""000804"", ""CATR0335A""]",REAL_4G_5G,10,29,Mixed
+"[""195316"", ""CATR1968A"", ""CATR4796A""]",REAL_4G_5G,10,2,Undetermined
+"[""0800501"", ""CATR2028A""]",REAL_4G_5G,10,0,Undetermined
+"[""024008"", ""24008""]",REAL_4G_5G,10,10,Office
+"[""0807704""]",REAL_4G_5G,10,0,Undetermined
+"[""54959"", ""CATR4794A""]",REAL_4G_5G,10,0,Undetermined
+"[""0802965""]",REAL_4G_5G,10,0,Undetermined
+"[""054881"", ""54881""]",REAL_4G_5G,10,118,Mixed
+"[""CATR2845A""]",REAL_4G_5G,10,34,Mixed
+"[""CATR6094A""]",REAL_4G_5G,10,10,Mixed
+"[""0800387""]",REAL_4G_5G,10,0,Undetermined
+SYN_RRH_00001,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00002,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00003,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00004,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00005,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00006,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00007,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00008,SYNTHETIC,10,18,Undetermined
+SYN_RRH_00009,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00010,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00011,SYNTHETIC,10,1,Undetermined
+SYN_RRH_00012,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00013,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00014,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00015,SYNTHETIC,10,1,Undetermined
+SYN_RRH_00016,SYNTHETIC,10,0,Residential
+SYN_RRH_00017,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00018,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00019,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00020,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00021,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00022,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00023,SYNTHETIC,10,3,Undetermined
+SYN_RRH_00024,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00025,SYNTHETIC,10,0,Residential
+SYN_RRH_00026,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00027,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00028,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00029,SYNTHETIC,10,7,Residential
+SYN_RRH_00030,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00031,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00032,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00033,SYNTHETIC,10,0,Residential
+SYN_RRH_00034,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00035,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00036,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00037,SYNTHETIC,10,0,Residential
+SYN_RRH_00038,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00039,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00040,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00041,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00042,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00043,SYNTHETIC,10,13,Mixed
+SYN_RRH_00044,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00045,SYNTHETIC,10,0,Residential
+SYN_RRH_00046,SYNTHETIC,10,3,Residential
+SYN_RRH_00047,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00048,SYNTHETIC,10,2,Undetermined
+SYN_RRH_00049,SYNTHETIC,10,0,Undetermined
+SYN_RRH_00050,SYNTHETIC,10,0,Residential

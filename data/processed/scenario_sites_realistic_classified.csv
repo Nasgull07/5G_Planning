@@ -1,0 +1,401 @@
+rrh_id,latitude,longitude,source_type,operator,technology,is_synthetic,densresi21,perhaban21,residential_density_group,nom,nommuni,shop_count,office_count,retail_count,commercial_count,total_business_features,residential_evidence,office_evidence,traffic_category
+"[""CATR0704C""]",41.396931,2.162506,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,491,114,0,0,605,True,True,Mixed
+"[""CATR5941A""]",41.356098,2.130561,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,23.85979876,53.125,Low,Granvia Sud,Hospitalet de Llobregat,21,7,1,1,30,False,True,Office
+"[""CATR6114A""]",41.302921,2.0779,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,28,1,0,0,29,True,False,Residential
+"[""030664"", ""30664"", ""CATR4791A""]",41.568779,2.000183,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,9,1,0,0,10,False,False,Undetermined
+"[""0800354""]",41.375271,2.130914,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,183.01576009,85.72825024,High,Sants,Barcelona,270,37,0,0,307,True,True,Mixed
+"[""0800388""]",41.46262,2.171344,REAL_4G_5G,"DS MOBILE NETWORKS, S.L.",4G,False,18.07753594,44.44444444,Low,Can Cuiàs,Montcada i Reixac,16,4,0,0,20,False,False,Undetermined
+"[""0803378""]",41.445648,2.172539,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,98.19355808,88.37209302,Medium,Les Roquetes,Barcelona,34,6,1,0,41,True,True,Mixed
+"[""0804442""]",41.412167,2.220694,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,89.45997694,93.66666667,Medium,El Besòs i el Maresme,Barcelona,117,8,1,0,126,True,True,Mixed
+"[""063922"", ""63922"", ""CATR3007M""]",41.439117,2.201028,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,27.09286827,88.08193669,Low,El Bon Pastor,Barcelona,42,13,4,1,60,False,True,Office
+"[""0801563""]",41.362965,2.133983,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,23.85979876,53.125,Low,Granvia Sud,Hospitalet de Llobregat,91,24,0,3,118,False,True,Office
+"[""193605"", ""CATR2868A""]",41.406025,2.126497,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,25.04004468,84.42906574,Low,Sant Gervasi - La Bonanova,Barcelona,10,13,0,0,23,False,True,Office
+"[""024269"", ""0801435"", ""24269"", ""CATR2823A""]",41.382557,2.136719,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,264,31,0,0,295,True,True,Mixed
+"[""0800658""]",41.547195,2.0917,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,,,,,,6,0,1,0,7,False,False,Undetermined
+"[""0806331""]",41.402817,2.202925,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,299,88,1,0,388,True,True,Mixed
+"[""0801461"", ""CATR0205A""]",41.399563,2.166003,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,398,81,0,0,479,True,True,Mixed
+"[""0800967""]",41.491528,1.90345,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,0,0,0,0,0,False,False,Undetermined
+"[""063112"", ""0800323"", ""63112""]",41.391937,2.128589,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,15.14603792,73.07692308,Low,Pedralbes,Barcelona,48,40,2,1,91,False,True,Office
+"[""0800184"", ""CATR2045B""]",41.533688,2.082358,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,8,1,1,0,10,False,False,Undetermined
+"[""10060""]",41.414276,2.016111,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,36.36249672,80.95238095,Medium,Centre,Molins de Rei,21,1,1,0,23,True,False,Residential
+"[""599"", ""CATR0031Z""]",41.410812,2.145344,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,108.45027635,82.62910798,Medium,El Putxet i El Farró,Barcelona,70,12,0,1,83,True,True,Mixed
+"[""0805257""]",41.356068,2.131853,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,23.85979876,53.125,Low,Granvia Sud,Hospitalet de Llobregat,22,6,1,1,30,False,True,Office
+"[""040008"", ""0800331"", ""CATR4608A""]",41.388924,1.877506,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,,,,,,0,0,0,0,0,False,False,Undetermined
+"[""0800261""]",41.350674,2.103561,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,206.71003739,80.69526627,High,Centre,Hospitalet de Llobregat,61,14,3,0,78,True,True,Mixed
+"[""0808050""]",41.411282,2.198708,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,228.29843381,80.0,High,Provençals del Poblenou,Barcelona,65,29,1,0,95,True,True,Mixed
+"[""0802590""]",41.379677,2.093986,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,19.19685081,76.47058824,Low,"Ca n'Oliveres, Centre",Esplugues de Llobregat,81,6,3,0,90,False,True,Office
+"[""0800047"", ""87994""]",41.533501,2.109611,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,10,2,2,0,14,False,False,Undetermined
+"[""0805243""]",41.411392,2.226772,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,89.45997694,93.66666667,Medium,El Besòs i el Maresme,Barcelona,3,3,0,0,6,True,False,Residential
+"[""55299""]",41.331242,2.092275,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,71.39671779,71.23857024,Medium,Nucli Antic,El Prat de Llobregat,10,17,0,0,27,True,True,Mixed
+"[""0800588"", ""91701"", ""CATR4793A""]",41.552387,2.01205,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,9,2,1,0,12,False,False,Undetermined
+"[""0803252""]",41.387634,2.168478,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,477,99,0,0,576,True,True,Mixed
+"[""013090"", ""0807642"", ""13090""]",41.508331,2.136417,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,20.83575715,66.37681159,Low,Barri Antic,Barberà del Vallès,35,2,0,0,37,False,False,Undetermined
+"[""028723""]",41.386032,2.122967,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,62.56880764,80.20833333,Medium,La Maternitat i Sant Ramon,Barcelona,30,45,0,0,75,True,True,Mixed
+"[""0808536""]",41.517963,2.099856,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,,,,,,1,2,0,0,3,False,False,Undetermined
+"[""CATR2893C""]",41.356037,2.099003,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,206.71003739,80.69526627,High,Centre,Hospitalet de Llobregat,62,9,2,0,73,True,True,Mixed
+"[""CATR0591A""]",41.454472,2.218042,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,40.35917735,83.69781312,Medium,Llatí,Santa Coloma de Gramenet,37,8,1,0,46,True,True,Mixed
+"[""0802491"", ""CATR0414A""]",41.429379,2.193547,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,137.90297851,81.75553137,High,Sant Andreu,Barcelona,23,10,0,0,33,True,True,Mixed
+"[""0800533""]",41.393776,2.138633,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,198.47497625,90.93093093,High,Sant Gervasi - Galvany,Barcelona,88,27,2,1,118,True,True,Mixed
+"[""0801257""]",41.401501,2.173083,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,164.14242567,86.19079386,High,La Sagrada Família,Barcelona,251,39,0,0,290,True,True,Mixed
+"[""CATR0567A""]",41.370144,2.080983,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,24.39302453,76.42857143,Low,"El Gall, Montesa",Esplugues de Llobregat,20,4,1,0,25,False,False,Undetermined
+"[""157010""]",41.557598,2.085603,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,4,0,0,0,4,False,False,Undetermined
+"[""73207"", ""CATR4782A""]",41.57476,2.018383,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,45,1,0,0,46,False,False,Undetermined
+"[""149604"", ""CATR4779A""]",41.560207,2.040803,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,2,0,1,0,3,False,False,Undetermined
+"[""66957"", ""CATR2833A""]",41.502178,2.043522,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,,,,,,5,0,0,0,5,False,False,Undetermined
+"[""0806345""]",41.388683,2.049267,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,57.40757874,88.83928571,Medium,"Can Calders, La Salut, Collserola",Sant Feliu de Llobregat,37,0,0,0,37,True,False,Residential
+"[""005287""]",41.374828,2.158308,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,134.18893889,91.95876289,Medium,El Poble Sec,Barcelona,187,19,1,0,207,True,True,Mixed
+"[""075389"", ""0802416"", ""75389"", ""CATR2032A""]",41.424938,2.141067,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,35.0448509,76.53429603,Medium,Sant Genís dels Agudells,Barcelona,45,3,0,0,48,True,False,Residential
+"[""CATR0331A""]",41.391224,2.129194,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,47,45,2,1,95,True,True,Mixed
+"[""0803755""]",41.354568,2.128014,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,23.85979876,53.125,Low,Granvia Sud,Hospitalet de Llobregat,16,7,4,1,28,False,True,Office
+"[""074202"", ""0804323"", ""CATR0035A""]",41.405022,2.129756,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,25.04004468,84.42906574,Low,Sant Gervasi - La Bonanova,Barcelona,42,18,0,0,60,False,True,Office
+"[""0800202""]",41.379189,1.929939,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,9,1,1,0,11,False,False,Undetermined
+"[""0802607"", ""080289"", ""CATR0484A""]",41.405846,2.162383,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,241.06351551,90.07342144,High,La Vila de Gràcia,Barcelona,395,37,0,0,432,True,True,Mixed
+"[""075137"", ""75137"", ""CATR1999F""]",41.454773,2.07715,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,6.56209391,39.24843424,Low,"Can Barata, Can Gatxet, Can Majó, Can Sant Joan Nord, Can Sant Joan Sud, Can Trabal, CB CENTRE OEST - Arxiu, Collserola - Centre Oest, Costa del Golf, El Colomer, Galliners, Golf, La Guinardera, Parc Central, Pla de la Pagesa, Sant Domènec Est, Sant Do",Sant Cugat del Vallès,0,0,0,0,0,False,False,Undetermined
+"[""0800965""]",41.567005,2.088525,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,26,0,3,0,29,False,False,Undetermined
+"[""003251"", ""3251""]",41.390003,2.153339,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,243.67752192,92.81314168,High,L'Antiga Esquerra de l'Eixample,Barcelona,246,53,1,0,300,True,True,Mixed
+"[""CATR1503A""]",41.446335,2.208478,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,231.15060333,85.9432799,High,"Riu Nord, Riu Sud",Santa Coloma de Gramenet,110,21,2,0,133,True,True,Mixed
+"[""0801564""]",41.436756,2.184972,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,137.90297851,81.75553137,High,Sant Andreu,Barcelona,53,12,2,0,67,True,True,Mixed
+"[""054856""]",41.364113,2.156603,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,134.18893889,91.95876289,Medium,El Poble Sec,Barcelona,2,0,0,0,2,True,False,Residential
+"[""85407""]",41.401573,2.197586,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,205,114,2,1,322,True,True,Mixed
+"[""CATR0595A""]",41.447231,2.216931,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,70.95905552,84.93475682,Medium,"Can Mariner, Santa Rosa",Santa Coloma de Gramenet,143,30,0,0,173,True,True,Mixed
+"[""052713""]",41.351563,2.137414,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,4,4,0,0,8,False,False,Undetermined
+"[""0802605""]",41.574665,2.018428,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,45,1,0,0,46,False,False,Undetermined
+"[""27569""]",41.342854,2.037178,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,23.57673948,80.98290598,Low,Centre,Sant Boi de Llobregat,212,36,2,4,254,False,True,Office
+"[""018746"", ""0802621"", ""18746"", ""CATR3045H""]",41.322285,2.089289,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,296.08942085,74.11504425,High,Centre - Plaça Catalunya,El Prat de Llobregat,16,2,0,1,19,True,False,Residential
+"[""0801850""]",41.38773,2.173431,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,51.51757537,96.79780421,Medium,El Barri Gòtic,Barcelona,440,101,0,0,541,True,True,Mixed
+"[""CATR0374B""]",41.393246,2.181192,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,118.09917701,80.84745763,Medium,El Fort Pienc,Barcelona,135,36,2,2,175,True,True,Mixed
+"[""0800603"", ""181889""]",41.462147,1.956036,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,13.16945371,66.0,Low,"El Palau, Indústria",Sant Andreu de la Barca,20,16,1,0,37,False,True,Office
+"[""0800030"", ""71989"", ""CATR3006S""]",41.423843,2.206375,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,123.22617518,89.96960486,Medium,La Verneda i la Pau,Barcelona,36,4,0,0,40,True,False,Residential
+"[""000656"", ""0802475"", ""CATR0713C""]",41.411633,2.202306,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,228.29843381,80.0,High,Provençals del Poblenou,Barcelona,57,22,1,0,80,True,True,Mixed
+"[""054886"", ""CATR0604A""]",41.399719,2.210772,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,80.73921234,44.73684211,Medium,Diagonal Mar i el Front Marítim del Poblenou,Barcelona,30,5,0,0,35,True,True,Mixed
+"[""0802479""]",41.4347,2.1996,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,27.09286827,88.08193669,Low,El Bon Pastor,Barcelona,10,13,1,0,24,False,True,Office
+"[""0800584"", ""66248"", ""CATR4829A""]",41.57518,2.004267,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,2,0,0,0,2,False,False,Undetermined
+"[""0808067""]",41.336498,2.138181,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,2,4,0,0,6,False,False,Undetermined
+"[""0802849""]",41.398411,2.157261,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,241.06351551,90.07342144,High,La Vila de Gràcia,Barcelona,765,617,0,0,1382,True,True,Mixed
+"[""0800447""]",41.486252,2.054286,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,6.56209391,39.24843424,Low,"Can Barata, Can Gatxet, Can Majó, Can Sant Joan Nord, Can Sant Joan Sud, Can Trabal, CB CENTRE OEST - Arxiu, Collserola - Centre Oest, Costa del Golf, El Colomer, Galliners, Golf, La Guinardera, Parc Central, Pla de la Pagesa, Sant Domènec Est, Sant Do",Sant Cugat del Vallès,58,3,1,3,65,False,False,Undetermined
+"[""CATR1707F""]",41.521484,2.115911,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,6.06179269,45.0,Low,Parc Central,Barberà del Vallès,2,1,0,0,3,False,False,Undetermined
+"[""0807983""]",41.380646,2.177483,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,51.51757537,96.79780421,Medium,El Barri Gòtic,Barcelona,405,66,0,0,471,True,True,Mixed
+"[""59988""]",41.400703,2.208917,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,80.73921234,44.73684211,Medium,Diagonal Mar i el Front Marítim del Poblenou,Barcelona,94,14,0,0,108,True,True,Mixed
+"[""000604"", ""CATR4781A""]",41.559677,2.025439,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,8,0,0,0,8,False,False,Undetermined
+"[""0803283""]",41.430882,2.160844,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,40.19664973,85.71428571,Medium,Horta,Barcelona,69,11,1,0,81,True,True,Mixed
+"[""0808908""]",41.363907,2.112514,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,247.55923001,82.39564428,High,Sant Josep,Hospitalet de Llobregat,14,3,2,0,19,True,False,Residential
+"[""000464"", ""464""]",41.362621,2.131592,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,193.70466212,72.82296651,High,Santa Eulàlia,Hospitalet de Llobregat,71,19,1,3,94,True,True,Mixed
+"[""078308"", ""78308"", ""CATR3114Y""]",41.52647,2.1136,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,,,,,,33,1,0,0,34,False,False,Undetermined
+"[""042908"", ""42908"", ""CATR6056A""]",41.467976,2.078381,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,14.53463617,66.94785276,Low,"CB NUCLI ANTIC - L'Eixample Est, L'Eixample Oest, Nucli Antic Est, Nucli Antic Oest",Sant Cugat del Vallès,49,3,2,1,55,False,False,Undetermined
+"[""0808453""]",41.42474,2.185844,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,55.1842037,79.32263815,Medium,La Sagrera,Barcelona,56,14,1,0,71,True,True,Mixed
+"[""712""]",41.365742,2.072775,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,92.927902,78.26961771,Medium,El Pedró,Cornellà de Llobregat,16,0,0,0,16,True,False,Residential
+"[""028177""]",41.331215,2.114983,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,8,6,1,1,16,False,True,Office
+"[""0801039""]",41.385044,2.176183,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,51.51757537,96.79780421,Medium,El Barri Gòtic,Barcelona,619,76,0,0,695,True,True,Mixed
+"[""0800349"", ""080173"", ""CATR0425A""]",41.439064,2.171178,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,51.52465185,97.82608696,Medium,La Guineueta,Barcelona,53,8,1,1,63,True,True,Mixed
+"[""CATR0574J""]",41.354294,2.087931,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,46.84726118,62.45954693,Medium,Almeda,Cornellà de Llobregat,15,11,1,6,33,True,True,Mixed
+"[""000475"", ""0807449"", ""475""]",41.36145,2.107367,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,247.55923001,82.39564428,High,Sant Josep,Hospitalet de Llobregat,32,8,2,0,42,True,True,Mixed
+"[""0803644""]",41.422077,2.119539,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,4.50923035,71.0,Low,"Vallvidrera, El Tibidabo i Les Planes",Barcelona,6,0,0,0,6,False,False,Undetermined
+"[""0800280"", ""52687""]",41.369617,2.080317,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,24.39302453,76.42857143,Low,"El Gall, Montesa",Esplugues de Llobregat,18,4,1,0,23,False,False,Undetermined
+"[""027974"", ""0801448""]",41.387966,2.135303,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,224,51,3,1,279,True,True,Mixed
+"[""CATR1024A""]",41.383686,2.050328,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,185.78246537,76.77165354,High,Roses - Castellbell,Sant Feliu de Llobregat,43,6,0,0,49,True,True,Mixed
+"[""0802518"", ""085434"", ""85431"", ""CATR0822A""]",41.366394,2.066011,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,48.73433422,59.09090909,Medium,Fontsanta,Sant Joan Despí,4,0,2,0,6,True,False,Residential
+"[""000465"", ""0804416""]",41.375557,2.148111,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,72.02272136,83.23442137,Medium,Hostafrancs,Barcelona,165,28,1,0,194,True,True,Mixed
+"[""000594"", ""0802418"", ""594"", ""CATR0336A""]",41.385468,2.132511,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,204,50,2,0,256,True,True,Mixed
+"[""0809139""]",41.397648,2.140342,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,198.47497625,90.93093093,High,Sant Gervasi - Galvany,Barcelona,73,22,0,0,95,True,True,Mixed
+"[""0803811""]",41.415684,2.138303,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,51.02760334,80.36224976,Medium,Vallcarca i Els Penitents,Barcelona,62,12,0,1,75,True,True,Mixed
+"[""0800315""]",41.381451,2.160678,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,342.83956227,92.25556631,High,Sant Antoni,Barcelona,270,29,1,0,300,True,True,Mixed
+"[""0802914"", ""186094""]",41.330742,2.035772,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,32.63771047,73.33333333,Medium,Casablanca,Sant Boi de Llobregat,17,7,1,0,25,True,True,Mixed
+"[""066631"", ""66631"", ""CATR0712A""]",41.382092,2.166556,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,150.01212475,93.53701528,High,El Raval,Barcelona,374,42,0,0,416,True,True,Mixed
+"[""000634"", ""0800187"", ""CATR0019A""]",41.387238,2.127939,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,96,66,1,0,163,True,True,Mixed
+"[""0802904"", ""080871"", ""80871"", ""CATR2016G""]",41.492481,2.076786,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,6.56209391,39.24843424,Low,"Can Barata, Can Gatxet, Can Majó, Can Sant Joan Nord, Can Sant Joan Sud, Can Trabal, CB CENTRE OEST - Arxiu, Collserola - Centre Oest, Costa del Golf, El Colomer, Galliners, Golf, La Guinardera, Parc Central, Pla de la Pagesa, Sant Domènec Est, Sant Do",Sant Cugat del Vallès,0,6,0,6,12,False,True,Office
+"[""000863"", ""0805326"", ""863"", ""CATR0594F""]",41.447197,2.216703,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,70.95905552,84.93475682,Medium,"Can Mariner, Santa Rosa",Santa Coloma de Gramenet,145,31,0,0,176,True,True,Mixed
+"[""0800033""]",41.396305,2.162556,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,479,117,0,0,596,True,True,Mixed
+"[""0800616"", ""CATR1081A""]",41.546581,2.104917,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,,,,,,56,11,0,0,67,False,True,Undetermined
+"[""000682""]",41.474972,2.024828,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,0,1,0,0,1,False,False,Undetermined
+"[""0801420""]",41.395363,2.165522,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,423,99,0,0,522,True,True,Mixed
+"[""0800161"", ""183714""]",41.496872,2.032064,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,10,1,0,0,11,False,False,Undetermined
+"[""0804061""]",41.419556,2.209411,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,89.45997694,93.66666667,Medium,El Besòs i el Maresme,Barcelona,50,6,0,0,56,True,True,Mixed
+"[""0803840"", ""CATR0140R""]",41.3433,2.128789,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,1,4,0,0,5,False,False,Undetermined
+"[""012622"", ""0802835""]",41.561165,2.095828,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,20,0,0,0,20,False,False,Undetermined
+"[""0802121"", ""CATR6059A""]",41.501106,2.090911,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,0.12669483,87.5,Low,"Centre Direccional, Parc Tecnològic, Universitat Autònoma de Barcelona",Cerdanyola del Vallès,5,6,0,0,11,False,True,Office
+"[""0800119""]",41.384644,2.073417,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,22.03125057,70.45929019,Low,"Centre, Nord",Sant Just Desvern,7,3,0,0,10,False,False,Undetermined
+"[""003266"", ""3266""]",41.439369,2.220194,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,118.36090738,89.03122498,Medium,"Sant Antoni de Llefià, Sant Joan de Llefià, Sant Mori de Llefià",Badalona,391,86,0,0,477,True,True,Mixed
+"[""0806792""]",41.414047,2.188969,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,371.23418777,83.7520938,High,Navas,Barcelona,76,22,0,0,98,True,True,Mixed
+"[""018836"", ""0802552"", ""18836""]",41.374035,2.085622,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,78.85231763,74.81840194,Medium,"Can Clota, La Plana",Esplugues de Llobregat,31,7,1,0,39,True,True,Mixed
+"[""0802501""]",41.375824,2.043644,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,13.8796448,5.88235294,Low,"Can Bertrand, Armenteres",Sant Feliu de Llobregat,6,0,2,0,8,False,False,Undetermined
+"[""CATR2035A""]",41.511684,2.105886,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,,,,,,18,0,1,1,20,False,False,Undetermined
+"[""0802887"", ""75238""]",41.463196,2.01225,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,0,0,0,0,0,False,False,Undetermined
+"[""208945""]",41.491215,1.894967,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,0,8,0,0,8,False,True,Undetermined
+"[""0808365""]",41.37569,2.116394,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,303.81419441,87.56058158,High,Collblanc,Hospitalet de Llobregat,172,22,2,1,197,True,True,Mixed
+"[""CATR5976A""]",41.443012,2.229861,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,36.33224684,88.46737481,Medium,"La Pau, Lloreda, Sistrells",Badalona,152,21,2,0,175,True,True,Mixed
+"[""CATR1045B"", ""CATR1045U""]",41.320541,2.032567,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,88.80149694,70.70707071,Medium,"Barri de Sales, Grup Sant Jordi",Viladecans,4,1,3,1,9,True,False,Residential
+"[""0801047""]",41.304417,2.082611,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,17,2,0,0,19,True,False,Residential
+"[""0807822""]",41.339432,2.0446,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,58.23580735,77.74968394,Medium,Vinyets - Molí Vell,Sant Boi de Llobregat,124,13,12,7,156,True,True,Mixed
+"[""0800767""]",41.344334,1.983861,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,6.59763298,50.74850299,Low,Sant Climent,Sant Climent de Llobregat,0,0,0,0,0,False,False,Undetermined
+"[""056359"", ""56359"", ""CATR6168A""]",41.483154,2.053519,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,6.56209391,39.24843424,Low,"Can Barata, Can Gatxet, Can Majó, Can Sant Joan Nord, Can Sant Joan Sud, Can Trabal, CB CENTRE OEST - Arxiu, Collserola - Centre Oest, Costa del Golf, El Colomer, Galliners, Golf, La Guinardera, Parc Central, Pla de la Pagesa, Sant Domènec Est, Sant Do",Sant Cugat del Vallès,59,3,1,0,63,False,False,Undetermined
+"[""0803350""]",41.462101,2.179233,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,64.06452757,100.0,Medium,Ciutat Meridiana,Barcelona,7,4,0,0,11,True,False,Residential
+"[""CATR3023B""]",41.391285,2.111831,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,15.14603792,73.07692308,Low,Pedralbes,Barcelona,7,29,0,0,36,False,True,Office
+"[""139484""]",41.480339,2.092436,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,15.84437424,61.36363636,Low,"Can Magí Nord, Can Magí Sud, CB CENTRE EST - Can Bell, Coll Favà, Monestir, Roquetes, Sant Francesc, Torre Blanca, Torre Negra",Sant Cugat del Vallès,3,0,0,0,3,False,False,Undetermined
+"[""CATR0102F""]",41.38372,2.161278,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,342.83956227,92.25556631,High,Sant Antoni,Barcelona,328,28,0,0,356,True,True,Mixed
+"[""0801323""]",41.460323,2.210392,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,89.76923681,73.82953181,Medium,"Can Calvet, Serra de Marina, Singuerlín",Santa Coloma de Gramenet,14,3,0,0,17,True,False,Residential
+"[""CATR5830A""]",41.392502,2.181331,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,118.09917701,80.84745763,Medium,El Fort Pienc,Barcelona,130,33,2,2,167,True,True,Mixed
+"[""073493"", ""73493"", ""CATR1982F""]",41.491039,2.031342,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,,,,,,53,9,0,0,62,False,True,Undetermined
+"[""CATR3282A""]",41.50808,2.039433,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,,,,,,5,1,2,0,8,False,False,Undetermined
+"[""085139""]",41.29081,2.079958,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,27,1,0,0,28,True,False,Residential
+"[""0800106""]",41.421219,2.095194,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,4.50923035,71.0,Low,"Vallvidrera, El Tibidabo i Les Planes",Barcelona,0,2,0,0,2,False,False,Undetermined
+"[""080873""]",41.479507,2.026453,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,0,0,2,0,2,False,False,Undetermined
+"[""058043"", ""0801567"", ""58043"", ""CATR0429A""]",41.442665,2.200114,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,27.09286827,88.08193669,Low,El Bon Pastor,Barcelona,40,13,5,1,59,False,True,Office
+"[""0800532""]",41.400536,2.134469,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,25.04004468,84.42906574,Low,Sant Gervasi - La Bonanova,Barcelona,54,14,1,1,70,False,True,Office
+"[""0800049"", ""52429""]",41.469666,2.083211,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,14.53463617,66.94785276,Low,"CB NUCLI ANTIC - L'Eixample Est, L'Eixample Oest, Nucli Antic Est, Nucli Antic Oest",Sant Cugat del Vallès,113,9,2,1,125,False,True,Office
+"[""0801341""]",41.388176,2.1454,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,327.1124282,84.43548387,High,La Nova Esquerra de l'Eixample,Barcelona,211,52,1,0,264,True,True,Mixed
+"[""CATR0901C""]",41.436237,2.006411,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,15.13433044,60.9929078,Low,"Can Puig, Centre, Pi del Balç, Puigmadrona, Trull",El Papiol,0,0,0,0,0,False,False,Undetermined
+"[""085375"", ""CATR0601F""]",41.39426,2.161178,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,462,215,0,0,677,True,True,Mixed
+"[""CATR0404A""]",41.411049,2.186461,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,373.00470151,84.08163265,High,El Camp de l'Arpa del Clot,Barcelona,188,16,0,0,204,True,True,Mixed
+"[""0801103""]",41.387196,2.129472,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,108,62,1,0,171,True,True,Mixed
+"[""0808254""]",41.384388,2.181978,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,149.36515531,93.67272727,High,"Sant Pere, Santa Caterina i la Ribera",Barcelona,317,49,0,0,366,True,True,Mixed
+"[""CATR6144B1""]",41.357788,2.078994,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,149.07869826,85.26504942,High,Gavarra,Cornellà de Llobregat,63,8,2,0,73,True,True,Mixed
+"[""003593"", ""3593"", ""CATR0964A""]",41.336407,2.050119,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,58.23580735,77.74968394,Medium,Vinyets - Molí Vell,Sant Boi de Llobregat,22,1,5,10,38,True,False,Residential
+"[""CATR0568G""]",41.376019,2.086775,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,19.19685081,76.47058824,Low,"Ca n'Oliveres, Centre",Esplugues de Llobregat,26,6,1,0,33,False,True,Office
+"[""0803302""]",41.383511,2.18225,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,149.36515531,93.67272727,High,"Sant Pere, Santa Caterina i la Ribera",Barcelona,308,48,0,0,356,True,True,Mixed
+"[""0802420"", ""CATR3015K""]",41.394798,2.178306,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,118.09917701,80.84745763,Medium,El Fort Pienc,Barcelona,177,49,3,1,230,True,True,Mixed
+"[""0800155"", ""CATR0956B""]",41.423786,1.994258,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,30.39434278,59.5505618,Medium,"Casc Urbà, La Magina",Pallejà,1,2,0,0,3,True,False,Residential
+"[""142870""]",41.396774,2.207922,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,42,7,0,0,49,True,True,Mixed
+"[""CATR0047A""]",41.409088,2.154422,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,176.96735239,82.69617706,High,La Salut,Barcelona,127,26,0,0,153,True,True,Mixed
+"[""0808421""]",41.384754,2.161533,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,243.67752192,92.81314168,High,L'Antiga Esquerra de l'Eixample,Barcelona,331,34,0,0,365,True,True,Mixed
+"[""066282"", ""66282"", ""CATR4595A""]",41.473721,1.927617,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,,,,,,42,9,0,0,51,False,True,Undetermined
+"[""0804394"", ""CATR1068A""]",41.400066,2.006364,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,126.39239221,67.92682927,Medium,"El Serral, El Trèvol, Vila Vella",Sant Vicenç dels Horts,80,2,2,0,84,True,False,Residential
+"[""0802422""]",41.371197,2.144783,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,39.07699869,82.28782288,Medium,La Font de la Guatlla,Barcelona,113,14,0,0,127,True,True,Mixed
+"[""0803187""]",41.378571,2.168411,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,150.01212475,93.53701528,High,El Raval,Barcelona,229,28,0,0,257,True,True,Mixed
+"[""0809125""]",41.39658,2.125942,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,25.5240443,80.05098789,Low,Sarrià,Barcelona,48,26,0,1,75,False,True,Office
+"[""CATR0374C""]",41.391758,2.183722,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,88.63312579,76.06557377,Medium,El Parc i La Llacuna del Poblenou,Barcelona,99,15,2,2,118,True,True,Mixed
+"[""120662""]",41.357964,2.133308,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,101.744705,74.58563536,Medium,La Marina de Port,Barcelona,32,13,1,1,47,True,True,Mixed
+"[""061363""]",41.398491,2.152861,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,198.47497625,90.93093093,High,Sant Gervasi - Galvany,Barcelona,612,1057,0,0,1669,True,True,Mixed
+"[""0800253""]",41.421272,2.141553,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,51.02760334,80.36224976,Medium,Vallcarca i Els Penitents,Barcelona,59,5,0,0,64,True,True,Mixed
+"[""0808412""]",41.56461,2.012167,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,96,10,0,0,106,False,True,Undetermined
+"[""076648"", ""0801987"", ""76648"", ""CATR2817A""]",41.354492,2.123347,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,193.70466212,72.82296651,High,Santa Eulàlia,Hospitalet de Llobregat,8,11,2,1,22,True,True,Mixed
+"[""142976""]",41.495625,2.126244,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,28.98014677,51.55555556,Low,"Serraparera, Els Mayols",Cerdanyola del Vallès,13,4,0,1,18,False,False,Undetermined
+"[""026746"", ""26746"", ""CATR0519C""]",41.36681,2.125561,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,193.70466212,72.82296651,High,Santa Eulàlia,Hospitalet de Llobregat,99,14,0,0,113,True,True,Mixed
+"[""67340""]",41.404026,2.213456,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,80.73921234,44.73684211,Medium,Diagonal Mar i el Front Marítim del Poblenou,Barcelona,13,6,0,0,19,True,True,Mixed
+"[""061826"", ""0804092"", ""61826""]",41.328533,2.122206,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,1,2,0,1,4,False,False,Undetermined
+"[""CATR3382A""]",41.389179,2.140083,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,247,42,2,1,292,True,True,Mixed
+"[""0807064""]",41.379074,2.179581,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,51.51757537,96.79780421,Medium,El Barri Gòtic,Barcelona,222,52,1,0,275,True,True,Mixed
+"[""0804670"", ""51929"", ""CATR0613D""]",41.378731,2.145553,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,327.1124282,84.43548387,High,La Nova Esquerra de l'Eixample,Barcelona,168,31,1,0,200,True,True,Mixed
+"[""CATB0952D"", ""CATR0952D""]",41.406986,2.023981,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,28.80694653,75.1503006,Low,"Canal, Les Conserves, Les Guardioles, Pont de la Cadena, Riera Bonet",Molins de Rei,9,0,1,0,10,False,False,Undetermined
+"[""0805256"", ""CATR0551A""]",41.3573,2.133242,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,101.744705,74.58563536,Medium,La Marina de Port,Barcelona,29,12,1,1,43,True,True,Mixed
+"[""0800496"", ""CATR2894A""]",41.362534,2.102775,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,206.71003739,80.69526627,High,Centre,Hospitalet de Llobregat,71,8,1,0,80,True,True,Mixed
+"[""0802582"", ""54756"", ""CATR1963A"", ""CATR4792A""]",41.563648,2.034619,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,,,,,,8,0,2,0,10,False,False,Undetermined
+"[""70958""]",41.36953,2.117442,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,360.16409003,91.66666667,High,La Torrassa,Hospitalet de Llobregat,46,8,0,0,54,True,True,Mixed
+"[""CATR0998B""]",41.474388,1.980583,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,6.3662941,44.77459016,Low,"Castellbisbal, El Canyet, Santa Teresita",Castellbisbal,21,1,0,0,22,False,False,Undetermined
+"[""CATR6001A""]",41.38686,2.196194,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,46.30672209,93.56725146,Medium,La Barceloneta,Barcelona,23,17,0,1,41,True,True,Mixed
+"[""0802930"", ""CATR0614E""]",41.391605,2.166125,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,374,117,0,0,491,True,True,Mixed
+"[""078807"", ""CATR0598A""]",41.392551,2.081044,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,3.38135769,50.82212257,Low,"Collserola, La Miranda - Can Candeler, La Plana - Bellsoleig",Sant Just Desvern,0,0,0,0,0,False,False,Undetermined
+"[""0806796""]",41.381435,2.127089,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,62.56880764,80.20833333,Medium,La Maternitat i Sant Ramon,Barcelona,134,28,0,1,163,True,True,Mixed
+"[""006795"", ""0804039"", ""6795""]",41.439049,2.175594,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,346.22693408,85.29680365,High,La Prosperitat,Barcelona,44,9,2,1,56,True,True,Mixed
+"[""18411""]",41.507759,2.116539,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,39.13348716,98.98477157,Medium,Badia del Vallès,Badia del Vallès,15,2,0,0,17,True,False,Residential
+"[""061338"", ""61338"", ""CATB0039Z"", ""CATR0039Z""]",41.400677,2.122344,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,25.5240443,80.05098789,Low,Sarrià,Barcelona,39,18,0,0,57,False,True,Office
+"[""CATR0576D""]",41.385426,2.074058,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,22.03125057,70.45929019,Low,"Centre, Nord",Sant Just Desvern,7,3,0,0,10,False,False,Undetermined
+"[""0803659""]",41.427483,2.091414,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,4.50923035,71.0,Low,"Vallvidrera, El Tibidabo i Les Planes",Barcelona,1,0,0,0,1,False,False,Undetermined
+"[""0807500""]",41.501057,2.108356,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,0.12669483,87.5,Low,"Centre Direccional, Parc Tecnològic, Universitat Autònoma de Barcelona",Cerdanyola del Vallès,4,83,0,0,87,False,True,Office
+"[""67342""]",41.408031,2.211975,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,80.73921234,44.73684211,Medium,Diagonal Mar i el Front Marítim del Poblenou,Barcelona,108,19,1,0,128,True,True,Mixed
+"[""0807901""]",41.455093,2.077008,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,6.56209391,39.24843424,Low,"Can Barata, Can Gatxet, Can Majó, Can Sant Joan Nord, Can Sant Joan Sud, Can Trabal, CB CENTRE OEST - Arxiu, Collserola - Centre Oest, Costa del Golf, El Colomer, Galliners, Golf, La Guinardera, Parc Central, Pla de la Pagesa, Sant Domènec Est, Sant Do",Sant Cugat del Vallès,0,0,0,0,0,False,False,Undetermined
+"[""0801784""]",41.405087,2.135186,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,25.04004468,84.42906574,Low,Sant Gervasi - La Bonanova,Barcelona,92,23,1,0,116,False,True,Office
+"[""0800057""]",41.441063,2.068928,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,2.16578633,73.67332874,Low,"CB LA FLORESTA - Collserola - La Floresta, La Floresta, Mas Fortuny, Sant Medir, Sol i Aire",Sant Cugat del Vallès,2,0,0,0,2,False,False,Undetermined
+"[""CATR5971A""]",41.288395,2.075242,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,34,3,0,0,37,True,False,Residential
+"[""0801981"", ""64404"", ""BX0336A"", ""BX1256A"", ""BX65UL"", ""CATR5928A""]",41.354782,2.134789,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,101.744705,74.58563536,Medium,La Marina de Port,Barcelona,6,9,0,2,17,True,True,Mixed
+"[""110480"", ""CATR0250A""]",41.370647,2.187972,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,46.30672209,93.56725146,Medium,La Barceloneta,Barcelona,6,5,0,0,11,True,True,Mixed
+"[""0800907"", ""CATR0458A""]",41.424217,2.135706,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,51.02760334,80.36224976,Medium,Vallcarca i Els Penitents,Barcelona,8,0,0,0,8,True,False,Residential
+"[""000468"", ""468""]",41.371925,2.175236,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,134.18893889,91.95876289,Medium,El Poble Sec,Barcelona,24,13,0,0,37,True,True,Mixed
+"[""0801660"", ""79712"", ""CATR0517C"", ""CATR0517D""]",41.370518,2.112539,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,458.7476791,94.30803571,High,La Florida,Hospitalet de Llobregat,23,2,0,0,25,True,False,Residential
+"[""0802532"", ""086040"", ""86040"", ""CATR0228A""]",41.388344,2.113628,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,15.14603792,73.07692308,Low,Pedralbes,Barcelona,13,32,0,0,45,False,True,Office
+"[""0808138""]",41.430317,2.184383,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,137.90297851,81.75553137,High,Sant Andreu,Barcelona,86,14,0,0,100,True,True,Mixed
+"[""000454"", ""454""]",41.389397,2.142775,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,179,46,2,0,227,True,True,Mixed
+"[""54915""]",41.344307,1.983861,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,6.59763298,50.74850299,Low,Sant Climent,Sant Climent de Llobregat,0,0,0,0,0,False,False,Undetermined
+"[""70454"", ""CATR3142W""]",41.492092,2.160858,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,12.12221445,77.85234899,Low,Maragall,Ripollet,32,6,1,0,39,False,True,Office
+"[""0800269""]",41.404106,2.140983,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,198.47497625,90.93093093,High,Sant Gervasi - Galvany,Barcelona,75,14,1,0,90,True,True,Mixed
+"[""669"", ""CATR2004C""]",41.423428,2.091886,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,4.50923035,71.0,Low,"Vallvidrera, El Tibidabo i Les Planes",Barcelona,1,1,0,0,2,False,False,Undetermined
+"[""66739""]",41.445347,2.200428,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,27.09286827,88.08193669,Low,El Bon Pastor,Barcelona,18,8,3,1,30,False,True,Office
+"[""0800168""]",41.426113,1.788447,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,,,,,,10,1,0,0,11,False,False,Undetermined
+"[""0800351""]",41.382298,2.112922,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,62.56880764,80.20833333,Medium,La Maternitat i Sant Ramon,Barcelona,8,8,0,4,20,True,True,Mixed
+"[""CATR0072A""]",41.43816,2.175261,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,246.04294594,83.93393393,High,Porta,Barcelona,31,7,2,1,41,True,True,Mixed
+"[""79518"", ""CATR4540A""]",41.267738,2.028256,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,13.70162412,46.33204633,Low,"Camí de la Pineda, Central Mar, Les Marines, Llevant Mar, Zona Agrària",Gavà,1,4,0,0,5,False,False,Undetermined
+"[""CATR3242A""]",41.323032,2.134858,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,0,0,0,1,1,False,False,Undetermined
+"[""0800409"", ""21574""]",41.380585,2.182017,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,51.51757537,96.79780421,Medium,El Barri Gòtic,Barcelona,225,51,0,0,276,True,True,Mixed
+"[""73968""]",41.317944,2.120278,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,0,0,0,0,0,True,False,Residential
+"[""0801694"", ""54846"", ""CATR3021A""]",41.389847,2.122289,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,15.14603792,73.07692308,Low,Pedralbes,Barcelona,38,36,0,0,74,False,True,Office
+"[""025292""]",41.408981,2.137864,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,108.45027635,82.62910798,Medium,El Putxet i El Farró,Barcelona,117,21,0,1,139,True,True,Mixed
+"[""CATR0389Y""]",41.398972,2.195253,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,66,132,3,1,202,True,True,Mixed
+"[""0801732"", ""84937"", ""CATR4775A""]",41.558552,2.030119,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,4,1,0,0,5,False,False,Undetermined
+"[""012610"", ""CATR7280A""]",41.355839,1.980564,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,5.60482035,62.85178236,Low,"Casc Antic, El Raval Roig",Torrelles de Llobregat,18,2,0,0,20,False,False,Undetermined
+"[""059688"", ""0800971"", ""59688"", ""CATR0383A""]",41.385468,2.200792,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,68.39640632,59.5959596,Medium,La Vila Olímpica del Poblenou,Barcelona,4,6,0,0,10,True,True,Mixed
+"[""0801868"", ""CATR3322A""]",41.330433,2.049236,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,58.23580735,77.74968394,Medium,Vinyets - Molí Vell,Sant Boi de Llobregat,35,5,11,7,58,True,True,Mixed
+"[""0800368""]",41.422646,2.174569,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,210.27342826,83.47826087,High,El Guinardó,Barcelona,97,8,0,0,105,True,True,Mixed
+"[""0805808""]",41.511749,2.106583,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,,,,,,18,0,1,1,20,False,False,Undetermined
+"[""CATR0014Z""]",41.390263,2.145847,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,243.67752192,92.81314168,High,L'Antiga Esquerra de l'Eixample,Barcelona,245,69,1,0,315,True,True,Mixed
+"[""011469"", ""11469""]",41.384327,2.141303,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,183.01576009,85.72825024,High,Sants,Barcelona,185,34,0,0,219,True,True,Mixed
+"[""155558"", ""CATR1502A""]",41.433632,2.217081,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,118.36090738,89.03122498,Medium,"Sant Antoni de Llefià, Sant Joan de Llefià, Sant Mori de Llefià",Badalona,166,42,1,0,209,True,True,Mixed
+"[""0800412""]",41.376949,2.129972,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,183.01576009,85.72825024,High,Sants,Barcelona,285,36,0,0,321,True,True,Mixed
+"[""CATR6144C1""]",41.361465,2.081344,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,223.49462374,98.828125,High,Sant Ildefons,Cornellà de Llobregat,96,2,2,0,100,True,False,Residential
+"[""0802314""]",41.385113,2.195583,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,46.30672209,93.56725146,Medium,La Barceloneta,Barcelona,12,10,0,0,22,True,True,Mixed
+"[""0808886"", ""CATR0449Z""]",41.428139,2.164425,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,328.75220176,84.65553236,High,Vilapicina i La Torre Llobeta,Barcelona,69,7,1,0,77,True,True,Mixed
+"[""0807988""]",41.40324,2.198592,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,235,99,1,1,336,True,True,Mixed
+"[""085057"", ""85057"", ""CATR2090A"", ""CATR7203A""]",41.598682,2.025786,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,5,0,0,0,5,False,False,Undetermined
+"[""0800250""]",41.409737,2.136097,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,25.04004468,84.42906574,Low,Sant Gervasi - La Bonanova,Barcelona,102,22,0,1,125,False,True,Office
+"[""0802424"", ""11514""]",41.474064,1.981144,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,6.3662941,44.77459016,Low,"Castellbisbal, El Canyet, Santa Teresita",Castellbisbal,21,1,0,0,22,False,False,Undetermined
+"[""0800372""]",41.500526,1.901372,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,0,3,1,0,4,False,False,Undetermined
+"[""0801672""]",41.33062,2.135311,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,0,3,1,0,4,False,False,Undetermined
+"[""000644"", ""644""]",41.344173,2.132039,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,9.21989032,83.63636364,Low,La Marina del Prat Vermell,Barcelona,1,2,0,0,3,False,False,Undetermined
+"[""077532"", ""0803228"", ""CATR4037F""]",41.486164,2.164858,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,31.50050451,58.77437326,Medium,Terra Nostra,Montcada i Reixac,1,10,1,0,12,True,True,Mixed
+"[""029219"", ""0801681"", ""CATR0328A""]",41.371159,2.182292,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,150.01212475,93.53701528,High,El Raval,Barcelona,19,4,1,0,24,True,False,Residential
+"[""070958""]",41.369534,2.117442,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,360.16409003,91.66666667,High,La Torrassa,Hospitalet de Llobregat,46,8,0,0,54,True,True,Mixed
+"[""0808416""]",41.378223,2.153819,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,342.83956227,92.25556631,High,Sant Antoni,Barcelona,229,24,1,0,254,True,True,Mixed
+"[""CATR2761T""]",41.461803,2.203069,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,84.8908189,68.60465116,Medium,Guinardera,Santa Coloma de Gramenet,30,5,0,0,35,True,True,Mixed
+"[""023299""]",41.368549,2.147356,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,134.18893889,91.95876289,Medium,El Poble Sec,Barcelona,50,6,0,0,56,True,True,Mixed
+"[""0801699"", ""CATR1070A""]",41.375645,2.021703,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,0.60040006,66.66666667,Low,"Bon Punt, Sant Roc, SCC-92",Santa Coloma de Cervelló,1,0,0,0,1,False,False,Undetermined
+"[""0801497"", ""CATR0027I""]",41.405605,2.146747,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,108.45027635,82.62910798,Medium,El Putxet i El Farró,Barcelona,108,26,0,0,134,True,True,Mixed
+"[""0800914""]",41.479424,1.882308,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,0,1,0,0,1,False,False,Undetermined
+"[""CATR2766O""]",41.426022,2.168542,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,88.38847648,84.94288681,Medium,La Font d'en Fargues,Barcelona,39,2,0,0,41,True,False,Residential
+"[""CATR0386Z""]",41.399094,2.182125,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,118.09917701,80.84745763,Medium,El Fort Pienc,Barcelona,112,27,0,2,141,True,True,Mixed
+"[""CATR0024A""]",41.421886,2.1193,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,4.50923035,71.0,Low,"Vallvidrera, El Tibidabo i Les Planes",Barcelona,6,0,0,0,6,False,False,Undetermined
+"[""CATR1008CY""]",41.321274,2.006011,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,34.51698351,43.99399399,Medium,"El Mas Ratés, El Torrent Ballester",Viladecans,1,0,0,0,1,True,False,Residential
+"[""0808586"", ""CATR6058A""]",41.490459,2.076744,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,6.56209391,39.24843424,Low,"Can Barata, Can Gatxet, Can Majó, Can Sant Joan Nord, Can Sant Joan Sud, Can Trabal, CB CENTRE OEST - Arxiu, Collserola - Centre Oest, Costa del Golf, El Colomer, Galliners, Golf, La Guinardera, Parc Central, Pla de la Pagesa, Sant Domènec Est, Sant Do",Sant Cugat del Vallès,0,6,0,5,11,False,True,Office
+"[""072355"", ""72355"", ""CATR1003A""]",41.348434,2.032175,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,40.98018563,67.47058824,Medium,Marianao,Sant Boi de Llobregat,300,52,0,2,354,True,True,Mixed
+"[""80785"", ""CATR4604A""]",41.395748,1.956311,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,5.69646387,52.85913529,Low,Cervelló,Cervelló,19,2,0,0,21,False,False,Undetermined
+"[""0808255""]",41.384529,2.170806,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,51.51757537,96.79780421,Medium,El Barri Gòtic,Barcelona,536,71,0,0,607,True,True,Mixed
+"[""088903"", ""CATR7254A""]",41.452549,1.890936,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,0,1,0,0,1,False,False,Undetermined
+"[""000801"", ""0804098"", ""801""]",41.421593,2.172094,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,210.27342826,83.47826087,High,El Guinardó,Barcelona,71,8,0,0,79,True,True,Mixed
+"[""077881""]",41.407501,2.184819,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,373.00470151,84.08163265,High,El Camp de l'Arpa del Clot,Barcelona,201,22,1,0,224,True,True,Mixed
+"[""0805740""]",41.410023,2.018542,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,36.36249672,80.95238095,Medium,Centre,Molins de Rei,11,1,1,0,13,True,False,Residential
+"[""086407"", ""86407"", ""CATR4591A""]",41.506973,1.902617,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,33,0,1,0,34,False,False,Undetermined
+"[""0800880""]",41.423611,2.158333,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,280.99645584,90.07332205,High,El Carmel,Barcelona,129,14,0,0,143,True,True,Mixed
+"[""0806439""]",41.38863,1.942322,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,,,,,,8,1,1,0,10,False,False,Undetermined
+"[""0806817""]",41.372818,2.143331,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,72.02272136,83.23442137,Medium,Hostafrancs,Barcelona,147,19,0,0,166,True,True,Mixed
+"[""012905"", ""0801996"", ""12905""]",41.479107,1.924422,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,10,8,1,0,19,False,True,Undetermined
+"[""0803056""]",41.375153,2.161439,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,342.83956227,92.25556631,High,Sant Antoni,Barcelona,247,29,2,0,278,True,True,Mixed
+"[""57069"", ""CATR0919D""]",41.372395,2.067067,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,90.50527856,4.65116279,Medium,Sant Joan,Sant Joan Despí,3,3,0,1,7,True,False,Residential
+"[""CATR0211A""]",41.411785,2.206919,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,228.29843381,80.0,High,Provençals del Poblenou,Barcelona,42,22,0,0,64,True,True,Mixed
+"[""CATR1727A""]",41.496807,1.966517,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,6.78111384,42.69311065,Low,"Can Nicolau de Dalt, Can Santeugini, Casetes de Ca n'Oliveró, Colònia del Carme, Costablanca",Castellbisbal,0,0,0,0,0,False,False,Undetermined
+"[""0801173""]",41.384193,2.153944,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,327.1124282,84.43548387,High,La Nova Esquerra de l'Eixample,Barcelona,219,28,0,0,247,True,True,Mixed
+"[""065548"", ""65548""]",41.417606,2.227883,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,13.80756852,0.0,Low,La Catalana,Sant Adrià del Besòs,5,1,1,0,7,False,False,Undetermined
+"[""0808298""]",41.375828,2.119633,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,303.81419441,87.56058158,High,Collblanc,Hospitalet de Llobregat,226,27,1,1,255,True,True,Mixed
+"[""133413"", ""CATR0502Z""]",41.418385,2.172181,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,210.27342826,83.47826087,High,El Guinardó,Barcelona,77,11,0,0,88,True,True,Mixed
+"[""0804338"", ""CATR3087A""]",41.427689,2.142061,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,13.74298261,96.66666667,Low,Montbau,Barcelona,29,2,0,0,31,False,False,Undetermined
+"[""0802482"", ""CATR3349A""]",41.428093,2.210319,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,2.70263494,82.60869565,Low,La Verneda,Sant Adrià del Besòs,8,5,1,0,14,False,True,Office
+"[""028347""]",41.423759,1.995967,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,67.92443348,68.30188679,Medium,Casc Urbà Nord,Pallejà,1,2,0,0,3,True,False,Residential
+"[""CATR3044J""]",41.416161,2.177528,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,210.27342826,83.47826087,High,El Guinardó,Barcelona,122,13,0,0,135,True,True,Mixed
+"[""0801184""]",41.379337,2.159828,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,342.83956227,92.25556631,High,Sant Antoni,Barcelona,242,30,2,0,274,True,True,Mixed
+"[""0800231""]",41.442787,1.865392,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,0,5,1,0,6,False,True,Undetermined
+"[""0802566""]",41.308807,1.997394,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,14.55814028,60.06036217,Low,"Ca n'Espinós, La Diagonal, La Sentiu, Les Bòbiles, Les Colomeres, Santa Teresa, Zona Forestal",Gavà,4,0,0,0,4,False,False,Undetermined
+"[""054515""]",41.390957,2.141644,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,286.00829991,77.41652021,High,Les Corts,Barcelona,174,54,1,1,230,True,True,Mixed
+"[""0808127""]",41.412155,2.139703,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,108.45027635,82.62910798,Medium,El Putxet i El Farró,Barcelona,85,16,0,1,102,True,True,Mixed
+"[""CATR5850A""]",41.355164,2.117044,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,32.67040669,67.64705882,Medium,El Gornal,Hospitalet de Llobregat,53,19,0,1,73,True,True,Mixed
+"[""000642"", ""0804536"", ""CATR4799A""]",41.560287,2.003278,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,25,6,0,0,31,False,True,Undetermined
+"[""0808242""]",41.438709,2.217389,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,118.36090738,89.03122498,Medium,"Sant Antoni de Llefià, Sant Joan de Llefià, Sant Mori de Llefià",Badalona,321,75,0,0,396,True,True,Mixed
+"[""0801714""]",41.374424,2.148844,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,134.18893889,91.95876289,Medium,El Poble Sec,Barcelona,149,20,1,1,171,True,True,Mixed
+"[""0800104""]",41.303806,2.080306,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,26,1,0,0,27,True,False,Residential
+"[""63510""]",41.455509,2.181308,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,13.65742695,87.94212219,Low,Torre Baró,Barcelona,0,2,0,0,2,False,False,Undetermined
+"[""134113"", ""CATR7305A""]",41.443298,1.849117,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,0,0,0,0,0,False,False,Undetermined
+"[""058163"", ""58163"", ""CATR3028J""]",41.408054,2.129531,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,25.04004468,84.42906574,Low,Sant Gervasi - La Bonanova,Barcelona,22,22,0,0,44,False,True,Office
+"[""0804141""]",41.431885,2.217914,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,29.73662652,81.23569794,Low,Sant Adrià Nord,Sant Adrià del Besòs,131,28,1,0,160,False,True,Office
+"[""0803868""]",41.416096,2.213558,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,89.45997694,93.66666667,Medium,El Besòs i el Maresme,Barcelona,10,4,0,0,14,True,False,Residential
+"[""CATR0344A""]",41.398731,2.156981,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,241.06351551,90.07342144,High,La Vila de Gràcia,Barcelona,783,652,0,0,1435,True,True,Mixed
+"[""0802012"", ""27/11/2025"", ""73000"", ""CATR0542I""]",41.359753,2.098931,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,206.71003739,80.69526627,High,Centre,Hospitalet de Llobregat,81,11,0,0,92,True,True,Mixed
+"[""CATR4880A""]",41.475567,1.924672,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,,,,,,39,11,1,0,51,False,True,Undetermined
+"[""0804764""]",41.420307,1.947972,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,1.9856977,38.62158648,Low,Fontpineda,Pallejà,1,0,0,0,1,False,False,Undetermined
+"[""0802358""]",41.383068,2.058628,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,185.78246537,76.77165354,High,Roses - Castellbell,Sant Feliu de Llobregat,5,1,0,0,6,True,False,Residential
+"[""11847""]",41.413483,2.161606,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,368.03946941,86.75213675,High,El Baix Guinardó,Barcelona,86,9,0,0,95,True,True,Mixed
+"[""52648""]",41.398857,2.157053,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,241.06351551,90.07342144,High,La Vila de Gràcia,Barcelona,780,584,0,0,1364,True,True,Mixed
+"[""0800149""]",41.407288,2.020619,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,28.80694653,75.1503006,Low,"Canal, Les Conserves, Les Guardioles, Pont de la Cadena, Riera Bonet",Molins de Rei,5,0,0,0,5,False,False,Undetermined
+"[""CATR0522V""]",41.375732,2.123469,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,364.52655536,83.37236534,High,Sants - Badal,Barcelona,256,34,1,0,291,True,True,Mixed
+"[""079941""]",41.300278,2.100278,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,0,0,0,0,0,True,False,Residential
+"[""054711"", ""0806306"", ""CATR3279A""]",41.5429,2.116825,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,34,7,0,0,41,False,True,Undetermined
+"[""CATR5851AJOS""]",41.361,2.110344,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,247.55923001,82.39564428,High,Sant Josep,Hospitalet de Llobregat,20,5,4,0,29,True,True,Mixed
+"[""CATB3038A""]",41.376091,2.171069,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,150.01212475,93.53701528,High,El Raval,Barcelona,158,24,0,0,182,True,True,Mixed
+"[""24117""]",41.30109,2.011064,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,41.77330954,76.54476671,Medium,"Camí Ral, Can Torelló, La Post, La Rambla - Barceloneta, La Rambla - Centre, Massotes, Matabous, Sector dels Joncs, Àngela Roca - Can Serra Balet",Gavà,21,4,1,0,26,True,False,Residential
+"[""0803623""]",41.400658,2.202103,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,278,96,0,0,374,True,True,Mixed
+"[""0802433""]",41.385109,2.143078,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,327.1124282,84.43548387,High,La Nova Esquerra de l'Eixample,Barcelona,185,42,0,0,227,True,True,Mixed
+"[""067731"", ""CATR6004A""]",41.387306,2.197306,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,68.39640632,59.5959596,Medium,La Vila Olímpica del Poblenou,Barcelona,24,16,0,1,41,True,True,Mixed
+"[""142079""]",41.399155,2.005072,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,4.95201551,73.80319149,Low,Sant Josep,Sant Vicenç dels Horts,76,2,1,0,79,False,False,Undetermined
+"[""0802445"", ""CATR2776A""]",41.405315,2.196097,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,135,76,2,3,216,True,True,Mixed
+"[""073589"", ""0801045"", ""73589"", ""CATR1611H""]",41.478317,2.184903,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,39.4660091,74.23616846,Medium,"Font Pudenta, Montcada Centre, Reixac - Vallensana Baixa",Montcada i Reixac,0,0,0,0,0,True,False,Residential
+"[""083901"", ""CATR0703B""]",41.384132,2.181158,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,149.36515531,93.67272727,High,"Sant Pere, Santa Caterina i la Ribera",Barcelona,374,56,0,0,430,True,True,Mixed
+"[""CATR0071G""]",41.439217,2.159456,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,40.19664973,85.71428571,Medium,Horta,Barcelona,21,3,0,0,24,True,False,Residential
+"[""0801873""]",41.430691,1.804003,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,,,,,,0,0,0,0,0,False,False,Undetermined
+"[""0804960"", ""35913"", ""CATR1052A""]",41.35017,2.040428,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,20.08687287,78.73563218,Low,Ciutat Cooperativa - Molí Nou,Sant Boi de Llobregat,39,21,10,3,73,False,True,Office
+"[""000672"", ""CATR4607A""]",41.379337,1.929992,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,9,1,1,0,11,False,False,Undetermined
+"[""0800056""]",41.563507,2.005203,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,50,12,0,0,62,False,True,Undetermined
+"[""0800590"", ""800590"", ""CATR0062A""]",41.394035,2.118247,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,15.14603792,73.07692308,Low,Pedralbes,Barcelona,13,21,0,0,34,False,True,Office
+"[""CATR2846A""]",41.440472,2.212058,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,32.41026838,84.84848485,Medium,"El Raval, Safaretjos",Santa Coloma de Gramenet,85,22,1,0,108,True,True,Mixed
+"[""0805821""]",41.376434,2.143764,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,72.02272136,83.23442137,Medium,Hostafrancs,Barcelona,182,29,1,0,212,True,True,Mixed
+"[""093251"", ""93251"", ""CATR7297A""]",41.431332,1.923389,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,1.32425951,29.4627383,Low,"Can Margarit, El Mirador, El Pontarró, Els Carsos, La Creu Nova",Corbera de Llobregat,0,0,0,0,0,False,False,Undetermined
+"[""CATR1918E""]",41.540611,2.112139,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,,,,,,52,9,0,0,61,False,True,Undetermined
+"[""156377""]",41.36858,2.116294,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,317.48388773,89.36170213,High,Les Planes,Hospitalet de Llobregat,24,5,1,0,30,True,True,Mixed
+"[""0802143"", ""088279"", ""CATR7259A""]",41.47089,1.817439,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,,,,,,0,0,0,0,0,False,False,Undetermined
+"[""000714"", ""0802614"", ""714""]",41.369171,2.101581,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,59.32288789,93.50877193,Medium,Pubilla Cases,Hospitalet de Llobregat,46,6,0,0,52,True,True,Mixed
+"[""029424"", ""29424""]",41.397209,2.196736,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,223.63397401,79.3078056,High,El Poblenou,Barcelona,68,126,4,0,198,True,True,Mixed
+"[""0802629"", ""142824""]",41.443649,2.179347,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,346.22693408,85.29680365,High,La Prosperitat,Barcelona,48,6,0,0,54,True,True,Mixed
+"[""0808428""]",41.387005,2.160044,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,243.67752192,92.81314168,High,L'Antiga Esquerra de l'Eixample,Barcelona,311,40,0,0,351,True,True,Mixed
+"[""0802489"", ""CATR0430A""]",41.445229,2.200161,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,27.09286827,88.08193669,Low,El Bon Pastor,Barcelona,20,8,4,1,33,False,True,Office
+"[""000470""]",41.399502,2.134556,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,198.47497625,90.93093093,High,Sant Gervasi - Galvany,Barcelona,41,12,1,1,55,True,True,Mixed
+"[""206635""]",41.553288,2.036147,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,,,,,,3,1,0,0,4,False,False,Undetermined
+"[""084888""]",41.485531,2.177931,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,31.50050451,58.77437326,Medium,Terra Nostra,Montcada i Reixac,0,23,1,0,24,True,True,Mixed
+"[""0803870"", ""CATR0006Z""]",41.390537,2.161331,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,447,72,0,0,519,True,True,Mixed
+"[""0800303"", ""CATR0608I""]",41.371429,2.159458,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,134.18893889,91.95876289,Medium,El Poble Sec,Barcelona,75,12,1,0,88,True,True,Mixed
+"[""0800235""]",41.373478,2.138369,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,183.01576009,85.72825024,High,Sants,Barcelona,180,17,0,0,197,True,True,Mixed
+"[""81598"", ""CATR1713A""]",41.467468,2.043897,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,6.82308755,48.38709677,Low,"Ca n'Ametller, Can Cabassa, Can Mates Est, Can Mates Nord, Can Mates Oest, Can Revella, CB MIRA-SOL - Bell Indret, Colònia Oller, Mas Gener, Mira-sol",Sant Cugat del Vallès,0,0,0,0,0,False,False,Undetermined
+"[""0801135""]",41.386131,2.154136,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,243.67752192,92.81314168,High,L'Antiga Esquerra de l'Eixample,Barcelona,226,28,0,0,254,True,True,Mixed
+"[""000804"", ""CATR0335A""]",41.37912,2.171889,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,150.01212475,93.53701528,High,El Raval,Barcelona,276,28,0,0,304,True,True,Mixed
+"[""195316"", ""CATR1968A"", ""CATR4796A""]",41.553276,2.001097,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,6,2,0,0,8,False,False,Undetermined
+"[""0800501"", ""CATR2028A""]",41.508793,2.089892,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,2.02763013,43.36099585,Low,Bellaterra,Cerdanyola del Vallès,0,0,0,0,0,False,False,Undetermined
+"[""024008"", ""24008""]",41.436207,2.208014,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,27.09286827,88.08193669,Low,El Bon Pastor,Barcelona,12,10,2,0,24,False,True,Office
+"[""0807704""]",41.42281,2.0143,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,False,9.78869867,44.59627329,Low,"Bonavista, Can Graner, L'Àngel, Riera Nova",Molins de Rei,0,0,0,0,0,False,False,Undetermined
+"[""54959"", ""CATR4794A""]",41.583473,2.022083,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",4G,False,,,,,,3,0,1,0,4,False,False,Undetermined
+"[""0802965""]",41.413933,1.926075,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,8.85445209,56.24270712,Low,"Ampliació Nucli Urbà, Can Planes Sud, La Servera, Nucli Urbà",Corbera de Llobregat,4,0,0,0,4,False,False,Undetermined
+"[""054881"", ""54881""]",41.390041,2.168086,REAL_4G_5G,"VODAFONE ESPAÑA, S.A.U.",5G,False,164.20437115,92.25941423,High,La Dreta de l'Eixample,Barcelona,370,119,0,0,489,True,True,Mixed
+"[""CATR2845A""]",41.445065,2.216692,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",5G,False,70.95905552,84.93475682,Medium,"Can Mariner, Santa Rosa",Santa Coloma de Gramenet,148,33,1,0,182,True,True,Mixed
+"[""CATR6094A""]",41.372486,2.154961,REAL_4G_5G,"ORANGE ESPAGNE, S.A.U.",4G,False,134.18893889,91.95876289,Medium,El Poble Sec,Barcelona,83,10,0,1,94,True,True,Mixed
+"[""0800387""]",41.405411,2.117386,REAL_4G_5G,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,False,25.5240443,80.05098789,Low,Sarrià,Barcelona,3,0,0,0,3,False,False,Undetermined
+SYN_RRH_00001,41.35950764,1.86659838,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00002,41.52043494,2.08617633,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00003,41.33984123,2.00321196,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,6.59763298,50.74850299,Low,Sant Climent,Sant Climent de Llobregat,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00004,41.49023791,2.02237948,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,18,0,0,0,18,False,False,Undetermined
+SYN_RRH_00005,41.54461999,2.09655747,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,19,0,1,0,20,False,False,Undetermined
+SYN_RRH_00006,41.38225346,1.83380311,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00007,41.55915413,2.05084279,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00008,41.54507651,2.11185441,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,66,18,0,0,84,False,True,Undetermined
+SYN_RRH_00009,41.39560491,2.02581687,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,28.80694653,75.1503006,Low,"Canal, Les Conserves, Les Guardioles, Pont de la Cadena, Riera Bonet",Molins de Rei,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00010,41.55284537,2.05800587,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,1,0,0,0,1,False,False,Undetermined
+SYN_RRH_00011,41.56411074,2.03807263,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,10,1,2,0,13,False,False,Undetermined
+SYN_RRH_00012,41.34307075,1.8986412,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,7.23195363,38.55227882,Low,Begues,Begues,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00013,41.48528568,1.93517108,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,6.78111384,42.69311065,Low,"Can Nicolau de Dalt, Can Santeugini, Casetes de Ca n'Oliveró, Colònia del Carme, Costablanca",Castellbisbal,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00014,41.39269167,1.85996309,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00015,41.48959306,2.05345986,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,6.56209391,39.24843424,Low,"Can Barata, Can Gatxet, Can Majó, Can Sant Joan Nord, Can Sant Joan Sud, Can Trabal, CB CENTRE OEST - Arxiu, Collserola - Centre Oest, Costa del Golf, El Colomer, Galliners, Golf, La Guinardera, Parc Central, Pla de la Pagesa, Sant Domènec Est, Sant Do",Sant Cugat del Vallès,0,1,0,5,6,False,False,Undetermined
+SYN_RRH_00016,41.3232759,2.11156148,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,1,0,0,0,1,True,False,Residential
+SYN_RRH_00017,41.32057793,1.94225162,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,7.23195363,38.55227882,Low,Begues,Begues,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00018,41.45782705,2.09000863,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,15.84437424,61.36363636,Low,"Can Magí Nord, Can Magí Sud, CB CENTRE EST - Can Bell, Coll Favà, Monestir, Roquetes, Sant Francesc, Torre Blanca, Torre Negra",Sant Cugat del Vallès,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00019,41.37360537,1.88815975,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00020,41.49217494,1.95008421,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,6.78111384,42.69311065,Low,"Can Nicolau de Dalt, Can Santeugini, Casetes de Ca n'Oliveró, Colònia del Carme, Costablanca",Castellbisbal,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00021,41.35596814,1.87793672,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00022,41.45936796,1.88573912,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00023,41.46746516,2.19324364,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,8.60525694,69.81132075,Low,Can Franquesa,Santa Coloma de Gramenet,4,3,0,0,7,False,False,Undetermined
+SYN_RRH_00024,41.40288194,1.86471487,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00025,41.30183151,2.06232795,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,76.87847093,66.47727273,Medium,"Eixample Sud (en desenvolupament), La Barceloneta, Les Palmeres",El Prat de Llobregat,0,0,0,0,0,True,False,Residential
+SYN_RRH_00026,41.53982822,1.96292903,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00027,41.28574671,1.94329935,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,14.55814028,60.06036217,Low,"Ca n'Espinós, La Diagonal, La Sentiu, Les Bòbiles, Les Colomeres, Santa Teresa, Zona Forestal",Gavà,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00028,41.50133717,2.01851987,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00029,41.35664646,2.06887224,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,95.63262382,76.43312102,Medium,Centre,Cornellà de Llobregat,9,7,0,0,16,True,True,Mixed
+SYN_RRH_00030,41.30249519,1.96903247,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,14.55814028,60.06036217,Low,"Ca n'Espinós, La Diagonal, La Sentiu, Les Bòbiles, Les Colomeres, Santa Teresa, Zona Forestal",Gavà,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00031,41.42182709,2.22035531,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,13.80756852,0.0,Low,La Catalana,Sant Adrià del Besòs,5,0,0,0,5,False,False,Undetermined
+SYN_RRH_00032,41.4381703,1.84502311,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00033,41.36767376,2.06789789,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,48.73433422,59.09090909,Medium,Fontsanta,Sant Joan Despí,3,0,1,0,4,True,False,Residential
+SYN_RRH_00034,41.47596912,1.83252472,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00035,41.52951622,2.01968616,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00036,41.53513654,2.0153161,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00037,41.29346304,1.99383557,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,82.03742529,60.0,Medium,"Ausiàs Marc, Ca n'Horta, Can Ribes, Canyars Nord, Canyars Sud",Gavà,0,0,0,0,0,True,False,Residential
+SYN_RRH_00038,41.42934565,2.0247337,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,1.28615953,79.00262467,Low,"Sant Bartomeu de la Quadra, La Rierada",Molins de Rei,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00039,41.41116035,1.86107247,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00040,41.45167036,2.1119509,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,2.16578633,73.67332874,Low,"CB LA FLORESTA - Collserola - La Floresta, La Floresta, Mas Fortuny, Sant Medir, Sol i Aire",Sant Cugat del Vallès,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00041,41.33374269,1.90945252,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,7.23195363,38.55227882,Low,Begues,Begues,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00042,41.41637837,2.00912912,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,14.05177372,48.19277108,Low,La Granja,Molins de Rei,4,0,0,0,4,False,False,Undetermined
+SYN_RRH_00043,41.38149843,2.04337777,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,78.90690413,81.99389624,Medium,Can Nadal,Sant Feliu de Llobregat,35,13,0,0,48,True,True,Mixed
+SYN_RRH_00044,41.34384374,1.86514901,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00045,41.28835026,2.06409862,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,88.80149694,70.70707071,Medium,"Barri de Sales, Grup Sant Jordi",Viladecans,0,0,0,0,0,True,False,Residential
+SYN_RRH_00046,41.34659533,2.0824375,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,71.39671779,71.23857024,Medium,Nucli Antic,El Prat de Llobregat,107,3,1,4,115,True,False,Residential
+SYN_RRH_00047,41.58985096,2.03501781,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,,,,,,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00048,41.42843495,2.13843085,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,13.74298261,96.66666667,Low,Montbau,Barcelona,9,2,0,0,11,False,False,Undetermined
+SYN_RRH_00049,41.29739601,1.96723413,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,14.55814028,60.06036217,Low,"Ca n'Espinós, La Diagonal, La Sentiu, Les Bòbiles, Les Colomeres, Santa Teresa, Zona Forestal",Gavà,0,0,0,0,0,False,False,Undetermined
+SYN_RRH_00050,41.41131403,1.98465238,SYNTHETIC,SYNTHETIC,ASSUMED_FOR_SIMULATION,True,30.39434278,59.5505618,Medium,"Casc Urbà, La Magina",Pallejà,0,0,0,0,0,True,False,Residential
