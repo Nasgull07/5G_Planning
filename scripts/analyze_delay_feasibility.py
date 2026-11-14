@@ -91,9 +91,6 @@ def analyze(rrhs, pools, max_rtt_us=200.0, speed_km_s=200000.0,
             "feasible_pool_count": len(feasible),
             "feasible_pools": ";".join(row["bbu_pool"] for row in feasible),
             "service_status": "served" if feasible else "unserved",
-            "max_rtt_us": max_rtt_us, "propagation_speed_km_s": speed_km_s,
-            "route_factor": route_factor, "fixed_rtt_us": fixed_rtt_us,
-            "distance_crs": "EPSG:25831", "limit_rule": "rtt_us < max_rtt_us",
         })
         summaries.append(summary)
         for row in candidates:
@@ -120,7 +117,7 @@ def main():
                         help="Phase-one assignments CSV (or scenario CSV)")
     parser.add_argument("--pools", type=Path, required=True, help="Phase-one pool locations CSV")
     parser.add_argument("--output-dir", type=Path,
-                        help="Default: output/delay/<RRH input filename stem>")
+                        help="Default: output/delay (filenames include K and synthetic count)")
     parser.add_argument("--max-rtt-us", type=float, default=200.0)
     parser.add_argument("--speed-km-s", type=float, default=200000.0)
     parser.add_argument("--route-factor", type=float, default=1.0)
@@ -128,18 +125,21 @@ def main():
                         help="Additional total round-trip delay, not one-way delay")
     args = parser.parse_args()
     directory = args.output_dir or (Path(__file__).resolve().parent.parent
-                                  / "output" / "delay" / args.rrhs.stem)
-    targets = [directory / "rrh_delay_summary.csv", directory / "rrh_pool_links.csv"]
+                                  / "output" / "delay")
     try:
-        if any(target.resolve() in {args.rrhs.resolve(), args.pools.resolve()} for target in targets):
-            raise ValueError("Output paths must not overwrite inputs")
         rrhs = read_locations(args.rrhs, "rrh_id")
         pools = read_locations(args.pools, "bbu_pool")
+        synthetic_count = sum(
+            str(row.get("is_synthetic", "")).strip().lower() in {"true", "1", "t"}
+            for row in rrhs
+        )
+        tag = f"k{len(pools)}" + (f"_s{synthetic_count}" if synthetic_count else "")
+        targets = [directory / f"rrh_delay_{tag}_summary.csv",
+                   directory / f"rrh_pool_{tag}_links.csv"]
+        if any(target.resolve() in {args.rrhs.resolve(), args.pools.resolve()} for target in targets):
+            raise ValueError("Output paths must not overwrite inputs")
         summaries, links = analyze(rrhs, pools, args.max_rtt_us, args.speed_km_s,
                                   args.route_factor, args.fixed_rtt_us)
-        for row in summaries:
-            row["rrhs_input"] = str(args.rrhs.resolve())
-            row["pools_input"] = str(args.pools.resolve())
         directory.mkdir(parents=True, exist_ok=True)
         write_csv(targets[0], summaries)
         write_csv(targets[1], links)
