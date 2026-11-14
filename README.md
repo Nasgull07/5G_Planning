@@ -125,3 +125,101 @@ Si el escenario contiene celdas sintéticas ($S > 0$), los archivos exportados i
 - `data/processed/rrh_bbu_k{K}_s{S}_multi_assignments.csv`: Matriz detallada de asignación RRH $\rightarrow$ BBU Pool con distancias en kilómetros.
 - `data/processed/bbu_pool_k{K}_s{S}_multi_locations.csv`: Ubicaciones seleccionadas para los BBU Pools y recuento de celdas asignadas.
 - `output/rrh_bbu_k{K}_s{S}_multi_assignments_map.html`: Mapa interactivo con capas controlables para celdas reales, sintéticas, BBU Pools y líneas de conexión.
+
+
+## Análisis de factibilidad por retardo
+
+El análisis utiliza las ubicaciones fijas de la primera fase. No modifica los
+archivos de K-Medoids, no mueve ni desactiva pools y no considera capacidad.
+Requiere `pyproj` (también utilizado en la primera fase).
+
+Desde la raíz del proyecto:
+
+```bash
+python3 scripts/analyze_delay_feasibility.py -k 15 -s 50
+```
+
+El script busca automáticamente la pareja de CSV de K-Medoids en `data/processed/`:
+`rrh_bbu_k15_s50_kmedian_assignments.csv` y
+`bbu_pool_k15_s50_kmedian_locations.csv`. El CSV de asignaciones conserva
+exactamente los RRH e identificadores utilizados. Si falta algún archivo, el
+error enumera las rutas que faltan. También comprueba que K y S coincidan con
+el contenido. Para S=0 basta `-k 15`: se omite `_s0` en los nombres.
+
+La distancia es euclídea en EPSG:25831, igual que en K-Medoids, y el modelo es:
+
+```text
+RTT_us = 2 * distance_km * route_factor / speed_km_s * 1e6 + fixed_rtt_us
+```
+
+Parámetros configurables:
+
+- `--max-rtt-us`: 200 por defecto; una conexión es viable si RTT < límite.
+- `--speed-km-s`: 200000 por defecto, supuesto de propagación en fibra.
+- `--route-factor`: 1 por defecto; multiplicador de recorrido, como mínimo 1.
+- `--fixed-rtt-us`: 0 por defecto; retardo adicional total de ida y vuelta.
+- `--output-dir`: permite separar experimentos con distintos supuestos.
+
+Estos valores son supuestos del modelo; no representan una medición de la red.
+Con los valores por defecto, se requiere una distancia estrictamente menor que
+20 km. No se redondean los valores antes de comprobar la viabilidad. Los empates
+se resuelven por identificador del pool, de forma reproducible.
+
+Solo se generan dos archivos directamente en `output/delay/`, sin subdirectorios.
+K es el número de pools del CSV de entrada y S el número de RRH sintéticos:
+
+- `rrh_delay_k{K}_s{S}_summary.csv`: una fila por RRH con sus datos, asignación original
+  y su RTT/viabilidad, pool más cercano incluso si incumple, mejor pool viable,
+  número y lista de alternativas (separadas por `;`), estado `served`/`unserved`,
+  sin repetir los parámetros de ejecución ni las rutas de entrada.
+  Si no hay opción viable, el mejor pool queda vacío.
+- `rrh_pool_k{K}_s{S}_links.csv`: una fila por pareja RRH–pool con distancia directa,
+  distancia de recorrido, RTT, viabilidad y marcas de asignación original y
+  mejor opción. Incluye los enlaces inviables. `feasibility_group` distingue
+  `only_option`, `best_with_alternatives`, `alternative` e `infeasible`.
+
+Cuando S=0 se omite `_s{S}`: por ejemplo, `rrh_delay_k15_summary.csv` y
+`rrh_pool_k15_links.csv`. Con 50 sintéticos: `rrh_delay_k15_s50_summary.csv`
+y `rrh_pool_k15_s50_links.csv`.
+
+Ejecutar de nuevo con los mismos K y S en el mismo directorio reemplaza esos dos
+CSV, incluso si cambia la cantidad de RRH reales. Para comparar otros parámetros,
+usa otro `--output-dir`. Conserva ambos
+CSV juntos para consultar el resumen y el detalle de enlaces de cada ejecución.
+Los recuentos por pool se pueden obtener agrupando esta última tabla.
+
+Pruebas del cálculo, límites y entradas:
+
+```bash
+python3 -m unittest discover -s tests -p 'test_delay_feasibility.py' -v
+```
+
+## Mapa de factibilidad por retardo
+
+Tras ejecutar el análisis, genera el mapa indicando únicamente K y S:
+
+```bash
+python3 scripts/create_delay_assignment_map.py -k 15 -s 50
+```
+
+El script requiere `folium`. Busca automáticamente los archivos
+`output/delay/rrh_delay_k15_s50_summary.csv`,
+`output/delay/rrh_pool_k15_s50_links.csv` y
+`data/processed/bbu_pool_k15_s50_kmedian_locations.csv`.
+Genera únicamente `output/delay/rrh_delay_k15_s50_map.html` y reemplaza ese
+mapa si ya existe. Para un escenario sin sintéticos, usa `-k 15` o `-k 15 -s 0`:
+se omite `_s0` tanto en las entradas como en la salida.
+
+Si falta algún CSV, el error enumera las rutas que faltan. También se validan K,
+S, coordenadas, identificadores, matriz completa de enlaces y concordancia entre
+el resumen y la tabla de enlaces antes de generar el HTML.
+
+Los colores identifican pools y conexiones elegidas; los RRH sin servicio llevan
+una cruz roja y no se conectan. El borde discontinuo distingue los sintéticos.
+Las alternativas viables se pueden activar en el control de capas y están
+ocultas inicialmente. Los popups contienen el pool original, mejor pool viable,
+distancia/RTT al más cercano y alternativas. El resumen muestra recuentos por
+origen y estado. No se recalcula delay ni se modifica ningún CSV.
+
+Abre el HTML en un navegador con conexión a Internet para cargar las bibliotecas
+y las teselas del mapa. Los perfiles de tráfico todavía no están incluidos.
