@@ -9,6 +9,22 @@ from pathlib import Path
 from pyproj import Transformer
 
 
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def input_paths(k, s, root=ROOT):
+    if k < 1 or s < 0:
+        raise ValueError("K must be positive and S must be nonnegative")
+    tag = f"k{k}" + (f"_s{s}" if s else "")
+    directory = root / "data" / "processed"
+    rrhs = directory / f"rrh_bbu_{tag}_kmedian_assignments.csv"
+    pools = directory / f"bbu_pool_{tag}_kmedian_locations.csv"
+    missing = [str(path) for path in (rrhs, pools) if not path.is_file()]
+    if missing:
+        raise FileNotFoundError("Missing input CSV(s):\n" + "\n".join(missing))
+    return rrhs, pools, tag
+
+
 def read_locations(path, id_column):
     with Path(path).open(newline="", encoding="utf-8-sig") as handle:
         reader = csv.DictReader(handle)
@@ -113,9 +129,8 @@ def write_csv(path, rows):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--rrhs", type=Path, required=True,
-                        help="Phase-one assignments CSV (or scenario CSV)")
-    parser.add_argument("--pools", type=Path, required=True, help="Phase-one pool locations CSV")
+    parser.add_argument("-k", "--k-pools", type=int, required=True)
+    parser.add_argument("-s", "--synthetic-count", type=int, default=0)
     parser.add_argument("--output-dir", type=Path,
                         help="Default: output/delay (filenames include K and synthetic count)")
     parser.add_argument("--max-rtt-us", type=float, default=200.0)
@@ -124,19 +139,20 @@ def main():
     parser.add_argument("--fixed-rtt-us", type=float, default=0.0,
                         help="Additional total round-trip delay, not one-way delay")
     args = parser.parse_args()
-    directory = args.output_dir or (Path(__file__).resolve().parent.parent
-                                  / "output" / "delay")
+    directory = args.output_dir or (ROOT / "output" / "delay")
     try:
-        rrhs = read_locations(args.rrhs, "rrh_id")
-        pools = read_locations(args.pools, "bbu_pool")
+        rrhs_path, pools_path, tag = input_paths(args.k_pools, args.synthetic_count)
+        rrhs = read_locations(rrhs_path, "rrh_id")
+        pools = read_locations(pools_path, "bbu_pool")
         synthetic_count = sum(
             str(row.get("is_synthetic", "")).strip().lower() in {"true", "1", "t"}
             for row in rrhs
         )
-        tag = f"k{len(pools)}" + (f"_s{synthetic_count}" if synthetic_count else "")
+        if len(pools) != args.k_pools or synthetic_count != args.synthetic_count:
+            raise ValueError("K/S do not match the contents of the input CSVs")
         targets = [directory / f"rrh_delay_{tag}_summary.csv",
                    directory / f"rrh_pool_{tag}_links.csv"]
-        if any(target.resolve() in {args.rrhs.resolve(), args.pools.resolve()} for target in targets):
+        if any(target.resolve() in {rrhs_path.resolve(), pools_path.resolve()} for target in targets):
             raise ValueError("Output paths must not overwrite inputs")
         summaries, links = analyze(rrhs, pools, args.max_rtt_us, args.speed_km_s,
                                   args.route_factor, args.fixed_rtt_us)
