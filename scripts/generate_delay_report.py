@@ -147,7 +147,7 @@ def charts(rrhs, pools, groups):
         ax.scatter(unserved, [cumulative[d] for d in unserved], color="#c0392b",
                    marker="x", label="Unserved RRHs", zorder=3)
     ax.set(xlabel="Distance to nearest pool (km)", ylabel="F(d) = P(D ≤ d)",
-           title="Empirical CDF · all RRHs", ylim=(0, 1.03), xlim=(0, max(xs) * 1.05 or 1))
+           title="Empirical CDF for all the RRHs", ylim=(0, 1.03), xlim=(0, max(xs) * 1.05 or 1))
     ax.grid(alpha=.25)
     ax.legend()
     cdf = figure_svg(fig)
@@ -156,7 +156,8 @@ def charts(rrhs, pools, groups):
         ax.bar([i + (index - 1) * .25 for i in range(len(pools))],
                [len(groups[p][group]) for p in pools], width=.25, label=label, color=color)
     ax.set_xticks(range(len(pools)), pools, rotation=45, ha="right")
-    ax.set(ylabel="Number of RRHs", title="Connection options per BBU Pool")
+    ax.set(ylabel="Number of RRHs")
+    ax.set_title("Connection options per BBU Pool", pad=50)
     ax.yaxis.set_major_locator(MaxNLocator(integer=True))
     ax.legend(loc="lower left", bbox_to_anchor=(0, 1.02), ncol=3)
     pool_chart = figure_svg(fig)
