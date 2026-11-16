@@ -15,7 +15,6 @@ data/
   processed/
     cellular_sites.csv            Estaciones y detalles técnicos combinados
     scenario_sites.csv            Escenario combinado (celdas reales seleccionadas + sintéticas)
-    synthetic_rrhs.csv            Solo celdas sintéticas generadas
     rrh_bbu_k*_s*_multi_assignments.csv  Matriz de asignación de celdas a BBU Pools
     bbu_pool_k*_s*_multi_locations.csv   Ubicaciones seleccionadas para los BBU Pools
 output/
@@ -23,7 +22,7 @@ output/
   rrh_bbu_k*_s*_multi_assignments_map.html  Mapa interactivo de topología y asignación C-RAN
 scripts/
   download_cells.py               Descarga estaciones y sus detalles técnicos
-  add_synthetic_rrhs.py           Genera celdas sintéticas con restricción de separación y KML
+  create_scenario_sites.py        Selecciona celdas reales y genera sintéticas dentro del KML
   create_cell_sites_map.py        Genera el mapa HTML base
   bbu_initial_assignment_multi.py Asignación óptima de BBU Pools y celdas (K-Center)
 ```
@@ -81,23 +80,24 @@ Respeta las condiciones de uso y atribución de los servicios consultados.
 
 Para construir el escenario de simulación añadiendo celdas sintéticas con restricciones espaciales estrictas, ejecuta desde la raíz:
 
-```powershell
-python .\scripts\add_synthetic_rrhs.py --count 75 --min-distance 200.0 --seed 42
+```bash
+python scripts/create_scenario_sites.py --real-count 350 --count 50 --min-distance 200 --seed 42
+python scripts/create_cell_sites_map.py
 ```
 
-`add_synthetic_rrhs.py` lee las estaciones reales y genera el número de celdas sintéticas solicitado (`--count`, por ejemplo 75) ubicándolas estrictamente dentro del polígono delimitado por `working_area_900km2.kml`.
+`create_scenario_sites.py` lee `cellular_sites.csv`, selecciona el número de
+ubicaciones reales 4G/5G indicado por `--real-count` y genera el número de RRH
+sintéticos indicado por `--count`, ubicándolos estrictamente dentro del polígono
+delimitado por `working_area_900km2.kml`.
 
-El algoritmo garantiza una separación física mínima (por defecto `--min-distance 200.0` metros) entre cualquier par de antenas (reales o sintéticas) utilizando indexación espacial (*Spatial Hashing*). La semilla (`--seed`) permite que la generación sea 100% reproducible.
+El algoritmo garantiza una separación mínima de `--min-distance` metros entre
+los sintéticos y las ubicaciones reales seleccionadas, y entre los propios
+sintéticos, utilizando indexación espacial (*Spatial Hashing*). La semilla
+(`--seed`) hace reproducible la selección y generación.
 
-Este proceso genera dos archivos en `data/processed/`:
-- `synthetic_rrhs.csv`: Contiene únicamente el conjunto de celdas sintéticas generadas.
-- `scenario_sites.csv`: Contiene el escenario unificado combinando las celdas reales y sintéticas.
-
-Opcionalmente, se puede visualizar el mapa base con:
-
-```powershell
-python .\scripts\create_cell_sites_map.py
-```
+El primer comando guarda el escenario combinado en
+`data/processed/scenario_sites.csv`. El segundo genera el mapa base en
+`output/cellular_sites_map.html`.
 
 ## Asignación de BBU Pools y optimización C-RAN
 
@@ -223,3 +223,33 @@ origen y estado. No se recalcula delay ni se modifica ningún CSV.
 
 Abre el HTML en un navegador con conexión a Internet para cargar las bibliotecas
 y las teselas del mapa. Los perfiles de tráfico todavía no están incluidos.
+
+## Informe de delay para un K específico
+
+```bash
+python3 scripts/generate_delay_report.py -k 15 -s 50
+```
+
+Requiere `matplotlib` y lee solo los dos CSV de análisis de `output/delay/`
+identificados por K y S. Valida la matriz completa, los recuentos, las alternativas
+y la concordancia de las distancias y RTT mínimos antes de producir el informe.
+Si S=0, omite `-s` y se omite también `_s0` en los nombres.
+
+Genera un único archivo: `output/delay/rrh_delay_k15_s50_report.html`.
+Contiene tres gráficos SVG integrados (sin imágenes externas ni archivos
+intermedios) y tablas; se puede consultar sin Internet:
+
+- CDF empírica de distancia al pool más cercano para este K; incluye todos los
+  RRH, con peso 1/N, y marca en rojo los que no tienen servicio. Los empates se
+  acumulan en un mismo escalón. No compara ni superpone otros valores de K.
+- Tres barras por pool: opción única, óptimo con alternativas y alternativa
+  viable no óptima. Incluye recuentos y listas desplegables con los RRH.
+- Una barra por RRH con la cantidad de pools viables y una tabla completa de
+  alternativas. Para escenarios densos se espacian las etiquetas del eje.
+- Resumen de cobertura, origen de RRH y distancia/RTT al pool más cercano,
+  con medias y máximos calculados sobre todos los RRH, incluso los no servidos.
+
+No recalcula el delay ni modifica los CSV. No presupone el umbral o las constantes
+del experimento, que no se guardan en ellos. Una nueva ejecución reemplaza el
+informe del mismo K/S. La selección o desactivación de pools no forma parte de
+este script.
