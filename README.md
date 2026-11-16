@@ -15,16 +15,16 @@ data/
   processed/
     cellular_sites.csv            Estaciones y detalles técnicos combinados
     scenario_sites.csv            Escenario combinado (celdas reales seleccionadas + sintéticas)
-    rrh_bbu_k*_s*_multi_assignments.csv  Matriz de asignación de celdas a BBU Pools
-    bbu_pool_k*_s*_multi_locations.csv   Ubicaciones seleccionadas para los BBU Pools
+    rrh_bbu_k*_s*_kmedian_assignments.csv  Matriz de asignación de celdas a BBU Pools
+    bbu_pool_k*_s*_kmedian_locations.csv   Ubicaciones seleccionadas para los BBU Pools
 output/
   cellular_sites_map.html         Mapa interactivo base de celdas
-  rrh_bbu_k*_s*_multi_assignments_map.html  Mapa interactivo de topología y asignación C-RAN
+  rrh_bbu_k*_s*_kmedian_assignments_map.html  Mapa interactivo de topología y asignación C-RAN
 scripts/
   download_cells.py               Descarga estaciones y sus detalles técnicos
   create_scenario_sites.py        Selecciona celdas reales y genera sintéticas dentro del KML
   create_cell_sites_map.py        Genera el mapa HTML base
-  bbu_initial_assignment_multi.py Asignación óptima de BBU Pools y celdas (K-Center)
+  bbu_initial_assignment_kmedian.py K-Medoids con distancia máxima obligatoria
 ```
 
 El script de descarga genera `cellular_sites.csv` y puede sobrescribirlo en
@@ -33,13 +33,13 @@ cada ejecución.
 ## Requisitos
 
 - Python 3.10 o posterior.
-- Paquetes externos necesarios para la fase de optimización y mapas: `pandas`, `numpy`, `folium`, `matplotlib`, `pyproj`.
+- Paquetes externos necesarios para la fase de optimización y mapas: `pandas`, `numpy`, `folium`, `matplotlib`, `pyproj` y `scipy>=1.9`.
 - Se necesita Internet para consultar el Geoportal y para cargar las teselas del mapa interactivo.
 
 Instalación de dependencias externas:
 
 ```powershell
-pip install pandas numpy folium matplotlib pyproj
+pip install pandas numpy folium matplotlib pyproj "scipy>=1.9"
 ```
 
 ## Uso
@@ -101,13 +101,31 @@ El primer comando guarda el escenario combinado en
 
 ## Asignación de BBU Pools y optimización C-RAN
 
-Una vez generado el archivo de escenario (`data/processed/scenario_sites.csv`), ejecuta el script de asignación para calcular las ubicaciones óptimas de los BBU Pools y asignar cada RRH a su pool más cercano:
+Una vez generado `data/processed/scenario_sites.csv`, ejecuta la selección de
+K ubicaciones y asignación al pool más cercano, con distancia máxima de 4 km:
 
 ```powershell
-python .\scripts\bbu_initial_assignment_multi.py -k 3
+python scripts/bbu_initial_assignment_kmedian.py -k 30 --max-distance-km 4
 ```
 
-`bbu_initial_assignment_multi.py` lee `scenario_sites.csv`, detecta automáticamente el número de celdas sintéticas ($S$), proyecta las coordenadas geográficas a espacio métrico en metros (UTM 31N) y aplica la heurística *Farthest-First K-Center* (algoritmo de Gonzalez) para minimizar la distancia máxima de la red de *fronthaul*.
+`bbu_initial_assignment_kmedian.py` proyecta las coordenadas a EPSG:25831 y
+conserva las ubicaciones RRH como candidatas a BBU Pool. Tras la inicialización
+greedy de K-Medoids, si alguna RRH queda fuera del radio, una selección binaria
+de cobertura mediante SciPy/HiGHS busca exactamente K ubicaciones que cubran
+todas las RRH, dando preferencia a conservar las ubicaciones iniciales. Después
+PAM mejora la suma de distancias aceptando solo intercambios que mantengan la
+cobertura total. La suma de distancias se optimiza heurísticamente; no se afirma
+que sea el óptimo global.
+
+Si se demuestra que K no permite cubrir el escenario desde las ubicaciones
+candidatas, el programa falla sin sobrescribir los resultados anteriores.
+Si termina el tiempo de búsqueda sin solución verificada, lo indica sin afirmar
+que sea imposible. No añade pools automáticamente ni cambia K.
+
+El radio incluye la frontera: distancia <= 4 km. Con velocidad 200000 km/s,
+factor de recorrido 1 y retardo adicional 0, equivale a RTT <= 40 µs.
+El analizador de delay conserva su regla estricta RTT < límite: un enlace
+exactamente en la frontera de 40 µs se considera inviable en ese análisis.
 
 Soporta esquemas crudos y procesados, gestiona operadores multivalor (separados por `;`), parsea identificadores JSON array y prioriza celdas 5G sobre 4G.
 
@@ -117,14 +135,16 @@ Soporta esquemas crudos y procesados, gestiona operadores multivalor (separados 
 - `--input_path`: Ruta al CSV del escenario (por defecto `data/processed/scenario_sites.csv`).
 - `--data_output_dir`: Directorio de destino para los CSVs (por defecto `data/processed/`).
 - `--html_output_dir`: Directorio de destino para el mapa HTML (por defecto `output/`).
+- `--max-distance-km`: Radio máximo inclusivo (por defecto 4 km).
+- `--coverage-time-limit`: Tiempo máximo de reparación de cobertura (por defecto 60 s).
 
-Si el escenario contiene celdas sintéticas ($S > 0$), los archivos exportados incorporan la etiqueta `s{S}` (ej. `k3_s75_multi`). Si $S = 0$, la etiqueta se simplifica a `k3_multi`.
+Si el escenario contiene celdas sintéticas ($S > 0$), los archivos exportados incorporan la etiqueta `s{S}` (ej. `k3_s75_kmedian`). Si $S = 0$, la etiqueta se simplifica a `k3_kmedian`.
 
 ### Archivos generados
 
-- `data/processed/rrh_bbu_k{K}_s{S}_multi_assignments.csv`: Matriz detallada de asignación RRH $\rightarrow$ BBU Pool con distancias en kilómetros.
-- `data/processed/bbu_pool_k{K}_s{S}_multi_locations.csv`: Ubicaciones seleccionadas para los BBU Pools y recuento de celdas asignadas.
-- `output/rrh_bbu_k{K}_s{S}_multi_assignments_map.html`: Mapa interactivo con capas controlables para celdas reales, sintéticas, BBU Pools y líneas de conexión.
+- `data/processed/rrh_bbu_k{K}_s{S}_kmedian_assignments.csv`: Matriz detallada de asignación RRH $\rightarrow$ BBU Pool con distancias en kilómetros.
+- `data/processed/bbu_pool_k{K}_s{S}_kmedian_locations.csv`: Ubicaciones seleccionadas para los BBU Pools y recuento de celdas asignadas.
+- `output/rrh_bbu_k{K}_s{S}_kmedian_assignments_map.html`: Mapa interactivo con capas controlables para celdas reales, sintéticas, BBU Pools y líneas de conexión.
 
 
 ## Análisis de factibilidad por retardo
