@@ -2,8 +2,8 @@
 """
 BBU Pool Optimization & RRH Assignment Script (K-Median / K-Medoids Mode)
 
-Minimizes total/average fronthaul distance (sum of distances: sum(d)) 
-instead of minimax distance (max(d)).
+Minimizes total/average fronthaul distance subject to a hard maximum
+distance (4 km by default). All RRHs must be covered with exactly K pools.
 
 Reads scenario_sites.csv, auto-detects synthetic RRHs (S), runs Partitioning 
 Around Medoids (PAM) K-Medoids, and outputs CSVs and Folium maps tagged with '_kmedian'.
@@ -191,14 +191,71 @@ def project_coordinates(rrhs):
 # 3. K-MEDIAN / K-MEDOIDS ALGORITHM (PAM - Partitioning Around Medoids)
 # ============================================================
 
-def k_medoids_kmedian(X, K, max_iter=100):
+def repair_coverage(D, selected, max_distance_m, time_limit):
+    """Find K covering medoids, preferring to retain the current locations.
+
+    Binary y[j] activates RRH site j as a pool. Every RRH must have at least
+    one selected site within the radius, and exactly K sites must be selected.
+    An infeasibility certificate applies to this discrete candidate set only.
+    """
+    try:
+        from scipy.optimize import Bounds, LinearConstraint, milp
+        from scipy.sparse import csc_matrix, vstack
+    except ImportError as error:
+        raise RuntimeError(
+            'Coverage repair requires SciPy >= 1.9. Install it with: pip install "scipy>=1.9"'
+        ) from error
+
+    n = len(D)
+    coverage = csc_matrix((D <= max_distance_m).astype(float))
+    matrix = vstack([coverage, csc_matrix(np.ones((1, n)))], format="csc")
+    lower = np.concatenate([np.ones(n), [len(selected)]])
+    upper = np.concatenate([np.full(n, np.inf), [len(selected)]])
+    # With fixed K this objective minimizes the number of relocated pools.
+    objective = np.ones(n)
+    objective[selected] = 0
+    result = milp(
+        c=objective, integrality=np.ones(n), bounds=Bounds(0, 1),
+        constraints=LinearConstraint(matrix, lower, upper),
+        options={"time_limit": time_limit, "mip_rel_gap": 0.0},
+    )
+    if result.x is not None:
+        repaired = np.flatnonzero(result.x > .5)
+        if (len(repaired) == len(selected)
+                and np.all(np.min(D[:, repaired], axis=1) <= max_distance_m)):
+            return repaired
+    if result.status == 2:
+        raise ValueError(
+            f"Coverage is infeasible with K={len(selected)} and maximum distance "
+            f"{max_distance_m / 1000:g} km at the existing RRH candidate sites. "
+            "Increase K or change the candidate locations. No results were exported."
+        )
+    raise RuntimeError(
+        f"No verified covering solution was found: {result.message}. "
+        "This does not prove infeasibility. Increase --coverage-time-limit. "
+        "No results were exported."
+    )
+
+
+def k_medoids_kmedian(X, K, max_iter=100, max_distance_km=4.0,
+                     coverage_time_limit=60.0):
     """
     Minimizes total sum of Euclidean distances sum_{i=1}^N min_{s in S} ||X_i - X_s||.
-    Uses Greedy PAM Initialization followed by iterative SWAP phase.
+    Uses Greedy PAM initialization, exact discrete coverage repair if needed,
+    then SWAP improvements that preserve the maximum distance constraint.
+    The sum-distance objective remains heuristic, not globally optimal.
     """
     N = len(X)
     if K < 1 or K > N:
         raise ValueError(f"K must be between 1 and {N}")
+    X = np.asarray(X, dtype=float)
+    if X.ndim != 2 or not np.isfinite(X).all():
+        raise ValueError("Projected coordinates must be a finite 2D array")
+    if not np.isfinite(max_distance_km) or max_distance_km <= 0:
+        raise ValueError("Maximum distance must be finite and positive")
+    if not np.isfinite(coverage_time_limit) or coverage_time_limit <= 0:
+        raise ValueError("Coverage time limit must be finite and positive")
+    max_distance_m = max_distance_km * 1000.0
 
     # Distance matrix N x N in meters
     D = np.linalg.norm(X[:, np.newaxis, :] - X[np.newaxis, :, :], axis=2)
@@ -225,21 +282,30 @@ def k_medoids_kmedian(X, K, max_iter=100):
 
     selected = np.array(selected, dtype=int)
 
+    # Relocate pools if the initial median solution leaves any RRH uncovered.
+    if np.any(np.min(D[:, selected], axis=1) > max_distance_m):
+        selected = repair_coverage(D, selected, max_distance_m, coverage_time_limit)
+
     # Phase 2: SWAP (Refinement)
     current_cost = np.sum(np.min(D[:, selected], axis=1))
 
     for _ in range(max_iter):
         improved = False
         for i in range(K):
+            # Distances to the remaining K-1 pools, shared across candidates.
+            remaining = np.delete(selected, i)
+            other_distance = (np.min(D[:, remaining], axis=1) if len(remaining)
+                              else np.full(N, np.inf))
             for candidate in range(N):
                 if candidate in selected:
                     continue
-                temp_selected = selected.copy()
-                temp_selected[i] = candidate
-                trial_cost = np.sum(np.min(D[:, temp_selected], axis=1))
+                trial_distance = np.minimum(other_distance, D[:, candidate])
+                if np.any(trial_distance > max_distance_m):
+                    continue
+                trial_cost = np.sum(trial_distance)
                 if trial_cost < current_cost - 1e-6:
                     current_cost = trial_cost
-                    selected = temp_selected
+                    selected[i] = candidate
                     improved = True
                     break
             if improved:
@@ -247,6 +313,8 @@ def k_medoids_kmedian(X, K, max_iter=100):
         if not improved:
             break
 
+    if np.any(np.min(D[:, selected], axis=1) > max_distance_m):
+        raise RuntimeError("Coverage verification failed; no results were exported")
     return selected.tolist()
 
 
@@ -332,7 +400,7 @@ def generate_map(rrhs, bbus, output_html_path):
     real_rrh_layer.add_to(m)
     syn_rrh_layer.add_to(m)
 
-    bbu_layer = folium.FeatureGroup(name="BBU Pools (K-Median / PAM)", show=True)
+    bbu_layer = folium.FeatureGroup(name="BBU Pools (Constrained K-Median / PAM)", show=True)
     for i, row in bbus.iterrows():
         pool_id = row.get("bbu_pool", f"BBU_{i+1:02d}")
         is_syn_pool = row.get("is_synthetic", False)
@@ -389,7 +457,7 @@ def main():
     DEFAULT_HTML_DIR = ROOT / "output"
 
     parser = argparse.ArgumentParser(
-        description="BBU Pool Optimizer - K-Median / K-Medoids (Minimizing Sum of Distances)"
+        description="BBU Pool Optimizer - K-Medoids with a hard coverage radius"
     )
     parser.add_argument(
         "-k", "--k_pools", type=int, required=True,
@@ -407,13 +475,18 @@ def main():
         "--html_output_dir", type=str, default=str(DEFAULT_HTML_DIR),
         help=f"Directorio de salida HTML (default: {DEFAULT_HTML_DIR})"
     )
+    parser.add_argument(
+        "--max-distance-km", type=float, default=4.0,
+        help="Maximum RRH-to-nearest-pool distance, inclusive (default: 4 km)"
+    )
+    parser.add_argument(
+        "--coverage-time-limit", type=float, default=60.0,
+        help="Seconds allowed for discrete coverage repair (default: 60)"
+    )
 
     args = parser.parse_args()
 
     K = args.k_pools
-
-    os.makedirs(args.data_output_dir, exist_ok=True)
-    os.makedirs(args.html_output_dir, exist_ok=True)
 
     # 1. Load cells and auto-detect synthetic cells
     rrhs = load_rrhs(args.input_path)
@@ -423,21 +496,30 @@ def main():
     n_real = n_total - n_synthetic
 
     print("\n============================================================")
-    print(" MODE: K-MEDIAN / K-MEDOIDS OPTIMIZATION (SUM DISTANCE MINIMIZATION)")
+    print(" MODE: K-MEDOIDS WITH A HARD MAXIMUM DISTANCE")
     print("============================================================")
     print(f"Input file loaded:         {args.input_path}")
     print(f"Real physical RRHs:        {n_real}")
     print(f"Synthetic RRHs detected:   {n_synthetic}")
     print(f"TOTAL RRHs in scenario:    {n_total}")
+    print(f"Maximum allowed distance: {args.max_distance_km:g} km (inclusive)")
 
     # 2. Project coordinates to UTM 31N meters
     X = project_coordinates(rrhs)
 
     # 3. K-Median Selection (PAM K-Medoids)
-    selected_indices = k_medoids_kmedian(X, K)
+    try:
+        selected_indices = k_medoids_kmedian(
+            X, K, max_distance_km=args.max_distance_km,
+            coverage_time_limit=args.coverage_time_limit,
+        )
+    except (ValueError, RuntimeError) as error:
+        parser.error(str(error))
 
     # 4. Assign RRHs to BBU Pools
     assignments, pools = assign_rrhs_to_pools(rrhs, X, selected_indices)
+    if not (assignments["distance_to_bbu_km"] <= args.max_distance_km).all():
+        parser.error("Final assignments exceed the maximum distance; no results were exported")
 
     # 5. Dynamic tag generation based on K and S with '_kmedian' suffix
     tag = f"k{K}_s{n_synthetic}_kmedian" if n_synthetic > 0 else f"k{K}_kmedian"
@@ -446,6 +528,8 @@ def main():
     pools_file = os.path.join(args.data_output_dir, f"bbu_pool_{tag}_locations.csv")
     map_filename = os.path.join(args.html_output_dir, f"rrh_bbu_{tag}_assignments_map.html")
 
+    os.makedirs(args.data_output_dir, exist_ok=True)
+    os.makedirs(args.html_output_dir, exist_ok=True)
     assignments.to_csv(assignments_file, index=False)
     pools.to_csv(pools_file, index=False)
     generate_map(assignments, pools, map_filename)
@@ -455,6 +539,7 @@ def main():
     print(f"Total distance sum (sum d): {total_dist_sum_km:.3f} km")
     print(f"Average distance (avg d):   {assignments['distance_to_bbu_km'].mean():.3f} km")
     print(f"Maximum distance (max d):   {assignments['distance_to_bbu_km'].max():.3f} km")
+    print(f"Coverage within limit:     {len(assignments)}/{len(assignments)} RRHs")
 
     real_dist = assignments[~assignments['is_synthetic']]['distance_to_bbu_km']
     syn_dist = assignments[assignments['is_synthetic']]['distance_to_bbu_km']
