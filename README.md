@@ -273,3 +273,37 @@ No recalcula el delay ni modifica los CSV. No presupone el umbral o las constant
 del experimento, que no se guardan en ellos. Una nueva ejecución reemplaza el
 informe del mismo K/S. La selección o desactivación de pools no forma parte de
 este script.
+
+## Opcional
+
+Para ejecutar las cuatro etapas con un solo comando, desde la raíz del proyecto:
+
+```bash
+bash scripts/run_delay_experiment.sh 30 50 40
+```
+
+Los argumentos, en orden, son **K** (número de pools), **S** (número de RRH
+sintéticos) y **RTT máximo en microsegundos**. El ejemplo utiliza 30 pools,
+50 sintéticos y un RTT máximo de 40 µs.
+
+El escenario debe estar generado previamente en `data/processed/scenario_sites.csv`
+y contener los S sintéticos indicados. El Bash no regenera el escenario.
+Activa primero el entorno Python con las dependencias del proyecto instaladas.
+El script utiliza `python` si está disponible o, en su defecto, `python3`.
+
+Se ejecutan en orden:
+
+1. Selección de pools y asignación mediante K-Medoids con radio máximo.
+2. Análisis de factibilidad por delay.
+3. Mapa de asignaciones.
+4. Reporte individual con CDF, tablas y gráficos.
+
+El radio se deriva del RTT usando las mismas constantes en ambas etapas:
+velocidad de propagación 200000 km/s, factor de recorrido 1.0 y retardo
+adicional de ida y vuelta 0.0 µs. Con estos valores, 40 µs equivalen a 4 km
+y 150 µs a 15 km. Las constantes se definen al inicio del Bash.
+K-Medoids acepta distancia <= radio; el analizador conserva la regla RTT < límite.
+
+Si alguna etapa falla, la ejecución se detiene. Los resultados se guardan con
+la convención K/S existente; repetir K y S reemplaza los archivos correspondientes,
+aunque cambie el RTT o el número de RRH reales.
