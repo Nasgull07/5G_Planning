@@ -92,3 +92,26 @@ El proceso escribe un único archivo de escenario:
 `data/processed/scenario_sites.csv`. Después,
 `create_cell_sites_map.py` lo lee para generar
 `output/cellular_sites_map.html`.
+
+## Mapa de clasificación de tráfico
+
+El flujo se ha consolidado en cuatro scripts:
+
+```powershell
+py scripts/generate_additional_rrhs.py
+py scripts/prepare_residential_traffic_data.py --stage all
+py scripts/prepare_office_features.py
+py scripts/generate_traffic_map.py
+```
+
+`prepare_residential_traffic_data.py` admite `--stage indicators`, `--stage
+density` y `--stage coverage-400` para ejecutar una fase concreta. La opción
+`all` requiere tanto el shapefile residencial local de AMB como acceso al
+servicio web de AMB. `prepare_office_features.py` extrae el PBF de OSM y filtra
+las entidades; si ya existe `osm_business_features.csv`, se puede omitir la
+extracción con `--filter-existing`.
+
+El clasificador usa densidad residencial y oficinas a menos de 500 m, con un
+umbral de cinco oficinas. `generate_traffic_map.py` guarda el CSV clasificado
+`data/processed/rrh_scenario_400_traffic_realistic.csv` y el mapa
+`output/rrh_scenario_400_traffic_interactive.html`.

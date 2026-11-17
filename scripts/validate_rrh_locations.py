@@ -5,7 +5,12 @@ import geopandas as gpd
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 
-RRH_FILE = BASE_DIR / "data/processed/scenario_sites_realistic_classified.csv"
+RRH_FILE = (
+    BASE_DIR
+    / "data"
+    / "processed"
+    / "rrh_scenario_400_traffic_realistic.csv"
+)
 KML_FILE = BASE_DIR / "data/input/working_area_900km2.kml"
 
 df = pd.read_csv(RRH_FILE)
