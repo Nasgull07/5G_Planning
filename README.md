@@ -93,25 +93,44 @@ El proceso escribe un único archivo de escenario:
 `create_cell_sites_map.py` lo lee para generar
 `output/cellular_sites_map.html`.
 
-## Mapa de clasificación de tráfico
+## Clasificación y mapa de tráfico
 
-El flujo se ha consolidado en cuatro scripts:
+Los dos clasificadores aceptan escenarios de cualquier tamaño. El CSV debe
+contener `rrh_id`, `latitude` y `longitude`. Ambos generan un CSV clasificado
+y un mapa interactivo con círculos para residencial, triángulos para mixto y
+cuadrados para oficinas.
+
+Para instalar los paquetes de los clasificadores en el mismo Python con el
+que se ejecutarán:
 
 ```powershell
-py scripts/generate_additional_rrhs.py
-py scripts/prepare_residential_traffic_data.py --stage all
-py scripts/prepare_office_features.py
-py scripts/generate_traffic_map.py
+python -m pip install folium geopandas pandas
 ```
 
-`prepare_residential_traffic_data.py` admite `--stage indicators`, `--stage
-density` y `--stage coverage-400` para ejecutar una fase concreta. La opción
-`all` requiere tanto el shapefile residencial local de AMB como acceso al
-servicio web de AMB. `prepare_office_features.py` extrae el PBF de OSM y filtra
-las entidades; si ya existe `osm_business_features.csv`, se puede omitir la
-extracción con `--filter-existing`.
+### Asignación aleatoria
 
-El clasificador usa densidad residencial y oficinas a menos de 500 m, con un
-umbral de cinco oficinas. `generate_traffic_map.py` guarda el CSV clasificado
-`data/processed/rrh_scenario_400_traffic_realistic.csv` y el mapa
-`output/rrh_scenario_400_traffic_interactive.html`.
+Indica el porcentaje de cada categoría. Los porcentajes deben sumar 100. La
+semilla opcional permite repetir la misma asignación:
+
+```powershell
+python scripts/generate_random_traffic.py --scenario data/processed/rrh_scenario_400.csv --residential-percent 20 --office-percent 30 --mixed-percent 50 --seed 42
+```
+
+### Asignación según el entorno
+
+Usa la densidad residencial del área AMB donde cae cada RRH y cuenta oficinas
+de OpenStreetMap a menos de 500 m. El servicio web de AMB debe estar accesible;
+el archivo procesado de oficinas se puede generar con `prepare_office_features.py`.
+
+```powershell
+python scripts/generate_traffic_map.py --scenario data/processed/rrh_scenario_400.csv
+```
+
+La clasificación residencial se basa en los terciles de densidad del escenario
+actual. Cinco o más oficinas cercanas cuentan como evidencia de actividad de
+oficina. `Mixed` requiere evidencia residencial y de oficina; las celdas que
+no cumplen esa regla se asignan a `Residential`, salvo las de baja densidad con
+suficientes oficinas, que se asignan a `Office`. Esto incluye celdas sin dato
+residencial AMB. Los argumentos `--output-csv` y `--output-map` permiten elegir
+los archivos generados. El escenario por defecto se puede reemplazar con
+`--scenario <ruta.csv>`.
