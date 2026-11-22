@@ -9,11 +9,11 @@ import pandas as pd
 from pyproj import Transformer
 from shapely.geometry import box
 
-from scripts.generate_random_traffic import (
+from scripts.s3.generate_random_traffic import (
     assign_random_categories,
     calculate_category_counts,
 )
-from scripts.generate_traffic_map import (
+from scripts.s3.generate_traffic_map import (
     add_markers,
     classify_scenario,
     classify_traffic,
