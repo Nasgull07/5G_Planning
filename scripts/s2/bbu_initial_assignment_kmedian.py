@@ -3,7 +3,8 @@
 BBU Pool Optimization & RRH Assignment Script (K-Median / K-Medoids Mode)
 
 Minimizes total/average fronthaul distance (sum of distances: sum(d)) 
-instead of minimax distance (max(d)).
+instead of minimax distance (max(d)), while requiring every RRH to be within
+4 km of at least one BBU Pool.
 
 Reads scenario_sites.csv, auto-detects synthetic RRHs (S), runs Partitioning 
 Around Medoids (PAM) K-Medoids, and outputs CSVs and Folium maps tagged with '_kmedian'.
@@ -26,6 +27,9 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import to_hex
 from pyproj import Transformer
 from pathlib import Path
+
+MAX_DISTANCE_KM = 4.0
+MAX_DISTANCE_METRES = MAX_DISTANCE_KM * 1000
 
 
 # ============================================================
@@ -191,10 +195,61 @@ def project_coordinates(rrhs):
 # 3. K-MEDIAN / K-MEDOIDS ALGORITHM (PAM - Partitioning Around Medoids)
 # ============================================================
 
-def k_medoids_kmedian(X, K, max_iter=100):
+def _build_feasible_medoids(distance_matrix, K, max_distance_m):
+    point_count = len(distance_matrix)
+    selected = []
+    nearest_distances = np.full(point_count, np.inf)
+    remaining = np.arange(point_count)
+
+    while len(selected) < K:
+        remaining = np.array(
+            [index for index in remaining if index not in selected],
+            dtype=int,
+        )
+        uncovered = nearest_distances > max_distance_m
+        if uncovered.any():
+            coverage_gain = np.count_nonzero(
+                distance_matrix[uncovered][:, remaining] <= max_distance_m,
+                axis=0,
+            )
+            best_gain = int(coverage_gain.max())
+            if best_gain == 0:
+                break
+            candidates = remaining[coverage_gain == best_gain]
+        else:
+            candidates = remaining
+
+        total_distances = np.minimum(
+            nearest_distances[:, np.newaxis],
+            distance_matrix[:, candidates],
+        ).sum(axis=0)
+        candidate = int(candidates[np.argmin(total_distances)])
+        selected.append(candidate)
+        nearest_distances = np.minimum(
+            nearest_distances,
+            distance_matrix[:, candidate],
+        )
+
+    if len(selected) != K or np.any(nearest_distances > max_distance_m):
+        raise ValueError(
+            f"Could not find a feasible placement with {K} BBU Pools "
+            f"covering every RRH within {max_distance_m / 1000:g} km. "
+            "Increase K or review the RRH locations."
+        )
+    return np.asarray(selected, dtype=int)
+
+
+def k_medoids_kmedian(
+    X,
+    K,
+    max_iter=100,
+    max_distance_m=MAX_DISTANCE_METRES,
+):
     """
-    Minimizes total sum of Euclidean distances sum_{i=1}^N min_{s in S} ||X_i - X_s||.
-    Uses Greedy PAM Initialization followed by iterative SWAP phase.
+    Minimize total distance with every RRH within max_distance_m of a medoid.
+
+    Starts with unconstrained PAM, repairs coverage if needed, then accepts
+    only distance-reducing swaps that preserve the coverage constraint.
     """
     N = len(X)
     if K < 1 or K > N:
@@ -247,6 +302,34 @@ def k_medoids_kmedian(X, K, max_iter=100):
         if not improved:
             break
 
+    if np.any(np.min(D[:, selected], axis=1) > max_distance_m):
+        selected = _build_feasible_medoids(D, K, max_distance_m)
+
+    current_distances = np.min(D[:, selected], axis=1)
+    current_cost = current_distances.sum()
+    for _ in range(max_iter):
+        improved = False
+        for i in range(K):
+            for candidate in range(N):
+                if candidate in selected:
+                    continue
+                trial_selected = selected.copy()
+                trial_selected[i] = candidate
+                trial_distances = np.min(D[:, trial_selected], axis=1)
+                if (
+                    np.all(trial_distances <= max_distance_m)
+                    and trial_distances.sum() < current_cost - 1e-6
+                ):
+                    selected = trial_selected
+                    current_distances = trial_distances
+                    current_cost = current_distances.sum()
+                    improved = True
+                    break
+            if improved:
+                break
+        if not improved:
+            break
+
     return selected.tolist()
 
 
@@ -254,22 +337,58 @@ def k_medoids_kmedian(X, K, max_iter=100):
 # 4. ASSIGN EACH RRH TO NEAREST BBU POOL
 # ============================================================
 
-def assign_rrhs_to_pools(rrhs, X, selected_indices):
+def assign_rrhs_to_pools(
+    rrhs,
+    X,
+    selected_indices,
+    max_distance_m=MAX_DISTANCE_METRES,
+):
     centers = X[selected_indices]
     distance_matrix = np.linalg.norm(
         X[:, np.newaxis, :] - centers[np.newaxis, :, :],
         axis=2
     )
 
-    assigned_pool = np.argmin(distance_matrix, axis=1)
+    pool_ids = [f"BBU_{i+1:02d}" for i in range(len(selected_indices))]
+    feasible_pool_indices = []
+    feasible_pool_ids = []
+    feasible_distances_km = []
+    for distances in distance_matrix:
+        ranked_feasible = sorted(
+            np.flatnonzero(distances <= max_distance_m),
+            key=lambda index: (distances[index], pool_ids[index]),
+        )
+        if not ranked_feasible:
+            raise ValueError(
+                "At least one RRH has no BBU Pool within "
+                f"{max_distance_m / 1000:g} km."
+            )
+        feasible_pool_indices.append(ranked_feasible)
+        feasible_pool_ids.append(
+            json.dumps([pool_ids[index] for index in ranked_feasible])
+        )
+        feasible_distances_km.append(json.dumps([
+            float(distances[index] / 1000.0)
+            for index in ranked_feasible
+        ]))
+
+    assigned_pool = np.array(
+        [indices[0] for indices in feasible_pool_indices],
+        dtype=int,
+    )
     assigned_distance = distance_matrix[np.arange(len(X)), assigned_pool]
 
     result = rrhs.copy()
-    result["bbu_pool"] = [f"BBU_{i+1:02d}" for i in assigned_pool]
+    result["bbu_pool"] = [pool_ids[i] for i in assigned_pool]
     result["distance_to_bbu_km"] = assigned_distance / 1000.0
+    result["feasible_bbu_pools"] = feasible_pool_ids
+    result["feasible_distances_km"] = feasible_distances_km
+    result["num_feasible_bbu_pools"] = [
+        len(indices) for indices in feasible_pool_indices
+    ]
 
     pools = rrhs.iloc[selected_indices].copy().reset_index(drop=True)
-    pools["bbu_pool"] = [f"BBU_{i+1:02d}" for i in range(len(pools))]
+    pools["bbu_pool"] = pool_ids
     pools["num_assigned_rrhs"] = [
         np.sum(assigned_pool == i) for i in range(len(selected_indices))
     ]
@@ -436,9 +555,6 @@ def main():
         html_output_dir=args.html_output_dir,
     )
 
-    os.makedirs(data_output_dir, exist_ok=True)
-    os.makedirs(html_output_dir, exist_ok=True)
-
     # 1. Load cells and auto-detect synthetic cells
     rrhs = load_rrhs(args.input_path)
 
@@ -453,15 +569,27 @@ def main():
     print(f"Real physical RRHs:        {n_real}")
     print(f"Synthetic RRHs detected:   {n_synthetic}")
     print(f"TOTAL RRHs in scenario:    {n_total}")
+    print(
+        f"Maximum RRH-to-BBU distance: {MAX_DISTANCE_KM:.1f} km "
+        "(40 us propagation RTT)"
+    )
 
     # 2. Project coordinates to UTM 31N meters
     X = project_coordinates(rrhs)
 
     # 3. K-Median Selection (PAM K-Medoids)
-    selected_indices = k_medoids_kmedian(X, K)
+    try:
+        selected_indices = k_medoids_kmedian(X, K)
+        assignments, pools = assign_rrhs_to_pools(
+            rrhs,
+            X,
+            selected_indices,
+        )
+    except ValueError as error:
+        parser.error(str(error))
 
-    # 4. Assign RRHs to BBU Pools
-    assignments, pools = assign_rrhs_to_pools(rrhs, X, selected_indices)
+    os.makedirs(data_output_dir, exist_ok=True)
+    os.makedirs(html_output_dir, exist_ok=True)
 
     # 5. Dynamic tag generation based on K and S with '_kmedian' suffix
     tag = f"k{K}_s{n_synthetic}_kmedian" if n_synthetic > 0 else f"k{K}_kmedian"

@@ -17,6 +17,7 @@ from scripts.s2.generate_traffic_map import (
     add_markers,
     classify_scenario,
     classify_traffic,
+    main as generate_traffic_main,
     validate_classification,
 )
 
@@ -122,7 +123,7 @@ class TrafficAssignmentTests(unittest.TestCase):
             scenario.to_csv(scenario_file, index=False)
             offices.to_csv(office_file, index=False)
             with patch(
-                "scripts.generate_traffic_map.load_residential_areas",
+                "scripts.s2.generate_traffic_map.load_residential_areas",
                 return_value=residential
             ):
                 result = classify_scenario(
@@ -136,6 +137,57 @@ class TrafficAssignmentTests(unittest.TestCase):
             ["Office", "Residential", "Residential"]
         )
         self.assertEqual(result["office_count_500m"].tolist(), [5, 0, 0])
+
+    def test_realistic_assignment_updates_scenario_csv_in_place(self):
+        scenario = self.scenario.copy()
+        scenario["source_type"] = ["REAL"] * len(scenario)
+        classification = scenario.copy()
+        classification["densresi21"] = [10] * len(scenario)
+        classification["residential_density_group"] = ["High"] * len(scenario)
+        classification["office_count_500m"] = [0] * len(scenario)
+        classification["residential_evidence"] = [True] * len(scenario)
+        classification["office_evidence"] = [False] * len(scenario)
+        classification["traffic_category"] = ["Residential"] * len(scenario)
+        classification["classification_basis"] = [
+            "Residential density evidence"
+        ] * len(scenario)
+
+        with TemporaryDirectory() as temp_dir:
+            scenario_file = Path(temp_dir) / "scenario.csv"
+            map_file = Path(temp_dir) / "traffic_map.html"
+            scenario.to_csv(scenario_file, index=False)
+            with (
+                patch(
+                    "sys.argv",
+                    [
+                        "generate_traffic_map.py",
+                        "--scenario",
+                        str(scenario_file),
+                        "--output-map",
+                        str(map_file)
+                    ]
+                ),
+                patch(
+                    "scripts.s2.generate_traffic_map.classify_scenario",
+                    return_value=classification
+                ),
+                patch("scripts.s2.generate_traffic_map.create_map")
+            ):
+                generate_traffic_main()
+
+            updated = pd.read_csv(scenario_file)
+            self.assertEqual(
+                updated.columns.tolist(),
+                scenario.columns.tolist() + ["traffic_category"]
+            )
+            self.assertEqual(
+                updated["traffic_category"].tolist(),
+                ["Residential"] * len(scenario)
+            )
+            self.assertEqual(
+                [path.name for path in Path(temp_dir).glob("*.csv")],
+                ["scenario.csv"]
+            )
 
     def test_map_uses_shapes_for_all_categories(self):
         classification = self.scenario.iloc[:3].copy()

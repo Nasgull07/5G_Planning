@@ -1,7 +1,9 @@
 import argparse
 from html import escape
 import json
+import os
 from pathlib import Path
+import tempfile
 import time
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
@@ -13,9 +15,9 @@ import pandas as pd
 from branca.element import Element
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = BASE_DIR / "data" / "processed"
-SCENARIO_FILE = DATA_DIR / "rrh_scenario_400.csv"
+SCENARIO_FILE = DATA_DIR / "scenario_sites.csv"
 OSM_FILE = DATA_DIR / "osm_business_features_study_area.csv"
 BOUNDARY_FILE = (
     BASE_DIR / "data" / "input" / "working_area_900km2.kml"
@@ -33,6 +35,15 @@ TRAFFIC_SHAPES = {
     "Mixed": "triangle",
     "Office": "square"
 }
+CLASSIFICATION_DERIVED_COLUMNS = [
+    "densresi21",
+    "residential_density_group",
+    "office_count_500m",
+    "residential_evidence",
+    "office_evidence",
+    "traffic_category",
+    "classification_basis"
+]
 
 
 def classify_density(value, low_threshold, high_threshold):
@@ -191,16 +202,10 @@ def classify_scenario(
     office_threshold=OFFICE_THRESHOLD
 ):
     scenario = load_scenario(scenario_file)
-    derived_columns = [
-        "densresi21",
-        "residential_density_group",
-        "office_count_500m",
-        "residential_evidence",
-        "office_evidence",
-        "traffic_category",
-        "classification_basis"
-    ]
-    scenario = scenario.drop(columns=derived_columns, errors="ignore")
+    scenario = scenario.drop(
+        columns=CLASSIFICATION_DERIVED_COLUMNS,
+        errors="ignore"
+    )
     osm_file = Path(osm_file)
     if not osm_file.exists():
         raise FileNotFoundError(osm_file)
@@ -314,6 +319,31 @@ def classify_scenario(
         .to_string()
     )
     return result
+
+
+def save_classification(classification, output_file):
+    output_file = Path(output_file)
+    output_file.parent.mkdir(parents=True, exist_ok=True)
+    detail_columns = [
+        column for column in CLASSIFICATION_DERIVED_COLUMNS
+        if column != "traffic_category"
+    ]
+    scenario = classification.drop(columns=detail_columns, errors="ignore")
+
+    descriptor, temporary_name = tempfile.mkstemp(
+        dir=output_file.parent,
+        prefix=f".{output_file.name}.",
+        suffix=".tmp"
+    )
+    temporary_file = Path(temporary_name)
+    try:
+        with os.fdopen(
+            descriptor, "w", encoding="utf-8-sig", newline=""
+        ) as csvfile:
+            scenario.to_csv(csvfile, index=False)
+        os.replace(temporary_file, output_file)
+    finally:
+        temporary_file.unlink(missing_ok=True)
 
 
 def safe_text(value, default="Not available"):
@@ -545,7 +575,11 @@ def main():
         default=OFFICE_THRESHOLD,
         help="Office count that qualifies as office activity."
     )
-    parser.add_argument("--output-csv", type=Path)
+    parser.add_argument(
+        "--output-csv",
+        type=Path,
+        help="Optional alternate CSV path; by default updates the scenario."
+    )
     parser.add_argument("--output-map", type=Path)
     args = parser.parse_args()
     if args.office_threshold < 0:
@@ -556,16 +590,16 @@ def main():
         osm_file=args.office_data,
         office_threshold=args.office_threshold
     )
-    output_csv = args.output_csv or (
-        DATA_DIR / f"{args.scenario.stem}_traffic_realistic.csv"
-    )
+    output_csv = args.output_csv or args.scenario
     output_map = args.output_map or (
         BASE_DIR / "output"
-        / f"{args.scenario.stem}_traffic_interactive.html"
+        / f"{args.scenario.stem}_traffic_classification.html"
     )
-    output_csv.parent.mkdir(parents=True, exist_ok=True)
-    classification.to_csv(output_csv, index=False)
-    print("Saved classification:", output_csv)
+    save_classification(classification, output_csv)
+    if output_csv.resolve() == args.scenario.resolve():
+        print("Updated scenario with traffic category:", output_csv)
+    else:
+        print("Saved classification:", output_csv)
     create_map(
         classification,
         boundary_file=args.boundary,
