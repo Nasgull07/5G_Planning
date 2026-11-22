@@ -134,3 +134,45 @@ entre RRHs y sus BBU Pools asignados. Lee por defecto
 ubicaciones de pools en `data/processed/`, además de un mapa interactivo en
 `output/`. Usa `--input_path`, `--data_output_dir` y `--html_output_dir` para
 cambiar las rutas.
+
+## Clasificación y mapa de tráfico
+
+Los dos clasificadores aceptan escenarios de cualquier tamaño. El CSV debe
+contener `rrh_id`, `latitude` y `longitude`. Ambos generan un CSV clasificado
+y un mapa interactivo con círculos para residencial, triángulos para mixto y
+cuadrados para oficinas.
+
+Para instalar los paquetes de los clasificadores en el mismo Python con el
+que se ejecutarán:
+
+```powershell
+python -m pip install folium geopandas pandas
+```
+
+### Asignación aleatoria
+
+Indica el porcentaje de cada categoría. Los porcentajes deben sumar 100. La
+semilla opcional permite repetir la misma asignación:
+
+```powershell
+python scripts/generate_random_traffic.py --scenario data/processed/rrh_scenario_400.csv --residential-percent 20 --office-percent 30 --mixed-percent 50 --seed 42
+```
+
+### Asignación según el entorno
+
+Usa la densidad residencial del área AMB donde cae cada RRH y cuenta oficinas
+de OpenStreetMap a menos de 500 m. El servicio web de AMB debe estar accesible;
+el archivo procesado de oficinas se puede generar con `prepare_office_features.py`.
+
+```powershell
+python scripts/generate_traffic_map.py --scenario data/processed/rrh_scenario_400.csv
+```
+
+La clasificación residencial se basa en los terciles de densidad del escenario
+actual. Cinco o más oficinas cercanas cuentan como evidencia de actividad de
+oficina. `Mixed` requiere evidencia residencial y de oficina; las celdas que
+no cumplen esa regla se asignan a `Residential`, salvo las de baja densidad con
+suficientes oficinas, que se asignan a `Office`. Esto incluye celdas sin dato
+residencial AMB. Los argumentos `--output-csv` y `--output-map` permiten elegir
+los archivos generados. El escenario por defecto se puede reemplazar con
+`--scenario <ruta.csv>`.
