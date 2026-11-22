@@ -9,9 +9,9 @@ Reads scenario_sites.csv, auto-detects synthetic RRHs (S), runs Partitioning
 Around Medoids (PAM) K-Medoids, and outputs CSVs and Folium maps tagged with '_kmedian'.
 
 Outputs:
-  - data/processed/rrh_bbu_k{K}_s{S}_kmedian_assignments.csv
-  - data/processed/bbu_pool_k{K}_s{S}_kmedian_locations.csv
-  - output/rrh_bbu_k{K}_s{S}_kmedian_assignments_map.html
+  - output/BBU-pool-allocation_k{K}/rrh_bbu_k{K}_s{S}_kmedian_assignments.csv
+  - output/BBU-pool-allocation_k{K}/bbu_pool_k{K}_s{S}_kmedian_locations.csv
+  - output/BBU-pool-allocation_k{K}/rrh_bbu_k{K}_s{S}_kmedian_assignments_map.html
 """
 
 import os
@@ -378,15 +378,33 @@ def generate_map(rrhs, bbus, output_html_path):
     m.save(output_html_path)
 
 
+def resolve_output_directories(
+    root,
+    k_pools,
+    data_output_dir=None,
+    html_output_dir=None,
+):
+    default_output_dir = Path(root) / "output" / f"BBU-pool-allocation_k{k_pools}"
+    data_dir = (
+        Path(data_output_dir)
+        if data_output_dir is not None
+        else default_output_dir
+    )
+    html_dir = (
+        Path(html_output_dir)
+        if html_output_dir is not None
+        else default_output_dir
+    )
+    return data_dir, html_dir
+
+
 # ============================================================
 # 6. MAIN EXECUTION
 # ============================================================
 
 def main():
-    ROOT = Path(__file__).resolve().parent.parent
+    ROOT = Path(__file__).resolve().parent.parent.parent
     DEFAULT_INPUT = ROOT / "data" / "processed" / "scenario_sites.csv"
-    DEFAULT_DATA_DIR = ROOT / "data" / "processed"
-    DEFAULT_HTML_DIR = ROOT / "output"
 
     parser = argparse.ArgumentParser(
         description="BBU Pool Optimizer - K-Median / K-Medoids (Minimizing Sum of Distances)"
@@ -400,20 +418,26 @@ def main():
         help=f"Ruta al CSV con el escenario (default: {DEFAULT_INPUT})"
     )
     parser.add_argument(
-        "--data_output_dir", type=str, default=str(DEFAULT_DATA_DIR),
-        help=f"Directorio de salida CSV (default: {DEFAULT_DATA_DIR})"
+        "--data_output_dir", type=Path,
+        help="Directorio CSV (por defecto: output/BBU-pool-allocation_k<K>)"
     )
     parser.add_argument(
-        "--html_output_dir", type=str, default=str(DEFAULT_HTML_DIR),
-        help=f"Directorio de salida HTML (default: {DEFAULT_HTML_DIR})"
+        "--html_output_dir", type=Path,
+        help="Directorio HTML (por defecto: output/BBU-pool-allocation_k<K>)"
     )
 
     args = parser.parse_args()
 
     K = args.k_pools
+    data_output_dir, html_output_dir = resolve_output_directories(
+        ROOT,
+        K,
+        data_output_dir=args.data_output_dir,
+        html_output_dir=args.html_output_dir,
+    )
 
-    os.makedirs(args.data_output_dir, exist_ok=True)
-    os.makedirs(args.html_output_dir, exist_ok=True)
+    os.makedirs(data_output_dir, exist_ok=True)
+    os.makedirs(html_output_dir, exist_ok=True)
 
     # 1. Load cells and auto-detect synthetic cells
     rrhs = load_rrhs(args.input_path)
@@ -442,13 +466,13 @@ def main():
     # 5. Dynamic tag generation based on K and S with '_kmedian' suffix
     tag = f"k{K}_s{n_synthetic}_kmedian" if n_synthetic > 0 else f"k{K}_kmedian"
 
-    assignments_file = os.path.join(args.data_output_dir, f"rrh_bbu_{tag}_assignments.csv")
-    pools_file = os.path.join(args.data_output_dir, f"bbu_pool_{tag}_locations.csv")
-    map_filename = os.path.join(args.html_output_dir, f"rrh_bbu_{tag}_assignments_map.html")
+    assignments_file = data_output_dir / f"rrh_bbu_{tag}_assignments.csv"
+    pools_file = data_output_dir / f"bbu_pool_{tag}_locations.csv"
+    map_filename = html_output_dir / f"rrh_bbu_{tag}_assignments_map.html"
 
     assignments.to_csv(assignments_file, index=False)
     pools.to_csv(pools_file, index=False)
-    generate_map(assignments, pools, map_filename)
+    generate_map(assignments, pools, str(map_filename))
 
     total_dist_sum_km = assignments['distance_to_bbu_km'].sum()
     print("\nPERFORMANCE METRICS (K-MEDIAN):")

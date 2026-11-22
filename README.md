@@ -17,7 +17,7 @@ output/
 scripts/
   download_cells.py               Descarga estaciones y sus detalles técnicos
   create_cell_sites_map.py        Genera el mapa HTML
-  bbu_initial_assignment_kmedian.py  Optimiza y asigna RRHs a BBU Pools
+  s2/bbu_initial_assignment_kmedian.py  Optimiza y asigna RRHs a BBU Pools
 ```
 
 El script de descarga genera `cellular_sites.csv` y puede sobrescribirlo en
@@ -125,15 +125,16 @@ Con `scenario_sites.csv` generado, ejecuta la asignación para desplegar tres
 BBU Pools:
 
 ```powershell
-python .\scripts\bbu_initial_assignment_kmedian.py -k 3
+python .\scripts\s2\bbu_initial_assignment_kmedian.py -k 3
 ```
 
 El algoritmo K-Median (K-Medoids) busca minimizar la suma de las distancias
 entre RRHs y sus BBU Pools asignados. Lee por defecto
-`data/processed/scenario_sites.csv` y genera los archivos de asignaciones y
-ubicaciones de pools en `data/processed/`, además de un mapa interactivo en
-`output/`. Usa `--input_path`, `--data_output_dir` y `--html_output_dir` para
-cambiar las rutas.
+`data/processed/scenario_sites.csv` y guarda los dos CSV y el mapa interactivo
+en `output/BBU-pool-allocation_k3/`. El nombre de la carpeta cambia según el
+valor de `-k` (por ejemplo, `BBU-pool-allocation_k4`). No impone una distancia
+mínima entre BBU Pools. Usa `--input_path`, `--data_output_dir` y
+`--html_output_dir` para cambiar las rutas.
 
 ## Clasificación y mapa de tráfico
 

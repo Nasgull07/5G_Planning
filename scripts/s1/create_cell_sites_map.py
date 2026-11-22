@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 
-PROJECT_DIR = Path(__file__).resolve().parent.parent
+PROJECT_DIR = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = PROJECT_DIR / "data" / "processed"
 SCENARIO_CSV = DATA_DIR / "scenario_sites.csv"
 KML_FILE = PROJECT_DIR / "data" / "input" / "working_area_900km2.kml"

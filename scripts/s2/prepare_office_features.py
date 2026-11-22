@@ -8,7 +8,7 @@ import pandas as pd
 from shapely.geometry import LineString, Point, Polygon
 
 
-BASE_DIR = Path(__file__).resolve().parents[1]
+BASE_DIR = Path(__file__).resolve().parents[2]
 OSM_PBF = (
     BASE_DIR / "data" / "input" / "osm"
     / "cataluna-latest.osm.pbf"

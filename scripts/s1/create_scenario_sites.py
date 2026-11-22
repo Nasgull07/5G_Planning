@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 KML = ROOT / "data" / "input" / "working_area_900km2.kml"
 REAL = ROOT / "data" / "processed" / "cellular_sites.csv"
 COMBINED = ROOT / "data" / "processed" / "scenario_sites.csv"
@@ -229,8 +229,8 @@ def main():
             "inside the KML polygon."
         )
     )
-    parser.add_argument("--real-count", type=int, default=350)
-    parser.add_argument("--count", type=int, default=50)
+    parser.add_argument("--real-count", type=int, default=400)
+    parser.add_argument("--count", type=int, default=100)
     parser.add_argument("--min-distance", type=float, default=200.0)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--max-attempts-per-point", type=int, default=10000)

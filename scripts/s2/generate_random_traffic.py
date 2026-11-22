@@ -16,7 +16,7 @@ if __package__:
         load_scenario,
     )
 else:
-    from scripts.s3.generate_traffic_map import (
+    from scripts.s2.generate_traffic_map import (
         BASE_DIR,
         BOUNDARY_FILE,
         DATA_DIR,
