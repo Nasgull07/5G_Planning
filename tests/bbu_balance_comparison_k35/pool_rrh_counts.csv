@@ -1,0 +1,141 @@
+method,bbu_pool,rrh_count
+Baseline,BBU_01,23
+Baseline,BBU_02,22
+Baseline,BBU_03,27
+Baseline,BBU_04,18
+Baseline,BBU_05,6
+Baseline,BBU_06,16
+Baseline,BBU_07,6
+Baseline,BBU_08,9
+Baseline,BBU_09,10
+Baseline,BBU_10,12
+Baseline,BBU_11,9
+Baseline,BBU_12,10
+Baseline,BBU_13,8
+Baseline,BBU_14,14
+Baseline,BBU_15,6
+Baseline,BBU_16,12
+Baseline,BBU_17,23
+Baseline,BBU_18,9
+Baseline,BBU_19,11
+Baseline,BBU_20,10
+Baseline,BBU_21,7
+Baseline,BBU_22,20
+Baseline,BBU_23,19
+Baseline,BBU_24,3
+Baseline,BBU_25,25
+Baseline,BBU_26,9
+Baseline,BBU_27,9
+Baseline,BBU_28,6
+Baseline,BBU_29,7
+Baseline,BBU_30,25
+Baseline,BBU_31,31
+Baseline,BBU_32,27
+Baseline,BBU_33,17
+Baseline,BBU_34,19
+Baseline,BBU_35,15
+Hard-cap assignment,BBU_01,20
+Hard-cap assignment,BBU_02,20
+Hard-cap assignment,BBU_03,20
+Hard-cap assignment,BBU_04,18
+Hard-cap assignment,BBU_05,6
+Hard-cap assignment,BBU_06,16
+Hard-cap assignment,BBU_07,6
+Hard-cap assignment,BBU_08,9
+Hard-cap assignment,BBU_09,10
+Hard-cap assignment,BBU_10,12
+Hard-cap assignment,BBU_11,16
+Hard-cap assignment,BBU_12,20
+Hard-cap assignment,BBU_13,8
+Hard-cap assignment,BBU_14,14
+Hard-cap assignment,BBU_15,6
+Hard-cap assignment,BBU_16,20
+Hard-cap assignment,BBU_17,20
+Hard-cap assignment,BBU_18,9
+Hard-cap assignment,BBU_19,11
+Hard-cap assignment,BBU_20,20
+Hard-cap assignment,BBU_21,7
+Hard-cap assignment,BBU_22,20
+Hard-cap assignment,BBU_23,20
+Hard-cap assignment,BBU_24,3
+Hard-cap assignment,BBU_25,20
+Hard-cap assignment,BBU_26,9
+Hard-cap assignment,BBU_27,12
+Hard-cap assignment,BBU_28,6
+Hard-cap assignment,BBU_29,7
+Hard-cap assignment,BBU_30,20
+Hard-cap assignment,BBU_31,20
+Hard-cap assignment,BBU_32,20
+Hard-cap assignment,BBU_33,20
+Hard-cap assignment,BBU_34,20
+Hard-cap assignment,BBU_35,15
+Soft-penalty assignment,BBU_01,22
+Soft-penalty assignment,BBU_02,21
+Soft-penalty assignment,BBU_03,22
+Soft-penalty assignment,BBU_04,15
+Soft-penalty assignment,BBU_05,7
+Soft-penalty assignment,BBU_06,16
+Soft-penalty assignment,BBU_07,8
+Soft-penalty assignment,BBU_08,10
+Soft-penalty assignment,BBU_09,8
+Soft-penalty assignment,BBU_10,14
+Soft-penalty assignment,BBU_11,15
+Soft-penalty assignment,BBU_12,16
+Soft-penalty assignment,BBU_13,7
+Soft-penalty assignment,BBU_14,14
+Soft-penalty assignment,BBU_15,7
+Soft-penalty assignment,BBU_16,20
+Soft-penalty assignment,BBU_17,19
+Soft-penalty assignment,BBU_18,8
+Soft-penalty assignment,BBU_19,10
+Soft-penalty assignment,BBU_20,15
+Soft-penalty assignment,BBU_21,7
+Soft-penalty assignment,BBU_22,15
+Soft-penalty assignment,BBU_23,21
+Soft-penalty assignment,BBU_24,4
+Soft-penalty assignment,BBU_25,22
+Soft-penalty assignment,BBU_26,13
+Soft-penalty assignment,BBU_27,12
+Soft-penalty assignment,BBU_28,7
+Soft-penalty assignment,BBU_29,10
+Soft-penalty assignment,BBU_30,22
+Soft-penalty assignment,BBU_31,22
+Soft-penalty assignment,BBU_32,21
+Soft-penalty assignment,BBU_33,19
+Soft-penalty assignment,BBU_34,17
+Soft-penalty assignment,BBU_35,14
+Joint capacitated k-median,BBU_01,20
+Joint capacitated k-median,BBU_02,20
+Joint capacitated k-median,BBU_03,20
+Joint capacitated k-median,BBU_04,18
+Joint capacitated k-median,BBU_05,6
+Joint capacitated k-median,BBU_06,20
+Joint capacitated k-median,BBU_07,6
+Joint capacitated k-median,BBU_08,9
+Joint capacitated k-median,BBU_09,10
+Joint capacitated k-median,BBU_10,12
+Joint capacitated k-median,BBU_11,12
+Joint capacitated k-median,BBU_12,20
+Joint capacitated k-median,BBU_13,8
+Joint capacitated k-median,BBU_14,14
+Joint capacitated k-median,BBU_15,6
+Joint capacitated k-median,BBU_16,20
+Joint capacitated k-median,BBU_17,20
+Joint capacitated k-median,BBU_18,9
+Joint capacitated k-median,BBU_19,11
+Joint capacitated k-median,BBU_20,20
+Joint capacitated k-median,BBU_21,7
+Joint capacitated k-median,BBU_22,20
+Joint capacitated k-median,BBU_23,20
+Joint capacitated k-median,BBU_24,3
+Joint capacitated k-median,BBU_25,20
+Joint capacitated k-median,BBU_26,9
+Joint capacitated k-median,BBU_27,12
+Joint capacitated k-median,BBU_28,6
+Joint capacitated k-median,BBU_29,7
+Joint capacitated k-median,BBU_30,20
+Joint capacitated k-median,BBU_31,20
+Joint capacitated k-median,BBU_32,20
+Joint capacitated k-median,BBU_33,20
+Joint capacitated k-median,BBU_34,20
+Joint capacitated k-median,BBU_35,15

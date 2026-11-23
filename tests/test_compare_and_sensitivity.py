@@ -7,10 +7,32 @@ from scripts.s3.compare_and_sensitivity import (
     assert_load_conservation,
     distance_bin_counts,
     hourly_assignment_changes,
+    _ranked_pool_counts,
 )
 
 
 class CompareAndSensitivityTests(unittest.TestCase):
+    def test_pool_counts_are_ranked_descending_independently_per_method(self):
+        counts = pd.DataFrame({
+            "k": [3] * 6,
+            "method": [
+                "Distance-only", "Distance-only",
+                "Traffic-balanced", "Traffic-balanced",
+                "RRH-count-balanced", "RRH-count-balanced",
+            ],
+            "bbu_pool_id": [
+                "BBU_01", "BBU_02", "BBU_01", "BBU_02", "BBU_01", "BBU_02",
+            ],
+            "rrh_count": [2, 8, 6, 4, 3, 7],
+        })
+
+        ranked = _ranked_pool_counts(counts, 3)
+
+        self.assertEqual(ranked.index.tolist(), [1, 2])
+        self.assertEqual(ranked["Distance-only"].tolist(), [8, 2])
+        self.assertEqual(ranked["Traffic-balanced"].tolist(), [6, 4])
+        self.assertEqual(ranked["RRH-count-balanced"].tolist(), [7, 3])
+
     def test_exact_load_and_rrh_conservation_for_all_methods_and_pool_sizes(self):
         rrh_ids = [f"RRH_{index:03d}" for index in range(500)]
         loads = pd.DataFrame({

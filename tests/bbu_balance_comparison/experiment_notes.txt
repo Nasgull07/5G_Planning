@@ -1,0 +1,5 @@
+K=30, 500 RRHs; the Phase 1 baseline pool locations are used.
+All assignments enforce a maximum RRH-to-pool distance of 4 km.
+Hard-cap assignment uses the smallest feasible upper cap: 27; an exact 16/17 split is infeasible at the existing locations.
+Soft-penalty assignment minimizes total distance plus 0.5 km * sum((pool_count - 500/30)^2).
+Joint capacitated k-median alternates capacity-constrained minimum-distance assignment and coverage-preserving medoid updates.

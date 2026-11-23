@@ -303,30 +303,40 @@ def _load_cell_scenario(capacities, case, profile_value, real_case_loads):
     return normalized_loads
 
 
-def _plot_rrh_counts(counts, k, output_dir):
+def _ranked_pool_counts(counts, k):
     subset = counts.loc[counts["k"] == k]
     pivot = subset.pivot(
         index="bbu_pool_id", columns="method", values="rrh_count"
     ).fillna(0)
-    pool_ids = sorted(pivot.index)
-    pivot = pivot.reindex(pool_ids)
-    positions = np.arange(len(pool_ids))
-    width = 0.25
     methods = ["Distance-only", "Traffic-balanced", "RRH-count-balanced"]
-    fig, axis = plt.subplots(figsize=(max(14, len(pool_ids) * 0.42), 6))
-    for offset, method in enumerate(methods):
-        axis.bar(
-            positions + (offset - 1) * width,
-            pivot[method],
-            width,
+    ranked = pd.DataFrame({
+        method: pivot[method].sort_values(
+            ascending=False, kind="stable"
+        ).to_numpy()
+        for method in methods
+    })
+    ranked.index = np.arange(1, len(ranked) + 1)
+    ranked.index.name = "pool_rank"
+    return ranked
+
+
+def _plot_rrh_counts(counts, k, output_dir):
+    ranked_counts = _ranked_pool_counts(counts, k)
+    methods = ["Distance-only", "Traffic-balanced", "RRH-count-balanced"]
+    fig, axis = plt.subplots(figsize=(12, 6))
+    for method in methods:
+        axis.plot(
+            ranked_counts.index,
+            ranked_counts[method],
+            marker="o",
+            markersize=4,
             label=method,
         )
     axis.set(
-        xlabel="BBU Pool",
+        xlabel="BBU Pool rank (most to fewest RRHs)",
         ylabel="Assigned RRHs",
         title=f"RRHs per BBU Pool, K={k}",
     )
-    axis.set_xticks(positions, pool_ids, rotation=60, ha="right")
     axis.grid(axis="y", alpha=0.25)
     axis.legend()
     fig.tight_layout()
