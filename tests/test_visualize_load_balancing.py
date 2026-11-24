@@ -2,7 +2,7 @@ import unittest
 
 import pandas as pd
 
-from scripts.s3.visualize_load_balancing import (
+from scripts.s4.visualize_load_balancing import (
     pool_loads_by_pool,
     relative_pool_load_percent,
 )

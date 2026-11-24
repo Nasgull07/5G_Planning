@@ -3,7 +3,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 
-from scripts.s3.generate_rrh_traffic_load import generate_traffic_load
+from scripts.s4.generate_rrh_traffic_load import generate_traffic_load
 
 
 class RrhTrafficLoadTests(unittest.TestCase):

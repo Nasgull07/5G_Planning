@@ -2,7 +2,7 @@ import unittest
 
 import pandas as pd
 
-from scripts.s3.compare_and_sensitivity import (
+from scripts.s4.compare_and_sensitivity import (
     aggregate_pool_metrics,
     assert_load_conservation,
     distance_bin_counts,

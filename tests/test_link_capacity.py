@@ -3,7 +3,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 
-from scripts.s3.calculate_link_capacity import (
+from scripts.s4.calculate_link_capacity import (
     calculate_lte_capacity_mbps,
     calculate_lte_overhead,
     calculate_nr_capacity_mbps,

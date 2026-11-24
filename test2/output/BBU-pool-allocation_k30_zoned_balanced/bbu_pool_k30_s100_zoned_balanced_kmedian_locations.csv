@@ -1,0 +1,31 @@
+rrh_id,site_id,operator,technology,latitude,longitude,is_synthetic,territory_id,territory_name,bbu_pool,num_assigned_rrhs,num_nearest_rrhs,num_cross_territory_rrhs
+RRH_027,133076,"VODAFONE ESPAÑA, S.A.U.",4G,41.34161,2.127583,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_01,18,19,0
+RRH_055,000475,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.36145,2.107367,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_02,17,12,0
+RRH_066,023299,"VODAFONE ESPAÑA, S.A.U.",4G,41.368549,2.147356,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_03,17,16,0
+RRH_072,CATR0567A,"ORANGE ESPAGNE, S.A.U.",5G,41.370144,2.080983,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_04,17,16,4
+RRH_094,0808298,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.375828,2.119633,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_05,17,17,1
+RRH_108,0801184,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,41.379337,2.159828,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_06,18,20,0
+RRH_137,000594,"ORANGE ESPAGNE, S.A.U.",5G,41.385468,2.132511,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_07,17,15,0
+RRH_176,0800533,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,41.393776,2.138633,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_08,18,19,0
+RRH_196,CATR0386Z,"ORANGE ESPAGNE, S.A.U.",5G,41.399094,2.182125,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_09,18,20,0
+RRH_225,67342,"VODAFONE ESPAÑA, S.A.U.",4G,41.408031,2.211975,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_10,18,20,0
+RRH_238,0808127,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.412155,2.139703,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_11,18,22,0
+RRH_248,133413,"ORANGE ESPAGNE, S.A.U.",5G,41.418385,2.172181,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_12,17,16,0
+RRH_299,CATR2846A,"ORANGE ESPAGNE, S.A.U.",4G,41.440472,2.212058,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_13,18,27,1
+RRH_311,CATB0426P,"ORANGE ESPAGNE, S.A.U.",5G,41.445534,2.174783,False,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_14,17,15,8
+RRH_SYN_025,SYN_RRH_00029,SYNTHETIC,5G,41.35664646,2.06887224,True,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_15,17,13,6
+RRH_SYN_034,SYN_RRH_00084,SYNTHETIC,4G,41.37807246,2.17703759,True,0,"Zona 2 - Barcelona (Badalona, Barcelona y Cornellà)",BBU_16,18,22,0
+RRH_006,CATR6114A,"ORANGE ESPAGNE, S.A.U.",4G,41.302921,2.0779,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_17,15,10,0
+RRH_009,140636,"ORANGE ESPAGNE, S.A.U.",5G,41.307281,1.996814,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_18,15,14,0
+RRH_231,0805740,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.410023,2.018542,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_19,18,20,0
+RRH_241,0802965,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.413933,1.926075,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_20,15,14,0
+RRH_305,066195,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.443218,1.833822,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_21,13,14,0
+RRH_349,073493,"ORANGE ESPAGNE, S.A.U.",5G,41.491039,2.031342,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_22,18,18,0
+RRH_369,0805808,"TELEFONICA MOVILES ESPAÑA, S.A.U.",4G,41.511749,2.106583,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_23,18,19,0
+RRH_396,0802605,"TELEFONICA MOVILES ESPAÑA, S.A.U.",5G,41.574665,2.018428,False,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_24,18,26,0
+RRH_SYN_017,SYN_RRH_00003,SYNTHETIC,5G,41.33984123,2.00321196,True,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_25,15,12,0
+RRH_SYN_023,SYN_RRH_00021,SYNTHETIC,5G,41.35596814,1.87793672,True,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_26,14,12,0
+RRH_SYN_065,SYN_RRH_00018,SYNTHETIC,4G,41.45782705,2.09000863,True,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_27,17,15,0
+RRH_SYN_077,SYN_RRH_00020,SYNTHETIC,4G,41.49217494,1.95008421,True,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_28,13,11,0
+RRH_SYN_079,SYN_RRH_00070,SYNTHETIC,4G,41.49784265,1.90377811,True,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_29,13,13,0
+RRH_SYN_090,SYN_RRH_00005,SYNTHETIC,5G,41.54461999,2.09655747,True,1,"Zona 1 - Resto del Área (Vallès, Baix Llobregat y El Prat)",BBU_30,18,13,0
