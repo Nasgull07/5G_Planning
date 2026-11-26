@@ -10,7 +10,7 @@ uses num_assigned_rrhs, and writes one ordered line chart per territory.
 import argparse
 import re
 from pathlib import Path
-
+from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -162,7 +162,7 @@ def plot_summary(
 
 
 def parse_args() -> argparse.Namespace:
-    test2_dir = Path(__file__).resolve().parent
+    test2_dir = Path('C:/Users/monop/OneDrive/Escritorio/project_5gplan/scripts/s2')
     parser = argparse.ArgumentParser(
         description="Plot RRH counts by BBU pool and territory."
     )
