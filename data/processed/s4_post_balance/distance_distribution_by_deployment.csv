@@ -1,0 +1,46 @@
+k,method,distance_bin,rrh_count
+30,Solo distancia,0-1 km,167
+30,Solo distancia,1-2 km,173
+30,Solo distancia,2-3 km,57
+30,Solo distancia,3-4 km,51
+30,Solo distancia,4-5 km,52
+30,Balanceo por tráfico,0-1 km,137
+30,Balanceo por tráfico,1-2 km,195
+30,Balanceo por tráfico,2-3 km,48
+30,Balanceo por tráfico,3-4 km,47
+30,Balanceo por tráfico,4-5 km,73
+30,Balanceo por número de RRH,0-1 km,142
+30,Balanceo por número de RRH,1-2 km,193
+30,Balanceo por número de RRH,2-3 km,53
+30,Balanceo por número de RRH,3-4 km,48
+30,Balanceo por número de RRH,4-5 km,64
+35,Solo distancia,0-1 km,188
+35,Solo distancia,1-2 km,187
+35,Solo distancia,2-3 km,44
+35,Solo distancia,3-4 km,39
+35,Solo distancia,4-5 km,42
+35,Balanceo por tráfico,0-1 km,133
+35,Balanceo por tráfico,1-2 km,215
+35,Balanceo por tráfico,2-3 km,37
+35,Balanceo por tráfico,3-4 km,50
+35,Balanceo por tráfico,4-5 km,65
+35,Balanceo por número de RRH,0-1 km,127
+35,Balanceo por número de RRH,1-2 km,221
+35,Balanceo por número de RRH,2-3 km,43
+35,Balanceo por número de RRH,3-4 km,49
+35,Balanceo por número de RRH,4-5 km,60
+40,Solo distancia,0-1 km,214
+40,Solo distancia,1-2 km,173
+40,Solo distancia,2-3 km,50
+40,Solo distancia,3-4 km,35
+40,Solo distancia,4-5 km,28
+40,Balanceo por tráfico,0-1 km,137
+40,Balanceo por tráfico,1-2 km,204
+40,Balanceo por tráfico,2-3 km,51
+40,Balanceo por tráfico,3-4 km,50
+40,Balanceo por tráfico,4-5 km,58
+40,Balanceo por número de RRH,0-1 km,158
+40,Balanceo por número de RRH,1-2 km,195
+40,Balanceo por número de RRH,2-3 km,50
+40,Balanceo por número de RRH,3-4 km,48
+40,Balanceo por número de RRH,4-5 km,49

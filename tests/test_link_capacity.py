@@ -13,9 +13,9 @@ from scripts.s4.calculate_link_capacity import (
 
 class LinkCapacityTests(unittest.TestCase):
     def test_capacity_formulas_match_the_confirmed_assumptions(self):
-        self.assertAlmostEqual(calculate_lte_overhead(), 0.2175714286)
+        self.assertAlmostEqual(calculate_lte_overhead(), 0.2412380952)
         self.assertAlmostEqual(
-            calculate_lte_capacity_mbps(), 146.030841, places=5
+            calculate_lte_capacity_mbps(), 283.227487, places=5
         )
         self.assertAlmostEqual(
             calculate_nr_capacity_mbps(), 1752.750090, places=5
@@ -93,6 +93,40 @@ class LinkCapacityTests(unittest.TestCase):
             self.assertEqual(
                 [path.name for path in Path(temp_dir).glob("*.csv")],
                 ["scenario.csv"]
+            )
+
+    def test_writes_capacity_copy_without_modifying_input(self):
+        with TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            scenario_file = root / "assignments.csv"
+            output_file = root / "s4" / "assignments_with_capacity.csv"
+            with scenario_file.open(
+                "w", encoding="utf-8-sig", newline=""
+            ) as output:
+                writer = csv.DictWriter(
+                    output,
+                    fieldnames=["rrh_id", "technology", "is_synthetic"]
+                )
+                writer.writeheader()
+                writer.writerow({
+                    "rrh_id": "real-4g",
+                    "technology": "4G",
+                    "is_synthetic": "False"
+                })
+            original = scenario_file.read_bytes()
+
+            update_scenario_capacities(scenario_file, output_file)
+
+            self.assertEqual(scenario_file.read_bytes(), original)
+            with output_file.open(
+                encoding="utf-8-sig", newline=""
+            ) as source:
+                row = next(csv.DictReader(source))
+            self.assertEqual(row["capacity_technology"], "4G")
+            self.assertAlmostEqual(
+                float(row["phy_capacity_max_mbps"]),
+                283.227487,
+                places=5
             )
 
 

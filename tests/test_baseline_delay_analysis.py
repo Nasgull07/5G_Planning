@@ -2,7 +2,7 @@ import unittest
 
 import pandas as pd
 
-from scripts.s4.baseline_delay_analysis import (
+from scripts.s4.test.baseline_delay_analysis import (
     assert_pool_load_conservation,
     build_assignment_map,
     build_weekday_profiles,

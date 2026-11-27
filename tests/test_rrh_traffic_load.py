@@ -77,15 +77,24 @@ class RrhTrafficLoadTests(unittest.TestCase):
                 writer = csv.DictWriter(output, fieldnames=schedule_fields)
                 writer.writeheader()
                 for index in range(144):
-                    row = {"t_day": str(index / 144)}
+                    row = {
+                        "t_day": "en" if index == 0 else str(index / 144)
+                    }
                     for day in days:
                         row[f"thp_{day}_xu17_residential"] = "0.2"
                         row[f"thp_{day}_xu17_office"] = "0.8"
                         row[f"thp_{day}_xu17_mixed"] = "0.5"
                     writer.writerow(row)
 
+            with self.assertRaisesRegex(ValueError, "Invalid t_day"):
+                generate_traffic_load(
+                    scenario_file, schedule_file, output_file
+                )
             count = generate_traffic_load(
-                scenario_file, schedule_file, output_file
+                scenario_file,
+                schedule_file,
+                output_file,
+                assume_first_sample_at_midnight=True,
             )
             with output_file.open(
                 encoding="utf-8-sig", newline=""
@@ -95,6 +104,7 @@ class RrhTrafficLoadTests(unittest.TestCase):
             self.assertEqual(count, 3 * 7 * 144)
             self.assertEqual(len(loads), count)
             self.assertEqual(loads[0]["time"], "00:00")
+            self.assertEqual(loads[0]["t_day"], "0")
             self.assertEqual(loads[0]["day_of_week"], "Monday")
             self.assertAlmostEqual(
                 float(loads[0]["traffic_load_mbph"]), 20

@@ -9,7 +9,7 @@ from pathlib import Path
 import pandas as pd
 
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+BASE_DIR = Path(__file__).resolve().parents[3]
 DEFAULT_SCENARIO_FILE = BASE_DIR / "data" / "processed" / "scenario_sites.csv"
 DEFAULT_ASSIGNMENT_FILE = (
     BASE_DIR

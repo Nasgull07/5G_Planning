@@ -10,8 +10,8 @@ DEFAULT_SCENARIO_FILE = BASE_DIR / "data" / "processed" / "scenario_sites.csv"
 
 LTE_N_RB = 100
 LTE_CQI_EFFICIENCY = 5.5547
-LTE_MIMO_LAYERS = 2
-LTE_ANTENNA_LAYERS = 2
+LTE_MIMO_LAYERS = 4
+LTE_ANTENNA_LAYERS = 3
 
 NR_N_PRB = 273
 NR_NUMEROLOGY = 1
@@ -80,8 +80,9 @@ def capacity_technology(technology, is_synthetic):
     )
 
 
-def update_scenario_capacities(scenario_file):
+def update_scenario_capacities(scenario_file, output_file=None):
     scenario_file = Path(scenario_file)
+    output_file = Path(output_file) if output_file else scenario_file
     with scenario_file.open(encoding="utf-8-sig", newline="") as source:
         reader = csv.DictReader(source)
         fieldnames = reader.fieldnames
@@ -115,9 +116,10 @@ def update_scenario_capacities(scenario_file):
             f"{capacity_mbps * 3600 / 8:.6f}"
         )
 
+    output_file.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(
-        dir=scenario_file.parent,
-        prefix=f".{scenario_file.name}.",
+        dir=output_file.parent,
+        prefix=f".{output_file.name}.",
         suffix=".tmp"
     )
     temporary_file = Path(temporary_name)
@@ -128,7 +130,7 @@ def update_scenario_capacities(scenario_file):
             writer = csv.DictWriter(destination, fieldnames=output_fields)
             writer.writeheader()
             writer.writerows(rows)
-        os.replace(temporary_file, scenario_file)
+        os.replace(temporary_file, output_file)
     finally:
         temporary_file.unlink(missing_ok=True)
 
@@ -147,13 +149,22 @@ def main():
         type=Path,
         default=DEFAULT_SCENARIO_FILE,
         help=(
-            "Scenario CSV to update "
-            "(default: data/processed/scenario_sites.csv)."
+            "Scenario CSV with RRH technology and synthetic flags."
+        )
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help=(
+            "Optional capacity-enriched CSV output. If omitted, update the "
+            "scenario file in place."
         )
     )
     args = parser.parse_args()
 
-    lte_capacity, nr_capacity = update_scenario_capacities(args.scenario)
+    lte_capacity, nr_capacity = update_scenario_capacities(
+        args.scenario, args.output
+    )
     print(
         f"LTE maximum: {lte_capacity:.3f} Mbps "
         f"({lte_capacity * 3600 / 8:.3f} MB/h)"
@@ -163,7 +174,7 @@ def main():
         f"({nr_capacity * 3600 / 8:.3f} MB/h)"
     )
     print("Synthetic RRHs use LTE capacity.")
-    print(f"Updated scenario: {args.scenario}")
+    print(f"Saved scenario capacities: {args.output or args.scenario}")
 
 
 if __name__ == "__main__":

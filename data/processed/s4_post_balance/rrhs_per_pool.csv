@@ -1,0 +1,316 @@
+k,method,bbu_pool_id,rrh_count
+30,Solo distancia,BBU_01,12
+30,Solo distancia,BBU_02,16
+30,Solo distancia,BBU_03,16
+30,Solo distancia,BBU_04,14
+30,Solo distancia,BBU_05,21
+30,Solo distancia,BBU_06,21
+30,Solo distancia,BBU_07,21
+30,Solo distancia,BBU_08,21
+30,Solo distancia,BBU_09,19
+30,Solo distancia,BBU_10,21
+30,Solo distancia,BBU_11,19
+30,Solo distancia,BBU_12,19
+30,Solo distancia,BBU_13,19
+30,Solo distancia,BBU_14,20
+30,Solo distancia,BBU_15,18
+30,Solo distancia,BBU_16,14
+30,Solo distancia,BBU_17,14
+30,Solo distancia,BBU_18,14
+30,Solo distancia,BBU_19,15
+30,Solo distancia,BBU_20,11
+30,Solo distancia,BBU_21,20
+30,Solo distancia,BBU_22,19
+30,Solo distancia,BBU_23,13
+30,Solo distancia,BBU_24,22
+30,Solo distancia,BBU_25,14
+30,Solo distancia,BBU_26,13
+30,Solo distancia,BBU_27,10
+30,Solo distancia,BBU_28,11
+30,Solo distancia,BBU_29,13
+30,Solo distancia,BBU_30,20
+30,Balanceo por tráfico,BBU_01,7
+30,Balanceo por tráfico,BBU_02,19
+30,Balanceo por tráfico,BBU_03,15
+30,Balanceo por tráfico,BBU_04,19
+30,Balanceo por tráfico,BBU_05,24
+30,Balanceo por tráfico,BBU_06,23
+30,Balanceo por tráfico,BBU_07,22
+30,Balanceo por tráfico,BBU_08,22
+30,Balanceo por tráfico,BBU_09,21
+30,Balanceo por tráfico,BBU_10,22
+30,Balanceo por tráfico,BBU_11,15
+30,Balanceo por tráfico,BBU_12,17
+30,Balanceo por tráfico,BBU_13,20
+30,Balanceo por tráfico,BBU_14,21
+30,Balanceo por tráfico,BBU_15,14
+30,Balanceo por tráfico,BBU_16,10
+30,Balanceo por tráfico,BBU_17,15
+30,Balanceo por tráfico,BBU_18,14
+30,Balanceo por tráfico,BBU_19,16
+30,Balanceo por tráfico,BBU_20,8
+30,Balanceo por tráfico,BBU_21,24
+30,Balanceo por tráfico,BBU_22,17
+30,Balanceo por tráfico,BBU_23,15
+30,Balanceo por tráfico,BBU_24,22
+30,Balanceo por tráfico,BBU_25,13
+30,Balanceo por tráfico,BBU_26,12
+30,Balanceo por tráfico,BBU_27,9
+30,Balanceo por tráfico,BBU_28,15
+30,Balanceo por tráfico,BBU_29,11
+30,Balanceo por tráfico,BBU_30,18
+30,Balanceo por número de RRH,BBU_01,11
+30,Balanceo por número de RRH,BBU_02,14
+30,Balanceo por número de RRH,BBU_03,15
+30,Balanceo por número de RRH,BBU_04,16
+30,Balanceo por número de RRH,BBU_05,23
+30,Balanceo por número de RRH,BBU_06,22
+30,Balanceo por número de RRH,BBU_07,21
+30,Balanceo por número de RRH,BBU_08,23
+30,Balanceo por número de RRH,BBU_09,18
+30,Balanceo por número de RRH,BBU_10,22
+30,Balanceo por número de RRH,BBU_11,20
+30,Balanceo por número de RRH,BBU_12,17
+30,Balanceo por número de RRH,BBU_13,19
+30,Balanceo por número de RRH,BBU_14,20
+30,Balanceo por número de RRH,BBU_15,18
+30,Balanceo por número de RRH,BBU_16,15
+30,Balanceo por número de RRH,BBU_17,15
+30,Balanceo por número de RRH,BBU_18,14
+30,Balanceo por número de RRH,BBU_19,15
+30,Balanceo por número de RRH,BBU_20,11
+30,Balanceo por número de RRH,BBU_21,20
+30,Balanceo por número de RRH,BBU_22,15
+30,Balanceo por número de RRH,BBU_23,13
+30,Balanceo por número de RRH,BBU_24,23
+30,Balanceo por número de RRH,BBU_25,12
+30,Balanceo por número de RRH,BBU_26,11
+30,Balanceo por número de RRH,BBU_27,9
+30,Balanceo por número de RRH,BBU_28,12
+30,Balanceo por número de RRH,BBU_29,13
+30,Balanceo por número de RRH,BBU_30,23
+35,Solo distancia,BBU_01,11
+35,Solo distancia,BBU_02,14
+35,Solo distancia,BBU_03,15
+35,Solo distancia,BBU_04,14
+35,Solo distancia,BBU_05,16
+35,Solo distancia,BBU_06,15
+35,Solo distancia,BBU_07,15
+35,Solo distancia,BBU_08,16
+35,Solo distancia,BBU_09,16
+35,Solo distancia,BBU_10,16
+35,Solo distancia,BBU_11,16
+35,Solo distancia,BBU_12,15
+35,Solo distancia,BBU_13,16
+35,Solo distancia,BBU_14,15
+35,Solo distancia,BBU_15,16
+35,Solo distancia,BBU_16,15
+35,Solo distancia,BBU_17,15
+35,Solo distancia,BBU_18,16
+35,Solo distancia,BBU_19,11
+35,Solo distancia,BBU_20,12
+35,Solo distancia,BBU_21,12
+35,Solo distancia,BBU_22,14
+35,Solo distancia,BBU_23,15
+35,Solo distancia,BBU_24,12
+35,Solo distancia,BBU_25,12
+35,Solo distancia,BBU_26,15
+35,Solo distancia,BBU_27,16
+35,Solo distancia,BBU_28,16
+35,Solo distancia,BBU_29,23
+35,Solo distancia,BBU_30,11
+35,Solo distancia,BBU_31,10
+35,Solo distancia,BBU_32,11
+35,Solo distancia,BBU_33,11
+35,Solo distancia,BBU_34,12
+35,Solo distancia,BBU_35,15
+35,Balanceo por tráfico,BBU_01,5
+35,Balanceo por tráfico,BBU_02,17
+35,Balanceo por tráfico,BBU_03,11
+35,Balanceo por tráfico,BBU_04,18
+35,Balanceo por tráfico,BBU_05,20
+35,Balanceo por tráfico,BBU_06,19
+35,Balanceo por tráfico,BBU_07,21
+35,Balanceo por tráfico,BBU_08,17
+35,Balanceo por tráfico,BBU_09,20
+35,Balanceo por tráfico,BBU_10,17
+35,Balanceo por tráfico,BBU_11,13
+35,Balanceo por tráfico,BBU_12,8
+35,Balanceo por tráfico,BBU_13,14
+35,Balanceo por tráfico,BBU_14,15
+35,Balanceo por tráfico,BBU_15,19
+35,Balanceo por tráfico,BBU_16,12
+35,Balanceo por tráfico,BBU_17,12
+35,Balanceo por tráfico,BBU_18,17
+35,Balanceo por tráfico,BBU_19,15
+35,Balanceo por tráfico,BBU_20,12
+35,Balanceo por tráfico,BBU_21,12
+35,Balanceo por tráfico,BBU_22,11
+35,Balanceo por tráfico,BBU_23,11
+35,Balanceo por tráfico,BBU_24,11
+35,Balanceo por tráfico,BBU_25,10
+35,Balanceo por tráfico,BBU_26,21
+35,Balanceo por tráfico,BBU_27,14
+35,Balanceo por tráfico,BBU_28,15
+35,Balanceo por tráfico,BBU_29,23
+35,Balanceo por tráfico,BBU_30,9
+35,Balanceo por tráfico,BBU_31,10
+35,Balanceo por tráfico,BBU_32,14
+35,Balanceo por tráfico,BBU_33,13
+35,Balanceo por tráfico,BBU_34,10
+35,Balanceo por tráfico,BBU_35,14
+35,Balanceo por número de RRH,BBU_01,9
+35,Balanceo por número de RRH,BBU_02,12
+35,Balanceo por número de RRH,BBU_03,13
+35,Balanceo por número de RRH,BBU_04,14
+35,Balanceo por número de RRH,BBU_05,18
+35,Balanceo por número de RRH,BBU_06,18
+35,Balanceo por número de RRH,BBU_07,19
+35,Balanceo por número de RRH,BBU_08,15
+35,Balanceo por número de RRH,BBU_09,19
+35,Balanceo por número de RRH,BBU_10,18
+35,Balanceo por número de RRH,BBU_11,16
+35,Balanceo por número de RRH,BBU_12,13
+35,Balanceo por número de RRH,BBU_13,16
+35,Balanceo por número de RRH,BBU_14,15
+35,Balanceo por número de RRH,BBU_15,14
+35,Balanceo por número de RRH,BBU_16,15
+35,Balanceo por número de RRH,BBU_17,15
+35,Balanceo por número de RRH,BBU_18,14
+35,Balanceo por número de RRH,BBU_19,10
+35,Balanceo por número de RRH,BBU_20,13
+35,Balanceo por número de RRH,BBU_21,12
+35,Balanceo por número de RRH,BBU_22,14
+35,Balanceo por número de RRH,BBU_23,12
+35,Balanceo por número de RRH,BBU_24,12
+35,Balanceo por número de RRH,BBU_25,11
+35,Balanceo por número de RRH,BBU_26,16
+35,Balanceo por número de RRH,BBU_27,15
+35,Balanceo por número de RRH,BBU_28,17
+35,Balanceo por número de RRH,BBU_29,23
+35,Balanceo por número de RRH,BBU_30,9
+35,Balanceo por número de RRH,BBU_31,9
+35,Balanceo por número de RRH,BBU_32,12
+35,Balanceo por número de RRH,BBU_33,12
+35,Balanceo por número de RRH,BBU_34,12
+35,Balanceo por número de RRH,BBU_35,18
+40,Solo distancia,BBU_01,11
+40,Solo distancia,BBU_02,12
+40,Solo distancia,BBU_03,13
+40,Solo distancia,BBU_04,13
+40,Solo distancia,BBU_05,13
+40,Solo distancia,BBU_06,13
+40,Solo distancia,BBU_07,13
+40,Solo distancia,BBU_08,13
+40,Solo distancia,BBU_09,14
+40,Solo distancia,BBU_10,13
+40,Solo distancia,BBU_11,13
+40,Solo distancia,BBU_12,13
+40,Solo distancia,BBU_13,13
+40,Solo distancia,BBU_14,13
+40,Solo distancia,BBU_15,13
+40,Solo distancia,BBU_16,14
+40,Solo distancia,BBU_17,13
+40,Solo distancia,BBU_18,13
+40,Solo distancia,BBU_19,14
+40,Solo distancia,BBU_20,14
+40,Solo distancia,BBU_21,14
+40,Solo distancia,BBU_22,11
+40,Solo distancia,BBU_23,13
+40,Solo distancia,BBU_24,13
+40,Solo distancia,BBU_25,10
+40,Solo distancia,BBU_26,13
+40,Solo distancia,BBU_27,10
+40,Solo distancia,BBU_28,13
+40,Solo distancia,BBU_29,13
+40,Solo distancia,BBU_30,13
+40,Solo distancia,BBU_31,13
+40,Solo distancia,BBU_32,13
+40,Solo distancia,BBU_33,13
+40,Solo distancia,BBU_34,12
+40,Solo distancia,BBU_35,9
+40,Solo distancia,BBU_36,10
+40,Solo distancia,BBU_37,10
+40,Solo distancia,BBU_38,13
+40,Solo distancia,BBU_39,11
+40,Solo distancia,BBU_40,12
+40,Balanceo por tráfico,BBU_01,6
+40,Balanceo por tráfico,BBU_02,10
+40,Balanceo por tráfico,BBU_03,9
+40,Balanceo por tráfico,BBU_04,15
+40,Balanceo por tráfico,BBU_05,14
+40,Balanceo por tráfico,BBU_06,20
+40,Balanceo por tráfico,BBU_07,16
+40,Balanceo por tráfico,BBU_08,15
+40,Balanceo por tráfico,BBU_09,12
+40,Balanceo por tráfico,BBU_10,13
+40,Balanceo por tráfico,BBU_11,15
+40,Balanceo por tráfico,BBU_12,18
+40,Balanceo por tráfico,BBU_13,14
+40,Balanceo por tráfico,BBU_14,13
+40,Balanceo por tráfico,BBU_15,11
+40,Balanceo por tráfico,BBU_16,12
+40,Balanceo por tráfico,BBU_17,11
+40,Balanceo por tráfico,BBU_18,10
+40,Balanceo por tráfico,BBU_19,19
+40,Balanceo por tráfico,BBU_20,10
+40,Balanceo por tráfico,BBU_21,11
+40,Balanceo por tráfico,BBU_22,15
+40,Balanceo por tráfico,BBU_23,12
+40,Balanceo por tráfico,BBU_24,13
+40,Balanceo por tráfico,BBU_25,7
+40,Balanceo por tráfico,BBU_26,11
+40,Balanceo por tráfico,BBU_27,10
+40,Balanceo por tráfico,BBU_28,15
+40,Balanceo por tráfico,BBU_29,15
+40,Balanceo por tráfico,BBU_30,13
+40,Balanceo por tráfico,BBU_31,10
+40,Balanceo por tráfico,BBU_32,15
+40,Balanceo por tráfico,BBU_33,10
+40,Balanceo por tráfico,BBU_34,13
+40,Balanceo por tráfico,BBU_35,11
+40,Balanceo por tráfico,BBU_36,10
+40,Balanceo por tráfico,BBU_37,9
+40,Balanceo por tráfico,BBU_38,15
+40,Balanceo por tráfico,BBU_39,12
+40,Balanceo por tráfico,BBU_40,10
+40,Balanceo por número de RRH,BBU_01,10
+40,Balanceo por número de RRH,BBU_02,10
+40,Balanceo por número de RRH,BBU_03,10
+40,Balanceo por número de RRH,BBU_04,13
+40,Balanceo por número de RRH,BBU_05,12
+40,Balanceo por número de RRH,BBU_06,15
+40,Balanceo por número de RRH,BBU_07,15
+40,Balanceo por número de RRH,BBU_08,15
+40,Balanceo por número de RRH,BBU_09,15
+40,Balanceo por número de RRH,BBU_10,14
+40,Balanceo por número de RRH,BBU_11,16
+40,Balanceo por número de RRH,BBU_12,15
+40,Balanceo por número de RRH,BBU_13,14
+40,Balanceo por número de RRH,BBU_14,13
+40,Balanceo por número de RRH,BBU_15,13
+40,Balanceo por número de RRH,BBU_16,13
+40,Balanceo por número de RRH,BBU_17,13
+40,Balanceo por número de RRH,BBU_18,14
+40,Balanceo por número de RRH,BBU_19,14
+40,Balanceo por número de RRH,BBU_20,14
+40,Balanceo por número de RRH,BBU_21,13
+40,Balanceo por número de RRH,BBU_22,9
+40,Balanceo por número de RRH,BBU_23,12
+40,Balanceo por número de RRH,BBU_24,13
+40,Balanceo por número de RRH,BBU_25,10
+40,Balanceo por número de RRH,BBU_26,12
+40,Balanceo por número de RRH,BBU_27,10
+40,Balanceo por número de RRH,BBU_28,12
+40,Balanceo por número de RRH,BBU_29,13
+40,Balanceo por número de RRH,BBU_30,13
+40,Balanceo por número de RRH,BBU_31,13
+40,Balanceo por número de RRH,BBU_32,14
+40,Balanceo por número de RRH,BBU_33,13
+40,Balanceo por número de RRH,BBU_34,10
+40,Balanceo por número de RRH,BBU_35,9
+40,Balanceo por número de RRH,BBU_36,10
+40,Balanceo por número de RRH,BBU_37,9
+40,Balanceo por número de RRH,BBU_38,13
+40,Balanceo por número de RRH,BBU_39,12
+40,Balanceo por número de RRH,BBU_40,12

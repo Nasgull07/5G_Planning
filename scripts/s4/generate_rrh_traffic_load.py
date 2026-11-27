@@ -92,7 +92,7 @@ def read_scenario(path):
     return rows
 
 
-def read_schedule(path):
+def read_schedule(path, assume_first_sample_at_midnight=False):
     with Path(path).open(encoding="utf-8-sig", newline="") as source:
         reader = csv.DictReader(source)
         fields = reader.fieldnames or []
@@ -118,9 +118,18 @@ def read_schedule(path):
         try:
             t_day = float(row["t_day"])
         except (TypeError, ValueError) as error:
+            if assume_first_sample_at_midnight and index == 0:
+                row["t_day"] = "0"
+                t_day = 0.0
+            else:
+                raise ValueError(
+                    f"Invalid t_day value at sample {index}: "
+                    f"{row['t_day']!r}"
+                ) from error
+        if not math.isfinite(t_day):
             raise ValueError(
                 f"Invalid t_day value at sample {index}: {row['t_day']!r}"
-            ) from error
+            )
         if not math.isclose(
             t_day, index / SAMPLES_PER_DAY, abs_tol=1e-9
         ):
@@ -147,7 +156,8 @@ def read_schedule(path):
 def generate_traffic_load(
     scenario_file=DEFAULT_SCENARIO_FILE,
     schedule_file=DEFAULT_SCHEDULE_FILE,
-    output_file=DEFAULT_OUTPUT_FILE
+    output_file=DEFAULT_OUTPUT_FILE,
+    assume_first_sample_at_midnight=False,
 ):
     scenario_file = Path(scenario_file)
     schedule_file = Path(schedule_file)
@@ -159,7 +169,10 @@ def generate_traffic_load(
         raise ValueError("Traffic-load output must not overwrite an input file.")
 
     scenario = read_scenario(scenario_file)
-    schedule = read_schedule(schedule_file)
+    schedule = read_schedule(
+        schedule_file,
+        assume_first_sample_at_midnight=assume_first_sample_at_midnight,
+    )
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
     descriptor, temporary_name = tempfile.mkstemp(
@@ -243,12 +256,21 @@ def main():
         default=DEFAULT_OUTPUT_FILE,
         help="Long-form traffic-load output CSV."
     )
+    parser.add_argument(
+        "--assume-first-sample-at-midnight",
+        action="store_true",
+        help=(
+            "Treat a non-numeric t_day in the first schedule row as 0. "
+            "All other t_day values remain strictly validated."
+        ),
+    )
     args = parser.parse_args()
 
     row_count = generate_traffic_load(
         scenario_file=args.scenario,
         schedule_file=args.schedule,
-        output_file=args.output
+        output_file=args.output,
+        assume_first_sample_at_midnight=args.assume_first_sample_at_midnight,
     )
     print(f"Generated {row_count} RRH/day/time samples.")
     print(f"Saved traffic loads: {args.output}")

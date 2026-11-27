@@ -2,7 +2,7 @@ import unittest
 
 import pandas as pd
 
-from scripts.s4.load_balancing_algorithms import (
+from scripts.s4.test.load_balancing_algorithms import (
     assign_by_rrh_count,
     assign_by_traffic,
     build_connection_matrix,

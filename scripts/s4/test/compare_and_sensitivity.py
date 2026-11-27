@@ -15,10 +15,13 @@ import pandas as pd
 if __package__:
     from .load_balancing_algorithms import detect_peak_time, weekday_mean_loads
 else:
-    from scripts.s4.load_balancing_algorithms import detect_peak_time, weekday_mean_loads
+    from scripts.s4.test.load_balancing_algorithms import (
+        detect_peak_time,
+        weekday_mean_loads,
+    )
 
 
-BASE_DIR = Path(__file__).resolve().parents[2]
+BASE_DIR = Path(__file__).resolve().parents[3]
 DEFAULT_SCENARIO_FILE = BASE_DIR / "data" / "processed" / "scenario_sites.csv"
 DEFAULT_LOAD_FILE = BASE_DIR / "data" / "processed" / "rrh_traffic_load.csv"
 DEFAULT_OUTPUT_DIR = BASE_DIR / "results" / "phase2" / "comparison"
